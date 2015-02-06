@@ -45,5 +45,17 @@ public class DriveSystem extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    
+    public void drive(double x, double y, double twist){
+    	mecanumDrive.mecanumDrive_Cartesian(adjust(x), adjust(y), adjust(twist), 0);
+    }
+    
+    protected double adjust(double val){
+    	return adjust(val, 50);
+    }
+
+    protected double adjust(double val, double factor){
+    	return (val<0?-1:1) * (Math.pow(factor, Math.abs(val)) - 1) / (factor-1);
+    }
 }
 
