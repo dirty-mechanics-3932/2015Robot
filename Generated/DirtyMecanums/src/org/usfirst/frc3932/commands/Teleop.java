@@ -13,8 +13,10 @@ package org.usfirst.frc3932.commands;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc3932.Robot;
+import org.usfirst.frc3932.RobotMap;
 
 /**
  *
@@ -40,6 +42,11 @@ public class  Teleop extends Command {
     	Joystick joystick = Robot.oi.getDriverJoy1();
     	Joystick twist = Robot.oi.getDriverJoy2();
     	Robot.driveSystem.drive(joystick.getX(), joystick.getY(), twist.getRawAxis(3));
+    	SmartDashboard.putNumber("Left Front", RobotMap.driveSystemLeftFront.getSpeed());
+    	SmartDashboard.putNumber("Left Back", RobotMap.driveSystemLeftBack.getSpeed());
+    	SmartDashboard.putNumber("Right Front", RobotMap.driveSystemRightFront.getSpeed());
+    	SmartDashboard.putNumber("Right Back", RobotMap.driveSystemRightBack.getSpeed());
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
