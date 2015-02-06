@@ -25,14 +25,9 @@ import java.lang.Math;
  *
  */
 public class MecanumDrive extends Subsystem {
-    CANTalon leftFront = RobotMap.mecanumDriveLeftFront;
-    CANTalon leftBack = RobotMap.mecanumDriveLeftBack;
-    CANTalon rightFront = RobotMap.mecanumDriveRightFront;
-    CANTalon rightBack = RobotMap.mecanumDriveRightBack;
+	
     
-    
-    
-    RobotDrive drive = RobotMap.mecanumDriveRobotDrive41;
+    RobotDrive drive = RobotMap.driveSystemMecanumDrive;
 
     
     // Put methods for controlling this subsystem
