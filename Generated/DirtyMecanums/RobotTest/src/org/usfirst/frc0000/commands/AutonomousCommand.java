@@ -9,10 +9,10 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc3932.commands;
+package org.usfirst.frc0000.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc3932.Robot;
+import org.usfirst.frc0000.Robot;
 
 /**
  *

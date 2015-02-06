@@ -9,9 +9,9 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc3932;
+package org.usfirst.frc0000;
 
-import org.usfirst.frc3932.commands.*;
+import org.usfirst.frc0000.commands.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.*;
 
