@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>Wiring</title>
+    <style type="text/css" media="screen">
+      table {
+          text-align: left;
+          width: 400px;
+      
+          border-top: 2px solid black; 
+          border-bottom: 2px solid black;
+          border-collapse:collapse;
+          border-spacing:0px;
+      }
+      th {
+          border-top: 2px solid black; 
+          border-bottom: 2px solid black;
+      }
+      .pound {
+          width: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Wiring</h1>
+                    <h2>DIO</h2>
+	    <table><tr>
+	        <th class="pound">#</th>
+	        <th>Sensor</th></tr>
+	                                                                  	    <tr><td>4</td><td>Gates LeftGateEncoder</td></tr>
+	            	    <tr><td>5</td><td>Gates LeftGateEncoder</td></tr>
+	            	    <tr><td>6</td><td>Gates RightGateEncoder</td></tr>
+	            	    <tr><td>7</td><td>Gates RightGateEncoder</td></tr>
+	                                                                                                                                                                                                                             	    </table>
+                        <h2>PWMs</h2>
+	    <table><tr>
+	        <th class="pound">#</th>
+	        <th>Motor</th></tr>
+	                  	    <tr><td>0</td><td>Arms LeftMotorTalon</td></tr>
+	            	    <tr><td>1</td><td>Arms RightMotorTalon</td></tr>
+	            	    <tr><td>2</td><td>Gates RightGateMotorController</td></tr>
+	            	    <tr><td>3</td><td>Gates LeftGateMotorController</td></tr>
+	                                                                                                                                                                                                                                                                             	    </table>
+    
+                <h2>CAN IDs</h2>
+	<table><tr>
+	<th class="pound">ID</th>
+	<th>Device</th></tr>
+	                                    	    <tr><td>2</td><td>DriveSystem Left Front</td></tr>
+	            	    <tr><td>3</td><td>DriveSystem Right Back</td></tr>
+	            	    <tr><td>4</td><td>DriveSystem Left Back</td></tr>
+	            	    <tr><td>5</td><td>DriveSystem Right Front</td></tr>
+	            	    <tr><td>6</td><td>Elevator ElevatorCANTalon</td></tr>
+	                                                                                                                                                                                                                                         	</table>
+        
+                    <h2>Relays</h2>
+	    <table><tr>
+	        <th class="pound">#</th>
+	        <th>Relay</th></tr>
+	                  	    <tr><td>0</td><td>Tabs LeftTabSpike</td></tr>
+	            	    <tr><td>1</td><td>Tabs RightTabSpike</td></tr>
+	                                                                                                                                                                                                                                                                                                     	    </table>
+    
+                
+                    <h2>PCM 0</h2>
+	    <table><tr>
+	        <th class="pound">#</th>
+	        <th>Solenoid</th></tr>
+	                  	    <tr><td>0</td><td>DriveSystem LeftTransmissionDblSolenoid Forward </td></tr>
+	            	    <tr><td>1</td><td>DriveSystem LeftTransmissionDblSolenoid Reverse </td></tr>
+	            	    <tr><td>2</td><td>DriveSystem RightTransmissionDblSolenoid Forward </td></tr>
+	            	    <tr><td>3</td><td>DriveSystem RightTransmissionDblSolenoid Reverse </td></tr>
+	            	    <tr><td>4</td><td>Arms LongPistonsDblSolenoid Forward </td></tr>
+	            	    <tr><td>5</td><td>Arms LongPistonsDblSolenoid Reverse </td></tr>
+	            	    <tr><td>6</td><td>Arms ShortPistonDblSolenoid Forward </td></tr>
+	            	    <tr><td>7</td><td>Arms ShortPistonDblSolenoid Reverse </td></tr>
+	                                                                                                                                                                                                                             	    </table>
+                                                                                                                                                                                                                                                    
+          </body>
+</html>
