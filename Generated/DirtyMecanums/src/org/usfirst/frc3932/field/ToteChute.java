@@ -11,8 +11,9 @@ package org.usfirst.frc3932.field;
  *
  */
 public class ToteChute {
-	public static final double TOP_EDGE_DIST_FROM_FLOOR_INCHES = (2 * 12) + .65d;
-	public static final double BOTTOM_EDGE_DIST_FROM_FLOOR_INCHES = (1 * 12) + .65d;
-	public static final double WIDTH_INCHES = (1 * 12) + 6.5d;
-	public static final double HEIGHT_INCHES = (1 * 12) + 3.25d;
+	private static final double INCHES_TO_FEET = 12d;
+	public static final double TOP_EDGE_DIST_FROM_FLOOR_INCHES = (2d * INCHES_TO_FEET) + .65d;
+	public static final double BOTTOM_EDGE_DIST_FROM_FLOOR_INCHES = (1d * INCHES_TO_FEET) + .65d;
+	public static final double WIDTH_INCHES = (1d * INCHES_TO_FEET) + 6.5d;
+	public static final double HEIGHT_INCHES = (1d * INCHES_TO_FEET) + 3.25d;
 }
