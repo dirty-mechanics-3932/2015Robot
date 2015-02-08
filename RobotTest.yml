@@ -147,6 +147,16 @@ Children:
           value: '2'
       Base: Double Solenoid
       Name: RightTransmissionDblSolenoid
+    - Children: []
+      Properties:
+        Input Channel (Analog): !!robotbuilder.data.properties.ChoicesProperty
+          choices: ['0', '1', '2', '3', '4', '5', '6', '7']
+          default: '0'
+          name: Input Channel (Analog)
+          validators: [AnalogInput]
+          value: '0'
+      Base: Analog Input
+      Name: maxbotixLvMaxSonarEz
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: Teleop}
@@ -251,9 +261,9 @@ Children:
           default: '0'
           name: Output Channel (PWM)
           validators: &id019 [PWMOutput]
-          value: '2'
+          value: '3'
       Base: Speed Controller
-      Name: RightGateMotorController
+      Name: RightGateTalon
     - Children: []
       Properties:
         Type: !!robotbuilder.data.properties.ChoicesProperty
@@ -267,9 +277,9 @@ Children:
           default: '0'
           name: Output Channel (PWM)
           validators: *id019
-          value: '3'
+          value: '4'
       Base: Speed Controller
-      Name: LeftGateMotorController
+      Name: LeftGateTalon
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: None}
@@ -317,7 +327,7 @@ Children:
           validators: *id019
           value: '0'
       Base: Speed Controller
-      Name: LeftMotorTalon
+      Name: LeftArmTalon
     - Children: []
       Properties:
         Type: !!robotbuilder.data.properties.ChoicesProperty
@@ -333,7 +343,7 @@ Children:
           validators: *id019
           value: '1'
       Base: Speed Controller
-      Name: RightMotorTalon
+      Name: RightArmTalon
     - Children: []
       Properties:
         Forward PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty

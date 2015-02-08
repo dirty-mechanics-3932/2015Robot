@@ -11,6 +11,7 @@
 
 package org.usfirst.frc3932;
     
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -38,15 +39,16 @@ public class RobotMap {
     public static RobotDrive driveSystemMecanumDrive;
     public static DoubleSolenoid driveSystemLeftTransmissionDblSolenoid;
     public static DoubleSolenoid driveSystemRightTransmissionDblSolenoid;
+    public static AnalogInput driveSystemmaxbotixLvMaxSonarEz;
     public static CANTalon elevatorElevatorCANTalon;
     public static Encoder gatesLeftGateEncoder;
     public static Encoder gatesRightGateEncoder;
-    public static SpeedController gatesRightGateMotorController;
-    public static SpeedController gatesLeftGateMotorController;
+    public static SpeedController gatesRightGateTalon;
+    public static SpeedController gatesLeftGateTalon;
     public static Relay tabsLeftTabSpike;
     public static Relay tabsRightTabSpike;
-    public static SpeedController armsLeftMotorTalon;
-    public static SpeedController armsRightMotorTalon;
+    public static SpeedController armsLeftArmTalon;
+    public static SpeedController armsRightArmTalon;
     public static DoubleSolenoid armsLongPistonsDblSolenoid;
     public static DoubleSolenoid armsShortPistonDblSolenoid;
 
@@ -82,6 +84,9 @@ public class RobotMap {
         driveSystemRightTransmissionDblSolenoid = new DoubleSolenoid(0, 2, 3);      
         LiveWindow.addActuator("DriveSystem", "RightTransmissionDblSolenoid", driveSystemRightTransmissionDblSolenoid);
         
+        driveSystemmaxbotixLvMaxSonarEz = new AnalogInput(0);
+        LiveWindow.addSensor("DriveSystem", "maxbotixLvMaxSonarEz", driveSystemmaxbotixLvMaxSonarEz);
+        
         elevatorElevatorCANTalon = new CANTalon(6);
         
         
@@ -93,11 +98,11 @@ public class RobotMap {
         LiveWindow.addSensor("Gates", "RightGateEncoder", gatesRightGateEncoder);
         gatesRightGateEncoder.setDistancePerPulse(1.0);
         gatesRightGateEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
-        gatesRightGateMotorController = new Talon(2);
-        LiveWindow.addActuator("Gates", "RightGateMotorController", (Talon) gatesRightGateMotorController);
+        gatesRightGateTalon = new Talon(3);
+        LiveWindow.addActuator("Gates", "RightGateTalon", (Talon) gatesRightGateTalon);
         
-        gatesLeftGateMotorController = new Talon(3);
-        LiveWindow.addActuator("Gates", "LeftGateMotorController", (Talon) gatesLeftGateMotorController);
+        gatesLeftGateTalon = new Talon(4);
+        LiveWindow.addActuator("Gates", "LeftGateTalon", (Talon) gatesLeftGateTalon);
         
         tabsLeftTabSpike = new Relay(0);
         LiveWindow.addActuator("Tabs", "LeftTabSpike", tabsLeftTabSpike);
@@ -105,11 +110,11 @@ public class RobotMap {
         tabsRightTabSpike = new Relay(1);
         LiveWindow.addActuator("Tabs", "RightTabSpike", tabsRightTabSpike);
         
-        armsLeftMotorTalon = new Talon(0);
-        LiveWindow.addActuator("Arms", "LeftMotorTalon", (Talon) armsLeftMotorTalon);
+        armsLeftArmTalon = new Talon(0);
+        LiveWindow.addActuator("Arms", "LeftArmTalon", (Talon) armsLeftArmTalon);
         
-        armsRightMotorTalon = new Talon(1);
-        LiveWindow.addActuator("Arms", "RightMotorTalon", (Talon) armsRightMotorTalon);
+        armsRightArmTalon = new Talon(1);
+        LiveWindow.addActuator("Arms", "RightArmTalon", (Talon) armsRightArmTalon);
         
         armsLongPistonsDblSolenoid = new DoubleSolenoid(0, 4, 5);      
         LiveWindow.addActuator("Arms", "LongPistonsDblSolenoid", armsLongPistonsDblSolenoid);
