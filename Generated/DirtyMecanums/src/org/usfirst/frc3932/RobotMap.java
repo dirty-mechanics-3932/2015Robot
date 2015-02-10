@@ -14,6 +14,7 @@ package org.usfirst.frc3932;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
@@ -41,6 +42,7 @@ public class RobotMap {
     public static DoubleSolenoid driveSystemRightTransmissionDblSolenoid;
     public static AnalogInput driveSystemmaxbotixLvMaxSonarEz;
     public static CANTalon elevatorElevatorCANTalon;
+    public static DigitalInput elevatorBottomLimitSwitch;
     public static Encoder gatesLeftGateEncoder;
     public static Encoder gatesRightGateEncoder;
     public static SpeedController gatesRightGateTalon;
@@ -89,6 +91,9 @@ public class RobotMap {
         
         elevatorElevatorCANTalon = new CANTalon(6);
         
+        
+        elevatorBottomLimitSwitch = new DigitalInput(0);
+        LiveWindow.addSensor("Elevator", "BottomLimitSwitch", elevatorBottomLimitSwitch);
         
         gatesLeftGateEncoder = new Encoder(4, 5, false, EncodingType.k4X);
         LiveWindow.addSensor("Gates", "LeftGateEncoder", gatesLeftGateEncoder);
