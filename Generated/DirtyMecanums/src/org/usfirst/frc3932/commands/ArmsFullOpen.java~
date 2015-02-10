@@ -11,8 +11,11 @@
 
 package org.usfirst.frc3932.commands;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc3932.Robot;
+import org.usfirst.frc3932.RobotMap;
 
 /**
  *
@@ -35,6 +38,7 @@ public class  ArmsFullOpen extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	RobotMap.armsLongPistonsDblSolenoid.set(DoubleSolenoid.Value.kForward);
     }
 
     // Make this return true when this Command no longer needs to run execute()

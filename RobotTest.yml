@@ -1,21 +1,11 @@
 Version 1.5
 
 ---
-Name: DirtyMecanums
-Base: Robot
 Children:
-- Name: Subsystems
-  Base: Subsystems
-  Children:
-  - Name: DriveSystem
-    Base: Subsystem
-    Children:
-    - Name: MecanumDrive
-      Base: Robot Drive 4
-      Children:
-      - Name: Left Front
-        Base: CAN TalonSRX
-        Children: []
+- Children:
+  - Children:
+    - Children:
+      - Children: []
         Properties:
           CAN ID: !!robotbuilder.data.properties.ChoicesProperty
             choices: &id001 ['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
@@ -24,9 +14,9 @@ Children:
             name: CAN ID
             validators: &id002 [CANID]
             value: '2'
-      - Name: Right Back
         Base: CAN TalonSRX
-        Children: []
+        Name: Left Front
+      - Children: []
         Properties:
           CAN ID: !!robotbuilder.data.properties.ChoicesProperty
             choices: *id001
@@ -34,9 +24,9 @@ Children:
             name: CAN ID
             validators: *id002
             value: '3'
-      - Name: Left Back
         Base: CAN TalonSRX
-        Children: []
+        Name: Right Back
+      - Children: []
         Properties:
           CAN ID: !!robotbuilder.data.properties.ChoicesProperty
             choices: *id001
@@ -44,9 +34,9 @@ Children:
             name: CAN ID
             validators: *id002
             value: '4'
-      - Name: Right Front
         Base: CAN TalonSRX
-        Children: []
+        Name: Left Back
+      - Children: []
         Properties:
           CAN ID: !!robotbuilder.data.properties.ChoicesProperty
             choices: *id001
@@ -54,6 +44,8 @@ Children:
             name: CAN ID
             validators: *id002
             value: '5'
+        Base: CAN TalonSRX
+        Name: Right Front
       Properties:
         Sensitivity: !!robotbuilder.data.properties.DoubleProperty {default: 0.5,
           name: Sensitivity, validators: null, value: 0.5}
@@ -95,9 +87,9 @@ Children:
           value: DriveSystem Left Front
         Safety Expiration Time: !!robotbuilder.data.properties.DoubleProperty {default: 0.1,
           name: Safety Expiration Time, validators: null, value: 0.1}
-    - Name: LeftTransmissionDblSolenoid
-      Base: Double Solenoid
-      Children: []
+      Base: Robot Drive 4
+      Name: MecanumDrive
+    - Children: []
       Properties:
         Forward PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
           choices: &id003 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
@@ -125,9 +117,9 @@ Children:
           name: Forward Channel (Solenoid)
           validators: &id010 [Solenoid]
           value: '0'
-    - Name: RightTransmissionDblSolenoid
       Base: Double Solenoid
-      Children: []
+      Name: LeftTransmissionDblSolenoid
+    - Children: []
       Properties:
         Forward PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
           choices: *id003
@@ -153,15 +145,37 @@ Children:
           name: Forward Channel (Solenoid)
           validators: *id010
           value: '2'
+      Base: Double Solenoid
+      Name: RightTransmissionDblSolenoid
+    - Children: []
+      Properties:
+        Input Channel (Analog): !!robotbuilder.data.properties.ChoicesProperty
+          choices: ['0', '1', '2', '3', '4', '5', '6', '7']
+          default: '0'
+          name: Input Channel (Analog)
+          validators: [AnalogInput]
+          value: '0'
+      Base: Analog Input
+      Name: RangeFinder
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: Teleop}
-  - Name: Elevator
     Base: Subsystem
-    Children:
-    - Name: ElevatorCANTalon
-      Base: CAN TalonSRX
-      Children: []
+    Name: DriveSystem
+  - Children:
+    - Children: []
+      Properties:
+        Input Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
+          choices: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11',
+            '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23',
+            '24', '25']
+          default: '0'
+          name: Input Channel (Digital)
+          validators: [DigitalChannel]
+          value: '0'
+      Base: Digital Input
+      Name: bottomLimitSwitch
+    - Children: []
       Properties:
         CAN ID: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id001
@@ -169,15 +183,15 @@ Children:
           name: CAN ID
           validators: *id002
           value: '6'
+      Base: CAN TalonSRX
+      Name: ElevatorCANTalon
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: None}
-  - Name: Gates
     Base: Subsystem
-    Children:
-    - Name: LeftGateEncoder
-      Base: Quadrature Encoder
-      Children: []
+    Name: Elevator
+  - Children:
+    - Children: []
       Properties:
         Channel A Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
           choices: &id011 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
@@ -211,9 +225,9 @@ Children:
           name: Channel B Channel (Digital)
           validators: &id016 [DigitalChannel]
           value: '5'
-    - Name: RightGateEncoder
       Base: Quadrature Encoder
-      Children: []
+      Name: LeftGateEncoder
+    - Children: []
       Properties:
         Channel A Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
           choices: *id011
@@ -243,9 +257,9 @@ Children:
           name: Channel B Channel (Digital)
           validators: *id016
           value: '7'
-    - Name: RightGateMotorController
-      Base: Speed Controller
-      Children: []
+      Base: Quadrature Encoder
+      Name: RightGateEncoder
+    - Children: []
       Properties:
         Type: !!robotbuilder.data.properties.ChoicesProperty
           choices: &id017 [Victor, Jaguar, Talon, VictorSP, TalonSRX]
@@ -260,9 +274,9 @@ Children:
           name: Output Channel (PWM)
           validators: &id019 [PWMOutput]
           value: '2'
-    - Name: LeftGateMotorController
       Base: Speed Controller
-      Children: []
+      Name: RightGateMotorController
+    - Children: []
       Properties:
         Type: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id017
@@ -276,15 +290,15 @@ Children:
           name: Output Channel (PWM)
           validators: *id019
           value: '3'
+      Base: Speed Controller
+      Name: LeftGateMotorController
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: None}
-  - Name: Tabs
     Base: Subsystem
-    Children:
-    - Name: LeftTabSpike
-      Base: Spike
-      Children: []
+    Name: Gates
+  - Children:
+    - Children: []
       Properties:
         Output Channel (Relay): !!robotbuilder.data.properties.ChoicesProperty
           choices: &id020 ['0', '1', '2', '3']
@@ -292,9 +306,9 @@ Children:
           name: Output Channel (Relay)
           validators: &id021 [RelayOutput]
           value: '0'
-    - Name: RightTabSpike
       Base: Spike
-      Children: []
+      Name: LeftTabSpike
+    - Children: []
       Properties:
         Output Channel (Relay): !!robotbuilder.data.properties.ChoicesProperty
           choices: *id020
@@ -302,15 +316,15 @@ Children:
           name: Output Channel (Relay)
           validators: *id021
           value: '1'
+      Base: Spike
+      Name: RightTabSpike
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: None}
-  - Name: Arms
     Base: Subsystem
-    Children:
-    - Name: LeftMotorTalon
-      Base: Speed Controller
-      Children: []
+    Name: Tabs
+  - Children:
+    - Children: []
       Properties:
         Type: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id017
@@ -324,9 +338,9 @@ Children:
           name: Output Channel (PWM)
           validators: *id019
           value: '0'
-    - Name: RightMotorTalon
       Base: Speed Controller
-      Children: []
+      Name: LeftMotorTalon
+    - Children: []
       Properties:
         Type: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id017
@@ -340,9 +354,9 @@ Children:
           name: Output Channel (PWM)
           validators: *id019
           value: '1'
-    - Name: LongPistonsDblSolenoid
-      Base: Double Solenoid
-      Children: []
+      Base: Speed Controller
+      Name: RightMotorTalon
+    - Children: []
       Properties:
         Forward PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
           choices: *id003
@@ -368,16 +382,18 @@ Children:
           name: Forward Channel (Solenoid)
           validators: *id010
           value: '4'
+      Base: Double Solenoid
+      Name: LongPistonsDblSolenoid
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: None}
+    Base: Subsystem
+    Name: Arms
   Properties: {}
-- Name: Operator Interface
-  Base: OI
-  Children:
-  - Name: DriverJoy1
-    Base: Joystick
-    Children: []
+  Base: Subsystems
+  Name: Subsystems
+- Children:
+  - Children: []
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: &id022 ['0', '1', '2', '3', '4', '5']
@@ -385,9 +401,9 @@ Children:
         name: Number
         validators: &id023 [Joystick]
         value: '0'
-  - Name: DriverJoy2
     Base: Joystick
-    Children: []
+    Name: DriverJoy1
+  - Children: []
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: *id022
@@ -395,123 +411,127 @@ Children:
         name: Number
         validators: *id023
         value: '1'
+    Base: Joystick
+    Name: DriverJoy2
   Properties: {}
-- Name: Commands
-  Base: Commands
-  Children:
-  - Name: Autonomous Command
-    Base: Command
-    Children: []
+  Base: OI
+  Name: Operator Interface
+- Children:
+  - Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: None}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: Teleop
     Base: Command
-    Children: []
+    Name: Autonomous Command
+  - Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: DriveSystem}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: ArmsClosed
     Base: Command
-    Children: []
+    Name: Teleop
+  - Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Arms}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: GatesClosed
     Base: Command
-    Children: []
+    Name: ArmsClosed
+  - Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Gates}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: GatesHalfOpen
     Base: Command
-    Children: []
+    Name: GatesClosed
+  - Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Gates}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: GatesFullOpen
     Base: Command
-    Children: []
+    Name: GatesHalfOpen
+  - Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Gates}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: ArmsHalfOpen
     Base: Command
-    Children: []
+    Name: GatesFullOpen
+  - Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Arms}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: ArmsFullOpen
     Base: Command
-    Children: []
+    Name: ArmsHalfOpen
+  - Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Arms}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: RaiseArmsToTab
     Base: Command
-    Children: []
+    Name: ArmsFullOpen
+  - Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Elevator}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: LowerArmsToStart
     Base: Command
-    Children: []
+    Name: RaiseArmsToTab
+  - Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Elevator}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: ArmsToTransport
     Base: Command
-    Children: []
+    Name: LowerArmsToStart
+  - Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Elevator}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: LowerArmsToScoring
     Base: Command
-    Children: []
+    Name: ArmsToTransport
+  - Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Elevator}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: RaiseArmsToUnload
     Base: Command
-    Children: []
+    Name: LowerArmsToScoring
+  - Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Elevator}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: BackAwaySlowly
     Base: Command
-    Children: []
+    Name: RaiseArmsToUnload
+  - Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Arms}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: BackAwaySlowly
   Properties: {}
+  Base: Commands
+  Name: Commands
 Properties:
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
@@ -519,7 +539,7 @@ Properties:
     folder: false, name: Wiring File, validators: null, value: wiring.html}
   Use Default Java Package: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Use Default Java Package, validators: null, value: false}
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: /Users/gengh/workspace,
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: /Users/agresh/workspace,
     extension: null, folder: true, name: Eclipse Workspace, validators: null, value: Generated}
   Java Package: !!robotbuilder.data.properties.StringProperty {default: org.usfirst.frc0000,
     name: Java Package, validators: null, value: org.usfirst.frc3932}
@@ -531,3 +551,5 @@ Properties:
     validators: null, value: 3932}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
+Base: Robot
+Name: DirtyMecanums
