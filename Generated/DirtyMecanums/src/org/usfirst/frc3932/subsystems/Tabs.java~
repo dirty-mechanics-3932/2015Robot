@@ -40,5 +40,15 @@ public class Tabs extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    
+    public void open(){
+    	leftTabSpike.set(Relay.Value.kReverse);
+    	rightTabSpike.set(Relay.Value.kReverse);
+    }
+    
+    public void close(){
+    	leftTabSpike.set(Relay.Value.kForward);
+    	rightTabSpike.set(Relay.Value.kForward);
+    }
 }
 
