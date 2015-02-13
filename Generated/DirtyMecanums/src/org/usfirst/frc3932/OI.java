@@ -85,7 +85,7 @@ public class OI {
 
         SmartDashboard.putData("LowerArmsToStart", new LowerArmsToStart());
 
-        SmartDashboard.putData("ArmsToTransport", new ArmsToTransport());
+        SmartDashboard.putData("LowerArmsToTransport", new LowerArmsToTransport());
 
         SmartDashboard.putData("LowerArmsToScoring", new LowerArmsToScoring());
 

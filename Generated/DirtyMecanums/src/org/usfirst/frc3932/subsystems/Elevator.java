@@ -35,6 +35,8 @@ public class Elevator extends Subsystem {
     public static final int TAB = 1;
     public static final int UNLOAD = 2;
     public static final int TRANSPORT = 3;
+    public static final int SCORING = 4;
+    public static final int START = 5;
 
     public Elevator(){
     	elevatorCANTalon.changeControlMode(ControlMode.Position);
