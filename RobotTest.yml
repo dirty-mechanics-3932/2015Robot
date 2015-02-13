@@ -153,7 +153,7 @@ Children:
           name: Forward Channel (Solenoid)
           validators: *id010
           value: '2'
-    - Name: RangeFinder
+    - Name: LeftForwardIR
       Base: Analog Input
       Children: []
       Properties:
@@ -163,16 +163,6 @@ Children:
           name: Input Channel (Analog)
           validators: &id012 [AnalogInput]
           value: '0'
-    - Name: LeftForwardIR
-      Base: Analog Input
-      Children: []
-      Properties:
-        Input Channel (Analog): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id011
-          default: '0'
-          name: Input Channel (Analog)
-          validators: *id012
-          value: '1'
     - Name: RightForwardIR
       Base: Analog Input
       Children: []
@@ -182,7 +172,7 @@ Children:
           default: '0'
           name: Input Channel (Analog)
           validators: *id012
-          value: '2'
+          value: '1'
     - Name: LeftDownIR
       Base: Analog Input
       Children: []
@@ -192,7 +182,7 @@ Children:
           default: '0'
           name: Input Channel (Analog)
           validators: *id012
-          value: '3'
+          value: '2'
     - Name: RightDownIR
       Base: Analog Input
       Children: []
@@ -202,7 +192,7 @@ Children:
           default: '0'
           name: Input Channel (Analog)
           validators: *id012
-          value: '4'
+          value: '3'
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: Teleop}
@@ -601,6 +591,49 @@ Children:
     Base: Command Group
     Children: []
     Properties:
+  - Name: MoveForward
+    Base: PID Command
+    Children: []
+    Properties:
+      D: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: D, validators: null,
+        value: 0.0}
+      Period: !!robotbuilder.data.properties.DoubleProperty {default: 0.02, name: Period,
+        validators: null, value: 0.02}
+      Input: !!robotbuilder.data.properties.TypeSelectionProperty
+        default: None
+        name: Input
+        type: PIDSource
+        validators: [TypeDropdownSelected]
+        value: DriveSystem LeftForwardIR
+      Limit Output: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Limit Output, validators: null, value: false}
+      Tolerance: !!robotbuilder.data.properties.DoubleProperty {default: 0.2, name: Tolerance,
+        validators: null, value: 0.2}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: DriveSystem}
+      Continuous: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Continuous, validators: null, value: false}
+      Maximum Output: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Maximum Output,
+        validators: null, value: 1.0}
+      Limit Input: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Limit Input, validators: null, value: false}
+      Output: !!robotbuilder.data.properties.TypeSelectionProperty
+        default: None
+        name: Output
+        type: PIDOutput
+        validators: [TypeDropdownSelected]
+        value: DriveSystem Left Front
+      Minimum Input: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Minimum Input,
+        validators: null, value: 0.0}
+      Minimum Output: !!robotbuilder.data.properties.DoubleProperty {default: -1,
+        name: Minimum Output, validators: null, value: -1.0}
+      I: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: I, validators: null,
+        value: 0.0}
+      P: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: P, validators: null,
+        value: 1.0}
+      Maximum Input: !!robotbuilder.data.properties.DoubleProperty {default: 5, name: Maximum Input,
+        validators: null, value: 5.0}
+
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   Properties: {}
