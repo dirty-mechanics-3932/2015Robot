@@ -41,6 +41,10 @@ public class RobotMap {
     public static DoubleSolenoid driveSystemLeftTransmissionDblSolenoid;
     public static DoubleSolenoid driveSystemRightTransmissionDblSolenoid;
     public static AnalogInput driveSystemRangeFinder;
+    public static AnalogInput driveSystemLeftForwardIR;
+    public static AnalogInput driveSystemRightForwardIR;
+    public static AnalogInput driveSystemLeftDownIR;
+    public static AnalogInput driveSystemRightDownIR;
     public static DigitalInput elevatorbottomLimitSwitch;
     public static CANTalon elevatorElevatorCANTalon;
     public static Encoder gatesLeftGateEncoder;
@@ -87,6 +91,18 @@ public class RobotMap {
         
         driveSystemRangeFinder = new AnalogInput(0);
         LiveWindow.addSensor("DriveSystem", "RangeFinder", driveSystemRangeFinder);
+        
+        driveSystemLeftForwardIR = new AnalogInput(1);
+        LiveWindow.addSensor("DriveSystem", "LeftForwardIR", driveSystemLeftForwardIR);
+        
+        driveSystemRightForwardIR = new AnalogInput(2);
+        LiveWindow.addSensor("DriveSystem", "RightForwardIR", driveSystemRightForwardIR);
+        
+        driveSystemLeftDownIR = new AnalogInput(3);
+        LiveWindow.addSensor("DriveSystem", "LeftDownIR", driveSystemLeftDownIR);
+        
+        driveSystemRightDownIR = new AnalogInput(4);
+        LiveWindow.addSensor("DriveSystem", "RightDownIR", driveSystemRightDownIR);
         
         elevatorbottomLimitSwitch = new DigitalInput(0);
         LiveWindow.addSensor("Elevator", "bottomLimitSwitch", elevatorbottomLimitSwitch);

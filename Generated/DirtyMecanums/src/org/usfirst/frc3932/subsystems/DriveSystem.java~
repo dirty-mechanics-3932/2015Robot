@@ -34,6 +34,7 @@ public class DriveSystem extends Subsystem {
     RobotDrive mecanumDrive = RobotMap.driveSystemMecanumDrive;
     DoubleSolenoid leftTransmissionDblSolenoid = RobotMap.driveSystemLeftTransmissionDblSolenoid;
     DoubleSolenoid rightTransmissionDblSolenoid = RobotMap.driveSystemRightTransmissionDblSolenoid;
+    AnalogInput rangeFinder = RobotMap.driveSystemRangeFinder;
     AnalogInput leftForwardIR = RobotMap.driveSystemLeftForwardIR;
     AnalogInput rightForwardIR = RobotMap.driveSystemRightForwardIR;
     AnalogInput leftDownIR = RobotMap.driveSystemLeftDownIR;
@@ -68,6 +69,10 @@ public class DriveSystem extends Subsystem {
 
     protected double adjust(double val, double factor){
     	return (val<0?-1:1) * (Math.pow(factor, Math.abs(val)) - 1) / (factor-1);
+    }
+    
+    public void crabLeft(){
+    	
     }
     
     
