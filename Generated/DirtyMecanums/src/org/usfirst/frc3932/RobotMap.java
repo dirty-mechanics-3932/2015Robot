@@ -40,8 +40,10 @@ public class RobotMap {
     public static RobotDrive driveSystemMecanumDrive;
     public static DoubleSolenoid driveSystemLeftTransmissionDblSolenoid;
     public static DoubleSolenoid driveSystemRightTransmissionDblSolenoid;
+
     public static AnalogInput driveSystemRangeFinder;
     public static DigitalInput elevatorbottomLimitSwitch;
+
     public static CANTalon elevatorElevatorCANTalon;
     public static Encoder gatesLeftGateEncoder;
     public static Encoder gatesRightGateEncoder;
@@ -85,11 +87,14 @@ public class RobotMap {
         driveSystemRightTransmissionDblSolenoid = new DoubleSolenoid(0, 2, 3);      
         LiveWindow.addActuator("DriveSystem", "RightTransmissionDblSolenoid", driveSystemRightTransmissionDblSolenoid);
         
+
         driveSystemRangeFinder = new AnalogInput(0);
         LiveWindow.addSensor("DriveSystem", "RangeFinder", driveSystemRangeFinder);
         
         elevatorbottomLimitSwitch = new DigitalInput(0);
         LiveWindow.addSensor("Elevator", "bottomLimitSwitch", elevatorbottomLimitSwitch);
+
+
         
         elevatorElevatorCANTalon = new CANTalon(6);
         
