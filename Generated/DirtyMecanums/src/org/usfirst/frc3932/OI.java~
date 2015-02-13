@@ -93,13 +93,7 @@ public class OI {
 
         SmartDashboard.putData("BackAwaySlowly", new BackAwaySlowly());
 
-        SmartDashboard.putData("ElevatorToGround", new ElevatorToGround());
-
-        SmartDashboard.putData("ResetElevatorPosition", new ResetElevatorPosition());
-
-        SmartDashboard.putData("TabsOpen", new TabsOpen());
-
-        SmartDashboard.putData("TabsClose", new TabsClose());
+        SmartDashboard.putData("CrabLeftOverTote", new CrabLeftOverTote());
 
         SmartDashboard.putData("RaiseArmsToTabs", new RaiseArmsToTabs());
 
