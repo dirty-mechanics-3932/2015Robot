@@ -34,7 +34,7 @@ public class  ElevatorToTabs extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.elevator.goToAbsolutePosition(Elevator.TAB);
+    	Robot.elevator.goToAbsolutePosition(Elevator.TABS);
     }
 
     // Called repeatedly when this Command is scheduled to run
