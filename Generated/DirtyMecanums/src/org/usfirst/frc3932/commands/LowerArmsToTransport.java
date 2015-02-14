@@ -33,7 +33,7 @@ public class  LowerArmsToTransport extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.elevator.goToAbsolutePosition(Elevator.TRANSPORT);
+    	Robot.elevator.goToPosition(Elevator.Position.TRANSPORT);
     }
 
     // Called repeatedly when this Command is scheduled to run

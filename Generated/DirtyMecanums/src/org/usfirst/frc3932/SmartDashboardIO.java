@@ -1,5 +1,9 @@
 package org.usfirst.frc3932;
 
+import java.text.DecimalFormat;
+
+import org.usfirst.frc3932.subsystems.Elevator;
+
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 	
 
@@ -14,14 +18,27 @@ public class SmartDashboardIO {
 	public static final String POSITION = "Position";
 	public static final String SPEED = "Speed";
 	public static final String DELIM = ".";
+	public static final String ELEVATOR = "Elevator";
 	
 	public void execute() {
+		DecimalFormat df = new DecimalFormat("#.000"); 
+		
 		SmartDashboard.putNumber(label(LEFT_DRIVE_TALON, CURRENT), RobotMap.driveSystemLeftBack.getOutputCurrent());
     	SmartDashboard.putNumber(label(LEFT_DRIVE_TALON, POSITION), RobotMap.driveSystemLeftBack.getPosition());
     	SmartDashboard.putNumber(label(LEFT_DRIVE_TALON, POSITION), RobotMap.driveSystemLeftBack.getSpeed());
     	SmartDashboard.putBoolean(label(DRIVE, "CrabLeftDone"), Robot.driveSystem.isCrabLeftDone());
     	SmartDashboard.putNumber(label(DRIVE_LEFT_DOWN_IR, "AvgVolts"), RobotMap.driveSystemLeftDownIR.getAverageVoltage());
     	SmartDashboard.putNumber(label(DRIVE_RIGHT_DOWN_IR, "AvgVolts"), RobotMap.driveSystemRightDownIR.getAverageVoltage());
+    	
+    	//ELEVATOR
+    	for (Elevator.Position position : Elevator.Position.values()) {
+    		StringBuffer sb = new StringBuffer();
+    		sb.append(df.format(position.getInches()));
+    		sb.append("inches = ");
+    		sb.append(position.getTicks());
+    		SmartDashboard.putString(label(ELEVATOR, position.toString()), sb.toString() );
+    	}
+    	
 	}
 	
 	public String label(String component, String measure) {

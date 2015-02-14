@@ -34,7 +34,7 @@ public class  ElevatorToGround extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.elevator.goToAbsolutePosition(Elevator.GROUND);
+    	Robot.elevator.goToPosition(Elevator.Position.START);
     }
 
     // Called repeatedly when this Command is scheduled to run

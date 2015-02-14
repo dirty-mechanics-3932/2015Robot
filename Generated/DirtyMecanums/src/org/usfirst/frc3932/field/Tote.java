@@ -7,7 +7,8 @@ package org.usfirst.frc3932.field;
  *
  */
 public class Tote {
-	public static final double HEIGHT_INCHES = 12.1;
-	public static final double WIDTH_INCHES = 16.9;
-	public static final double LENGTH_INCHES = 26.9;
+	public static final double HEIGHT_INCHES = 12.1d;
+	public static final double WIDTH_INCHES = 16.9d;
+	public static final double LENGTH_INCHES = 26.9d;
+	public static final double LIP_RIB = .75d;
 }
