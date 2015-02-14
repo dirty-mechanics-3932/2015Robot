@@ -19,7 +19,6 @@ import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -58,9 +57,6 @@ public class DriveSystem extends Subsystem {
     
     public void drive(double x, double y, double twist){
     	mecanumDrive.mecanumDrive_Cartesian(adjust(x), adjust(y), adjust(twist), 0);
-    	SmartDashboard.putNumber("LeftDriveTalon-Output", leftFront.getOutputCurrent());
-    	SmartDashboard.putNumber("LeftDriveTalon-Postion", leftFront.getPosition());
-    	SmartDashboard.putNumber("LeftDriveTalon-Speed", leftFront.getSpeed());
     }
     
     protected double adjust(double val){
@@ -95,6 +91,11 @@ public class DriveSystem extends Subsystem {
 
 	private void setCrabLeftDone(boolean crabLeftDone) {
 		this.crabLeftDone = crabLeftDone;
+	}
+
+	public void stop() {
+		drive(0d,0d,0d);
+		
 	}
 }
 
