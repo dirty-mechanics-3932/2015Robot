@@ -4,3 +4,7 @@
 Generated/DirtyMecanums/dist/FRCUserProgram.jar
 
 Generated/DirtyMecanums/sysProps.xml
+
+*.java~
+
+*.java~

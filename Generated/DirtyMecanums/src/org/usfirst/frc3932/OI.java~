@@ -85,7 +85,7 @@ public class OI {
 
         SmartDashboard.putData("LowerArmsToStart", new LowerArmsToStart());
 
-        SmartDashboard.putData("ArmsToTransport", new ArmsToTransport());
+        SmartDashboard.putData("ElevatorToTransport", new ElevatorToTransport());
 
         SmartDashboard.putData("RaiseArmsToUnload", new RaiseArmsToUnload());
 
@@ -94,6 +94,12 @@ public class OI {
         SmartDashboard.putData("BackAwaySlowly", new BackAwaySlowly());
 
         SmartDashboard.putData("CrabLeftOverTote", new CrabLeftOverTote());
+
+        SmartDashboard.putData("TabsOpen", new TabsOpen());
+
+        SmartDashboard.putData("TabsClose", new TabsClose());
+
+        SmartDashboard.putData("MoveForward", new MoveForward());
 
         SmartDashboard.putData("RaiseArmsToTabs", new RaiseArmsToTabs());
 

@@ -31,12 +31,20 @@ public class Elevator extends Subsystem {
     
     protected int initialPosition = 0;
     
-    public static final int GROUND = 0;
-    public static final int TAB = 1;
-    public static final int UNLOAD = 2;
-    public static final int TRANSPORT = 3;
-    public static final int SCORING = 4;
-    public static final int START = 5;
+    public static final int GROUND = 0; // on the ground
+    public static final int START = 0; // on the ground
+    public static final int TRANSPORT = 1; // 1" above start
+    public static final int PLATFORM = 2; // 2" above start 
+    public static final int SCORING = 3; // 3" above start
+    public static final int CAN_BOTTOM = 4; // at the bottom of the can, below the low tabs
+    public static final int WEIGHT_BEARING = 5; // two totes below the low tabs
+    public static final int LOW_CAN = 6; // can at the low tabs
+    public static final int TABS = 7; // one tote below the tabs
+    public static final int HANG = 8; // around a half inch below the tabs
+    public static final int CAN = 9; // can at the cantabs
+    public static final int STACK = 10; // one inch below top
+    public static final int TOP = 11; // at the very tippy top
+
 
     public Elevator(){
     	elevatorCANTalon.changeControlMode(ControlMode.Position);
