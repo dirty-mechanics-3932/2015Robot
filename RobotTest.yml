@@ -459,6 +459,12 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: None}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
+  - Name: AutonomousStrafeLeftCommand
+    Base: Command Group
+    Children: []
+    Properties:
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
   - Name: Teleop
     Base: Command
     Children: []
@@ -507,6 +513,22 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: DriveSystem}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
+  - Name: CanTabsOpen
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: None}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: CanTabsClose
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: None}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
   - Name: GatesClosed
     Base: Command
     Children: []
@@ -531,7 +553,15 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: Gates}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: ElevatorToTabs
+  - Name: LowerArmsToStart
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Elevator}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: ElevatorToStart
     Base: Command
     Children: []
     Properties:
@@ -547,7 +577,7 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: Elevator}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: LowerArmsToStart
+  - Name: ElevatorToPlatform
     Base: Command
     Children: []
     Properties:
@@ -555,12 +585,170 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: Elevator}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
-  - Name: LowerArmsToScoring
+  - Name: ElevatorToScoring
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: None}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: ElevatorToCanBottom
     Base: Command
     Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Elevator}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: ElevatorToWeightBearing
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Elevator}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: ElevatorToLowCan
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Elevator}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: ElevatorToTabs
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Elevator}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: ElevatorToHang
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Elevator}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: ElevatorToCan
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Elevator}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: ElevatorToStack
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Elevator}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: ElevatorToTop
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Elevator}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: RaiseArmsToTabs
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Elevator}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: RaiseArmsToUnload
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Elevator}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: TabsOpen
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Tabs}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: TabsClose
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Tabs}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: ResetElevatorPosition
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: None}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: LockGatesAroundCan
+    Base: Command Group
+    Children: []
+    Properties:
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: RecieveFirstTote
+    Base: Command Group
+    Children: []
+    Properties:
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: GrabRecievedTote
+    Base: Command Group
+    Children: []
+    Properties:
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: StashFirstTote
+    Base: Command Group
+    Children: []
+    Properties:
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: RecieveTote
+    Base: Command Group
+    Children: []
+    Properties:
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: StashTote
+    Base: Command Group
+    Children: []
+    Properties:
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: TransportStack
+    Base: Command Group
+    Children: []
+    Properties:
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: RaiseStackToScoring
+    Base: Command Group
+    Children: []
+    Properties:
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: SetStackOnPlatform
+    Base: Command Group
+    Children: []
+    Properties:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   - Name: MoveForward
@@ -605,44 +793,6 @@ Children:
         value: 1.0}
       Maximum Input: !!robotbuilder.data.properties.DoubleProperty {default: 5, name: Maximum Input,
         validators: null, value: 5.0}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
-  - Name: RaiseArmsToTabs
-    Base: Command
-    Children: []
-    Properties:
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Elevator}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
-  - Name: RaiseArmsToUnload
-    Base: Command
-    Children: []
-    Properties:
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Elevator}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
-  - Name: TabsOpen
-    Base: Command
-    Children: []
-    Properties:
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Tabs}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
-  - Name: TabsClose
-    Base: Command
-    Children: []
-    Properties:
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Tabs}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
-  - Name: AutonomousStrafeLeftCommand
-    Base: Command Group
-    Children: []
-    Properties:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   Properties: {}

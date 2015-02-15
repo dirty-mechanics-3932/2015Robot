@@ -67,8 +67,8 @@ public class Elevator extends Subsystem {
     	TABS(Elevator.TABS),
     	HANG(Elevator.HANG),
     	CAN(Elevator.CAN),
-    	TOP(Elevator.TOP),
-    	STACK(Elevator.STACK)
+    	STACK(Elevator.STACK),
+    	TOP(Elevator.TOP)
     	;
     	
     	private double inches;
@@ -163,6 +163,10 @@ public class Elevator extends Subsystem {
      */
     public void goToAbsolutePosition(int pos){
     	elevatorCANTalon.set(pos);
+    }
+    
+    public boolean isFinished(){
+    	return Math.abs(elevatorCANTalon.get() - elevatorCANTalon.getSetpoint()) < 10;
     }
 }
 

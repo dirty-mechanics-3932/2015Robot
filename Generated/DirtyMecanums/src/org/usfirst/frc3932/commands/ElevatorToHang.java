@@ -12,17 +12,14 @@
 package org.usfirst.frc3932.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc3932.Robot;
 import org.usfirst.frc3932.subsystems.Elevator;
-
 /**
  *
  */
-public class  LowerArmsToStart extends Command {
+public class  ElevatorToHang extends Command {
 
-    public LowerArmsToStart() {
-    	setTimeout(1);
+    public ElevatorToHang() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 
@@ -34,7 +31,7 @@ public class  LowerArmsToStart extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.elevator.goToPosition(Elevator.Position.START);
+    	Robot.elevator.goToPosition(Elevator.Position.HANG);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -43,7 +40,7 @@ public class  LowerArmsToStart extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return Robot.elevator.isFinished();
     }
 
     // Called once after isFinished returns true
