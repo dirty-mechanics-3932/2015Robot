@@ -65,9 +65,15 @@ public class OI {
 
 	    
         // SmartDashboard Buttons
-        SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
+        SmartDashboard.putData("CrabLeftOverCan", new CrabLeftOverCan());
 
-        SmartDashboard.putData("AutonomousStrafeLeftCommand", new AutonomousStrafeLeftCommand());
+        SmartDashboard.putData("AutonomousCommand", new AutonomousCommand());
+
+        SmartDashboard.putData("AutonomousPickup", new AutonomousPickup());
+
+        SmartDashboard.putData("AutonomousSetDown", new AutonomousSetDown());
+
+        SmartDashboard.putData("AutoMoveBackwards", new AutoMoveBackwards());
 
         SmartDashboard.putData("Teleop", new Teleop());
 

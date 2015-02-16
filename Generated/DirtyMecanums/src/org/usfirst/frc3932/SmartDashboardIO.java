@@ -39,6 +39,8 @@ public class SmartDashboardIO {
     		SmartDashboard.putString(label(ELEVATOR, position.toString()), sb.toString() );
     	}
     	
+    	SmartDashboard.putNumber("testpos", RobotMap.gatesLeftGateEncoder.getDistance());
+    	
 	}
 	
 	public String label(String component, String measure) {

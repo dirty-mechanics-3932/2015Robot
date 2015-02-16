@@ -17,9 +17,9 @@ import org.usfirst.frc3932.Robot;
 /**
  *
  */
-public class  AutonomousCommand extends Command {
+public class  CrabLeftOverCan extends Command {
 
-    public AutonomousCommand() {
+    public CrabLeftOverCan() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 
