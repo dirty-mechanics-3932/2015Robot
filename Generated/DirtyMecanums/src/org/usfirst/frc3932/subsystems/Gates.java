@@ -46,12 +46,12 @@ public class Gates extends Subsystem {
     
     public void gateFullOpen()
     {
-    	
+    	// at 0
     }
     
     public void gatesClosed()
     {
-    	
+    	// at 250
     }
     
     public void gatesHalfOpen()
