@@ -11,9 +11,27 @@
 
 package org.usfirst.frc3932;
 
-import org.usfirst.frc3932.commands.*;
+import org.usfirst.frc3932.commands.ArmsClosed;
+import org.usfirst.frc3932.commands.ArmsFullOpen;
+import org.usfirst.frc3932.commands.ArmsHalfOpen;
+import org.usfirst.frc3932.commands.AutonomousCommand;
+import org.usfirst.frc3932.commands.BackAwaySlowly;
+import org.usfirst.frc3932.commands.CrabLeftOverTote;
+import org.usfirst.frc3932.commands.ElevatorToTabs;
+import org.usfirst.frc3932.commands.ElevatorToTransport;
+import org.usfirst.frc3932.commands.GatesClosed;
+import org.usfirst.frc3932.commands.GatesFullOpen;
+import org.usfirst.frc3932.commands.GatesHalfOpen;
+import org.usfirst.frc3932.commands.LowerArmsToStart;
+import org.usfirst.frc3932.commands.MoveForward;
+import org.usfirst.frc3932.commands.RaiseArmsToTabs;
+import org.usfirst.frc3932.commands.RaiseArmsToUnload;
+import org.usfirst.frc3932.commands.TabsClose;
+import org.usfirst.frc3932.commands.TabsOpen;
+import org.usfirst.frc3932.commands.Teleop;
+
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.*;
 
 
 /**
@@ -65,33 +83,11 @@ public class OI {
 
 	    
         // SmartDashboard Buttons
-        SmartDashboard.putData("CrabLeftOverCan", new CrabLeftOverCan());
-
-        SmartDashboard.putData("AutonomousCommand", new AutonomousCommand());
-
-        SmartDashboard.putData("AutonomousPickup", new AutonomousPickup());
-
-        SmartDashboard.putData("AutonomousSetDown", new AutonomousSetDown());
-
-        SmartDashboard.putData("AutoMoveBackwards", new AutoMoveBackwards());
+        SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
 
         SmartDashboard.putData("Teleop", new Teleop());
 
         SmartDashboard.putData("ArmsClosed", new ArmsClosed());
-
-        SmartDashboard.putData("ArmsHalfOpen", new ArmsHalfOpen());
-
-        SmartDashboard.putData("ArmsFullOpen", new ArmsFullOpen());
-
-        SmartDashboard.putData("ArmsBackout", new ArmsBackout());
-
-        SmartDashboard.putData("BackAwaySlowly", new BackAwaySlowly());
-
-        SmartDashboard.putData("CrabLeftOverTote", new CrabLeftOverTote());
-
-        SmartDashboard.putData("CanTabsOpen", new CanTabsOpen());
-
-        SmartDashboard.putData("CanTabsClose", new CanTabsClose());
 
         SmartDashboard.putData("GatesClosed", new GatesClosed());
 
@@ -99,79 +95,33 @@ public class OI {
 
         SmartDashboard.putData("GatesFullOpen", new GatesFullOpen());
 
-        SmartDashboard.putData("LowerArmsToStart", new LowerArmsToStart());
+        SmartDashboard.putData("ArmsHalfOpen", new ArmsHalfOpen());
 
-        SmartDashboard.putData("ElevatorToStart", new ElevatorToStart());
-
-        SmartDashboard.putData("ElevatorToTransport", new ElevatorToTransport());
-
-        SmartDashboard.putData("ElevatorToPlatform", new ElevatorToPlatform());
-
-        SmartDashboard.putData("ElevatorToScoring", new ElevatorToScoring());
-
-        SmartDashboard.putData("ElevatorToCanBottom", new ElevatorToCanBottom());
-
-        SmartDashboard.putData("ElevatorToWeightBearing", new ElevatorToWeightBearing());
-
-        SmartDashboard.putData("ElevatorToLowCan", new ElevatorToLowCan());
+        SmartDashboard.putData("ArmsFullOpen", new ArmsFullOpen());
 
         SmartDashboard.putData("ElevatorToTabs", new ElevatorToTabs());
 
-        SmartDashboard.putData("ElevatorToHang", new ElevatorToHang());
+        SmartDashboard.putData("LowerArmsToStart", new LowerArmsToStart());
 
-        SmartDashboard.putData("ElevatorToCan", new ElevatorToCan());
-
-        SmartDashboard.putData("ElevatorToStack", new ElevatorToStack());
-
-        SmartDashboard.putData("ElevatorToTop", new ElevatorToTop());
-
-        SmartDashboard.putData("RaiseArmsToTabs", new RaiseArmsToTabs());
+        SmartDashboard.putData("ElevatorToTransport", new ElevatorToTransport());
 
         SmartDashboard.putData("RaiseArmsToUnload", new RaiseArmsToUnload());
+
+        SmartDashboard.putData("LowerArmsToScoring", new LowerArmsToScoring());
+
+        SmartDashboard.putData("BackAwaySlowly", new BackAwaySlowly());
+
+        SmartDashboard.putData("CrabLeftOverTote", new CrabLeftOverTote());
 
         SmartDashboard.putData("TabsOpen", new TabsOpen());
 
         SmartDashboard.putData("TabsClose", new TabsClose());
 
-        SmartDashboard.putData("ResetElevatorPosition", new ResetElevatorPosition());
-
-        SmartDashboard.putData("LockGatesAroundCan", new LockGatesAroundCan());
-
-        SmartDashboard.putData("RecieveFirstTote", new RecieveFirstTote());
-
-        SmartDashboard.putData("GrabRecievedTote", new GrabRecievedTote());
-
-        SmartDashboard.putData("StashFirstTote", new StashFirstTote());
-
-        SmartDashboard.putData("RecieveTote", new RecieveTote());
-
-        SmartDashboard.putData("StashTote", new StashTote());
-
-        SmartDashboard.putData("TransportStack", new TransportStack());
-
-        SmartDashboard.putData("RaiseStackToScoring", new RaiseStackToScoring());
-
-        SmartDashboard.putData("SetStackOnPlatform", new SetStackOnPlatform());
-
-        SmartDashboard.putData("LookForFirstTote", new LookForFirstTote());
-
-        SmartDashboard.putData("HangTote", new HangTote());
-
-        SmartDashboard.putData("GrabTote", new GrabTote());
-
-        SmartDashboard.putData("StashGroundTote", new StashGroundTote());
-
-        SmartDashboard.putData("LookForTote", new LookForTote());
-
-        SmartDashboard.putData("GrabCan", new GrabCan());
-
-        SmartDashboard.putData("RaiseCan", new RaiseCan());
-
-        SmartDashboard.putData("StackCan", new StackCan());
-
         SmartDashboard.putData("MoveForward", new MoveForward());
 
-        SmartDashboard.putData("WaitFor", new WaitFor());
+        SmartDashboard.putData("RaiseArmsToTabs", new RaiseArmsToTabs());
+
+        SmartDashboard.putData("AutonomousStrafeLeftCommandGroup", new AutonomousStrafeLeftCommandGroup());
 
 
     // END AUTOGENERATED CODE, SOURCE=ROBOTBUILDER ID=CONSTRUCTORS
