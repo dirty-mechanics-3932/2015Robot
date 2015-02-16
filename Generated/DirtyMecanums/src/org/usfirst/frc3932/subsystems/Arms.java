@@ -45,7 +45,9 @@ public class Arms extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
+    
     public void armsFullOpen(){
+    	
 
     }
     
