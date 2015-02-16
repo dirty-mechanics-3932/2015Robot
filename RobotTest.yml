@@ -291,37 +291,24 @@ Children:
       Name: RightGateEncoder
     - Children: []
       Properties:
-        Type: !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id019 [Victor, Jaguar, Talon, VictorSP, TalonSRX]
-          default: Talon
-          name: Type
-          validators: null
-          value: Talon
-        Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id020 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-            '11', '12', '13', '14', '15', '16', '17', '18', '19']
-          default: '0'
-          name: Output Channel (PWM)
-          validators: &id021 [PWMOutput]
-          value: '2'
-      Base: Speed Controller
-      Name: RightGateMotorController
+        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id001
+          default: '2'
+          name: CAN ID
+          validators: *id002
+          value: '8'
+      Base: CAN TalonSRX
+      Name: LeftGateCANTalon
     - Children: []
       Properties:
-        Type: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id019
-          default: Talon
-          name: Type
-          validators: null
-          value: Talon
-        Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id020
-          default: '0'
-          name: Output Channel (PWM)
-          validators: *id021
-          value: '3'
-      Base: Speed Controller
-      Name: LeftGateMotorController
+        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id001
+          default: '2'
+          name: CAN ID
+          validators: *id002
+          value: '9'
+      Base: CAN TalonSRX
+      Name: RightGateCANTalon
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: None}
@@ -331,20 +318,20 @@ Children:
     - Children: []
       Properties:
         Output Channel (Relay): !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id022 ['0', '1', '2', '3']
+          choices: &id019 ['0', '1', '2', '3']
           default: '0'
           name: Output Channel (Relay)
-          validators: &id023 [RelayOutput]
+          validators: &id020 [RelayOutput]
           value: '0'
       Base: Spike
       Name: LeftTabSpike
     - Children: []
       Properties:
         Output Channel (Relay): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id019
           default: '0'
           name: Output Channel (Relay)
-          validators: *id023
+          validators: *id020
           value: '1'
       Base: Spike
       Name: RightTabSpike
@@ -357,63 +344,46 @@ Children:
     - Children: []
       Properties:
         Type: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id019
+          choices: &id021 [Victor, Jaguar, Talon, VictorSP, TalonSRX]
           default: Talon
           name: Type
           validators: null
-          value: Talon
+          value: VictorSP
         Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id020
+          choices: &id022 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+            '11', '12', '13', '14', '15', '16', '17', '18', '19']
           default: '0'
           name: Output Channel (PWM)
-          validators: *id021
+          validators: &id023 [PWMOutput]
           value: '0'
       Base: Speed Controller
-      Name: LeftMotorTalon
+      Name: LeftMotorVictor
     - Children: []
       Properties:
         Type: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id019
+          choices: *id021
           default: Talon
           name: Type
           validators: null
-          value: Talon
+          value: VictorSP
         Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id020
+          choices: *id022
           default: '0'
           name: Output Channel (PWM)
-          validators: *id021
+          validators: *id023
           value: '1'
       Base: Speed Controller
-      Name: RightMotorTalon
+      Name: RightMotorVictor
     - Children: []
       Properties:
-        Forward PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id003
-          default: '0'
-          name: Forward PCM (Solenoid)
-          validators: *id004
-          value: '0'
-        Reverse PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id005
-          default: '0'
-          name: Reverse PCM (Solenoid)
-          validators: *id006
-          value: '0'
-        Reverse Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id007
-          default: '0'
-          name: Reverse Channel (Solenoid)
-          validators: *id008
-          value: '5'
-        Forward Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id009
-          default: '0'
-          name: Forward Channel (Solenoid)
-          validators: *id010
-          value: '4'
-      Base: Double Solenoid
-      Name: LongPistonsDblSolenoid
+        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id001
+          default: '2'
+          name: CAN ID
+          validators: *id002
+          value: '10'
+      Base: CAN TalonSRX
+      Name: ArmWidthCANTalon
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: None}
@@ -871,6 +841,14 @@ Children:
         name: Button on SmartDashboard, validators: null, value: true}
     Base: PID Command
     Name: MoveForward
+  - Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: None}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: WaitFor
   Properties: {}
   Base: Commands
   Name: Commands
