@@ -41,13 +41,17 @@ public class Gates extends Subsystem {
 	
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	
+    	leftGateCANTalon.changeControlMode(ControlMode.Position);
+    	rightGateCANTalon.changeControlMode(ControlMode.Position);
+    	leftGateCANTalon.setPosition(0);
+    	rightGateCANTalon.setPosition(0);
+    	leftGateCANTalon.setPID(0.5, 0.5, 0.5);
+    	rightGateCANTalon.setPID(0.5, 0.5, 0.5);
     }
     
     public void setLocation(int degrees) {
     	double ticks = degreesToTicks(degrees);
-    	leftGateCANTalon .changeControlMode(ControlMode.Position);
-    	rightGateCANTalon.changeControlMode(ControlMode.Position);
+
     	leftGateCANTalon.set(ticks);
     	rightGateCANTalon.set(ticks);
     }
