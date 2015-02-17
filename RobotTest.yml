@@ -279,39 +279,6 @@ Children:
   - Name: Arms
     Base: Subsystem
     Children:
-    - Name: LeftMotorVictor
-      Base: Speed Controller
-      Children: []
-      Properties:
-        Type: !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id015 [Victor, Jaguar, Talon, VictorSP, TalonSRX]
-          default: Talon
-          name: Type
-          validators: null
-          value: VictorSP
-        Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id016 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-            '11', '12', '13', '14', '15', '16', '17', '18', '19']
-          default: '0'
-          name: Output Channel (PWM)
-          validators: &id017 [PWMOutput]
-          value: '0'
-    - Name: RightMotorVictor
-      Base: Speed Controller
-      Children: []
-      Properties:
-        Type: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id015
-          default: Talon
-          name: Type
-          validators: null
-          value: VictorSP
-        Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id016
-          default: '0'
-          name: Output Channel (PWM)
-          validators: *id017
-          value: '1'
     - Name: ArmWidthCANTalon
       Base: CAN TalonSRX
       Children: []
@@ -322,6 +289,62 @@ Children:
           name: CAN ID
           validators: *id002
           value: '10'
+    - Name: PID Controller 1
+      Base: PID Controller
+      Children: []
+      Properties:
+        D: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: D, validators: null,
+          value: 0.0}
+        Period: !!robotbuilder.data.properties.DoubleProperty {default: 0.02, name: Period,
+          validators: null, value: 0.02}
+        Input: !!robotbuilder.data.properties.ChildSelectionProperty
+          default: 0
+          name: Input
+          type: PIDSource
+          validators: [ChildDropdownSelected]
+          value: 0
+        Limit Output: !!robotbuilder.data.properties.BooleanProperty {default: false,
+          name: Limit Output, validators: null, value: false}
+        F: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: F, validators: null,
+          value: 0.0}
+        Tolerance: !!robotbuilder.data.properties.DoubleProperty {default: 0.2, name: Tolerance,
+          validators: null, value: 0.2}
+        Continuous: !!robotbuilder.data.properties.BooleanProperty {default: false,
+          name: Continuous, validators: null, value: false}
+        Maximum Output: !!robotbuilder.data.properties.DoubleProperty {default: 1,
+          name: Maximum Output, validators: null, value: 1.0}
+        Limit Input: !!robotbuilder.data.properties.BooleanProperty {default: false,
+          name: Limit Input, validators: null, value: false}
+        Output: !!robotbuilder.data.properties.ChildSelectionProperty
+          default: 0
+          name: Output
+          type: PIDOutput
+          validators: [ChildDropdownSelected]
+          value: 0
+        Minimum Input: !!robotbuilder.data.properties.DoubleProperty {default: 0,
+          name: Minimum Input, validators: null, value: 0.0}
+        Minimum Output: !!robotbuilder.data.properties.DoubleProperty {default: -1,
+          name: Minimum Output, validators: null, value: -1.0}
+        I: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: I, validators: null,
+          value: 0.0}
+        P: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: P, validators: null,
+          value: 1.0}
+        Maximum Input: !!robotbuilder.data.properties.DoubleProperty {default: 5,
+          name: Maximum Input, validators: null, value: 5.0}
+    - Name: ArmEncoder
+      Base: Analog Potentiometer
+      Children: []
+      Properties:
+        Offset: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Offset,
+          validators: null, value: 0.5}
+        Input Channel (Analog): !!robotbuilder.data.properties.ChoicesProperty
+          choices: ['0', '1', '2', '3', '4', '5', '6', '7']
+          default: '0'
+          name: Input Channel (Analog)
+          validators: [AnalogInput]
+          value: '4'
+        Full Range: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Full Range,
+          validators: null, value: 4.0}
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: None}
@@ -334,20 +357,20 @@ Children:
     Children: []
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
-        choices: &id018 ['0', '1', '2', '3', '4', '5']
+        choices: &id015 ['0', '1', '2', '3', '4', '5']
         default: 1
         name: Number
-        validators: &id019 [Joystick]
+        validators: &id016 [Joystick]
         value: '0'
   - Name: DriverJoy2
     Base: Joystick
     Children: []
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
-        choices: *id018
+        choices: *id015
         default: 1
         name: Number
-        validators: *id019
+        validators: *id016
         value: '1'
   Properties: {}
 - Name: Commands
@@ -745,7 +768,7 @@ Children:
         default: None
         name: Input
         type: PIDSource
-        validators: &id020 [TypeDropdownSelected]
+        validators: &id017 [TypeDropdownSelected]
         value: DriveSystem LeftForwardIR
       Limit Output: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Limit Output, validators: null, value: false}
@@ -763,7 +786,7 @@ Children:
         default: None
         name: Output
         type: PIDOutput
-        validators: &id021 [TypeDropdownSelected]
+        validators: &id018 [TypeDropdownSelected]
         value: DriveSystem Left Front
       Minimum Input: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Minimum Input,
         validators: null, value: 0.0}
@@ -797,7 +820,7 @@ Children:
         default: None
         name: Input
         type: PIDSource
-        validators: *id020
+        validators: *id017
         value: DriveSystem RightForwardIR
       Limit Output: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Limit Output, validators: null, value: false}
@@ -815,7 +838,7 @@ Children:
         default: None
         name: Output
         type: PIDOutput
-        validators: *id021
+        validators: *id018
         value: DriveSystem Right Front
       Minimum Input: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Minimum Input,
         validators: null, value: 0.0}
@@ -837,7 +860,7 @@ Properties:
     folder: false, name: Wiring File, validators: null, value: wiring.html}
   Use Default Java Package: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Use Default Java Package, validators: null, value: false}
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: /Users/gengh/workspace,
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: /Users/sussmanz/workspace,
     extension: null, folder: true, name: Eclipse Workspace, validators: null, value: Generated}
   Java Package: !!robotbuilder.data.properties.StringProperty {default: org.usfirst.frc0000,
     name: Java Package, validators: null, value: org.usfirst.frc3932}

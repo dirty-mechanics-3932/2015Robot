@@ -47,8 +47,6 @@ public class RobotMap {
     public static AnalogInput driveSystemRightDownIR;
     public static DigitalInput elevatorbottomLimitSwitch;
     public static CANTalon elevatorElevatorCANTalon;
-    public static Encoder gatesLeftGateEncoder;
-    public static Encoder gatesRightGateEncoder;
     public static CANTalon gatesLeftGateCANTalon;
     public static CANTalon gatesRightGateCANTalon;
     public static Relay tabsLeftTabSpike;
@@ -107,14 +105,6 @@ public class RobotMap {
         elevatorElevatorCANTalon = new CANTalon(6);
         
         
-        gatesLeftGateEncoder = new Encoder(4, 5, false, EncodingType.k4X);
-        LiveWindow.addSensor("Gates", "LeftGateEncoder", gatesLeftGateEncoder);
-        gatesLeftGateEncoder.setDistancePerPulse(1.0);
-        gatesLeftGateEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
-        gatesRightGateEncoder = new Encoder(6, 7, false, EncodingType.k4X);
-        LiveWindow.addSensor("Gates", "RightGateEncoder", gatesRightGateEncoder);
-        gatesRightGateEncoder.setDistancePerPulse(1.0);
-        gatesRightGateEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
         gatesLeftGateCANTalon = new CANTalon(2);
         
         
