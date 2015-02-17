@@ -98,6 +98,7 @@ public class Elevator extends Subsystem {
 
     public Elevator(){
     	elevatorCANTalon.changeControlMode(ControlMode.Position);
+    	elevatorCANTalon.setPID(20, 0, 0);
     	elevatorCANTalon.setVoltageRampRate(5.0);
     }
     // Put methods for controlling this subsystem
@@ -165,7 +166,7 @@ public class Elevator extends Subsystem {
     }
     
     public boolean isFinished(){
-    	return Math.abs(elevatorCANTalon.get() - elevatorCANTalon.getSetpoint()) < 10;
+    	return elevatorCANTalon.get() == elevatorCANTalon.getSetpoint();
     }
 }
 
