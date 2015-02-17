@@ -34,7 +34,7 @@ public class SmartDashboardIO {
     	for (Elevator.Position position : Elevator.Position.values()) {
     		StringBuffer sb = new StringBuffer();
     		sb.append(df.format(position.getInches()));
-    		sb.append(" inches = ");
+    		sb.append(":inches = ");
     		sb.append(position.getTicks());
     		sb.append(" ticks ");
     		SmartDashboard.putString(label(ELEVATOR, position.toString()), sb.toString() );
