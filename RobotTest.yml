@@ -13,7 +13,7 @@ Children:
             default: '2'
             name: CAN ID
             validators: &id002 [CANID]
-            value: '8'
+            value: '2'
         Base: CAN TalonSRX
         Name: Left Front
       - Children: []
@@ -228,7 +228,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '2'
+          value: '8'
       Base: CAN TalonSRX
       Name: LeftGateCANTalon
     - Children: []
