@@ -169,5 +169,9 @@ public class Elevator extends Subsystem {
     public boolean isFinished(){
     	return Math.abs(elevatorCANTalon.get() - elevatorCANTalon.getSetpoint()) > 50;
     }
+    
+    public double getHeight() {
+    	return elevatorCANTalon.get() / TICKS_PER_INCH;
+    }
 }
 

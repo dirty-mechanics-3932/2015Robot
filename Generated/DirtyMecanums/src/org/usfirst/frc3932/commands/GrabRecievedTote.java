@@ -19,6 +19,7 @@ public class GrabRecievedTote extends CommandGroup {
     
     public  GrabRecievedTote() {
         addSequential(new ArmsFullOpen());
+        addSequential(new WaitFor(0.5));
         addSequential(new ArmsHalfOpen());
     }
 }
