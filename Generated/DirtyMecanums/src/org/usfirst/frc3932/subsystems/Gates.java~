@@ -46,7 +46,7 @@ public class Gates extends Subsystem {
     	
     }
     
-    public void moveToDegrees(int degrees) {
+    public void setLocation(int degrees) {
     	double ticks = degreesToTicks(degrees);
     	leftGateCANTalon .changeControlMode(ControlMode.Position);
     	rightGateCANTalon.changeControlMode(ControlMode.Position);
@@ -61,18 +61,18 @@ public class Gates extends Subsystem {
 	public void gateFullOpen()
     {
     	// at 0
-		moveToDegrees(0);
+		setLocation(0);
     }
     
     public void gatesClosed()
     {
     	// at 250
-    	moveToDegrees(180);
+    	setLocation(180);
     }
     
     public void gatesHalfOpen()
     {
-    	moveToDegrees(90);
+    	setLocation(90);
     }
 }
 

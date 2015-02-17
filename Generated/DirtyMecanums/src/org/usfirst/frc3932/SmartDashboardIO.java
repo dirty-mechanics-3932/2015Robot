@@ -40,8 +40,8 @@ public class SmartDashboardIO {
     		SmartDashboard.putString(label(ELEVATOR, position.toString()), sb.toString() );
     	}
     	
-    	SmartDashboard.putNumber("leftEncoder reads", RobotMap.gatesLeftGateEncoder.getDistance());
-    	SmartDashboard.putNumber("rightEncoder reads", RobotMap.gatesRightGateEncoder.getDistance());
+    	SmartDashboard.putNumber(label("LeftGate", "Encoder"), RobotMap.gatesLeftGateCANTalon.get());
+    	SmartDashboard.putNumber(label("RightGate", "Encoder"), RobotMap.gatesRightGateCANTalon.get());
     	
 	}
 	
