@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3932.Robot;
 
 /**
- *
+ * Credit to team 955: https://github.com/Merfoo/MultiCamera/blob/master/src/org/usfirst/frc/team955/robot/Robot.java
  */
 public class  SwitchCameras extends Command {
 
