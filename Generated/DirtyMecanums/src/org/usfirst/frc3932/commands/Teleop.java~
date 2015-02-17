@@ -39,6 +39,21 @@ public class  Teleop extends Command {
     protected void execute() {
     	Joystick joystick = Robot.oi.getDriverJoy1();
     	Robot.driveSystem.drive(joystick.getX(), joystick.getY(), joystick.getRawAxis(3));
+    	
+    	if (!Robot.gates.gatesOpen() && Robot.elevator.getHeight() < 44.125 && Robot.elevator.getHeight() > 40.125) {
+    		Robot.toteTabs.toteTabsOpen();
+    	}
+    	else {
+    		Robot.toteTabs.toteTabsOff();
+    	}
+    	
+    	if (!Robot.gates.gatesOpen() && Robot.elevator.getHeight() < 61.25 && Robot.elevator.getHeight() > 57.25) {
+    		Robot.canTabs.canTabsOpen();
+    	}
+    	else {
+    		Robot.canTabs.canTabsOff();
+    	}
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

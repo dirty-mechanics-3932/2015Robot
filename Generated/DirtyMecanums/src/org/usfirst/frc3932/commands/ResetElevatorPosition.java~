@@ -34,7 +34,7 @@ public class  ResetElevatorPosition extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	elevator.findBottom();
+//    	elevator.findBottom();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -43,18 +43,18 @@ public class  ResetElevatorPosition extends Command {
     }
 
     // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return elevator.isLimitSwitchReached();
+    protected boolean isFinished() { return true;
+//        return elevator.isLimitSwitchReached();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	elevator.foundBottom();
+//    	elevator.foundBottom();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	elevator.foundBottom(); // Clean up
+//    	elevator.foundBottom(); // Clean up
     }
 }
