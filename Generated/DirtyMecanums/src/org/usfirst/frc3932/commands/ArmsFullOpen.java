@@ -11,11 +11,9 @@
 
 package org.usfirst.frc3932.commands;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc3932.Robot;
-import org.usfirst.frc3932.RobotMap;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
@@ -43,10 +41,9 @@ public class  ArmsFullOpen extends Command {
     	
     }
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return isTimedOut();
-    }
+	protected boolean isFinished() {
+	    return isTimedOut() || Robot.arms.atSetpoint();
+	}
 
     // Called once after isFinished returns true
     protected void end() {

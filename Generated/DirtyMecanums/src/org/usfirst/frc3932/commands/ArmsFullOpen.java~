@@ -11,16 +11,12 @@
 
 package org.usfirst.frc3932.commands;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc3932.Robot;
-import org.usfirst.frc3932.RobotMap;
 
 /**
  *
  */
-public class  ArmsFullOpen extends Command {
+public class  ArmsFullOpen extends ArmsCommand {
 
     public ArmsFullOpen() {
         // Use requires() here to declare subsystem dependencies
