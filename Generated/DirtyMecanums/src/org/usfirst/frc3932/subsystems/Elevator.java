@@ -15,7 +15,6 @@ import org.usfirst.frc3932.RobotMap;
 import org.usfirst.frc3932.field.RecycleBin;
 import org.usfirst.frc3932.field.Tote;
 
-import com.ni.vision.NIVision.EdgeLocationReport;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CANTalon.ControlMode;
@@ -95,12 +94,11 @@ public class Elevator extends Subsystem {
     
 	
 
-
     public Elevator(){
     	elevatorCANTalon.changeControlMode(ControlMode.Position);
-    	elevatorCANTalon.setPID(20, 0, 0);
-    	elevatorCANTalon.setVoltageRampRate(5.0);
+    	elevatorCANTalon.setPosition(0);
     }
+
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -111,39 +109,42 @@ public class Elevator extends Subsystem {
     	
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+
+    	elevatorCANTalon.setPID(1, 0, 1);
+    	elevatorCANTalon.set(0);
     }
     
-    /**
-     * Used by ResetElevatorPosition
-     * @return the value of the limit switch
-     */
-    public boolean isLimitSwitchReached(){
-    	return bottomLimitSwitch.get();
-    }
-    
-    /**
-     * Used by ResetElevatorPosition.  Causes the elevator to go down, without setting a position.
-     */
-    public void findBottom(){
-    	elevatorCANTalon.changeControlMode(ControlMode.Speed);
-    	elevatorCANTalon.set(-.5);
-    }
-    
-    /**
-     * Used by ResetElevatorPosition.  Cleans up after findBottom() and sets the ground position.
-     */
-    public void foundBottom(){
-    	elevatorCANTalon.changeControlMode(ControlMode.Position);
-    	setInitialPosition();
-    	goToPositionInInches(Position.START.getInches());
-    }
-    
-    /**
-     * Sets the ground position of the elevator.
-     */
-    public void setInitialPosition(){
-    	elevatorCANTalon.setPosition(0);
-    }
+//    /**
+//     * Used by ResetElevatorPosition
+//     * @return the value of the limit switch
+//     */
+//    public boolean isLimitSwitchReached(){
+//    	return bottomLimitSwitch.get();
+//    }
+//    
+//    /**
+//     * Used by ResetElevatorPosition.  Causes the elevator to go down, without setting a position.
+//     */
+//    public void findBottom(){
+//    	elevatorCANTalon.changeControlMode(ControlMode.Speed);
+//    	elevatorCANTalon.set(-.5);
+//    }
+//    
+//    /**
+//     * Used by ResetElevatorPosition.  Cleans up after findBottom() and sets the ground position.
+//     */
+//    public void foundBottom(){
+//    	elevatorCANTalon.changeControlMode(ControlMode.Position);
+//    	setInitialPosition();
+//    	goToPositionInInches(Position.START.getInches());
+//    }
+//    
+//    /**
+//     * Sets the ground position of the elevator.
+//     */
+//    public void setInitialPosition(){
+//    	elevatorCANTalon.setPosition(0);
+//    }
     
     public void goToPosition(Position position) {
     	goToPositionInInches(position.getInches());
@@ -166,7 +167,7 @@ public class Elevator extends Subsystem {
     }
     
     public boolean isFinished(){
-    	return elevatorCANTalon.get() == elevatorCANTalon.getSetpoint();
+    	return Math.abs(elevatorCANTalon.get() - elevatorCANTalon.getSetpoint()) > 50;
     }
 }
 
