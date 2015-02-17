@@ -13,10 +13,12 @@ package org.usfirst.frc3932.commands;
 
 import org.usfirst.frc3932.Robot;
 
+import edu.wpi.first.wpilibj.command.Command;
+
 /**
  *
  */
-public class  ArmsClosed extends ArmsCommand {
+public class  ArmsClosed extends Command {
 
     public ArmsClosed() {
         // Use requires() here to declare subsystem dependencies
@@ -46,4 +48,8 @@ public class  ArmsClosed extends ArmsCommand {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
+    
+	protected boolean isFinished() {
+	    return isTimedOut() || Robot.arms.atSetpoint();
+	}
 }
