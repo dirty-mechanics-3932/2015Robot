@@ -56,7 +56,6 @@ public class Gates extends Subsystem {
     
     public void gatesClosed()
     {
-    	// at 250
     	setLocationByTicks((int) (AM2816A_ENCODER_TICKS_PER_REVOLUTION/2));
     }
 
