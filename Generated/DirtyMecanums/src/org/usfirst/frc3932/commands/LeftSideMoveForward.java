@@ -61,7 +61,6 @@ public class  LeftSideMoveForward extends PIDCommand {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	usePIDOutput(returnPIDInput());
     }
 
     // Called repeatedly when this Command is scheduled to run

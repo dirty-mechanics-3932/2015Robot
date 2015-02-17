@@ -57,30 +57,23 @@ public class Gates extends Subsystem {
     public void gatesClosed()
     {
     	setLocationByTicks((int) (AM2816A_ENCODER_TICKS_PER_REVOLUTION/2));
-    	areOpen = false;
     }
 
     public void gatesHalfOpen()
     {
     	setLocationByTicks(AM2816A_ENCODER_TICKS_PER_REVOLUTION/4);
-    	areOpen = true;
     }
 
 	public void gateFullOpen()
     {
     	// at 0
 		setLocationByTicks(0);
-		areOpen = true;
     }
 	
 
 	public boolean atSetpoint() {
 		
 		return leftGateCANTalon.get() == leftGateCANTalon.getPosition() && rightGateCANTalon.get() == rightGateCANTalon.getPosition();
-	}
-	
-	public boolean gatesOpen() {
-		return areOpen;
 	}
 }
 

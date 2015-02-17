@@ -189,9 +189,9 @@ public class OI {
 
         SmartDashboard.putData("RaiseArmsToUnload", new RaiseArmsToUnload());
 
-        SmartDashboard.putData("TabsOpen", new TabsOpen());
+        SmartDashboard.putData("ToteTabsOpen", new ToteTabsOpen());
 
-        SmartDashboard.putData("TabsClose", new TabsClose());
+        SmartDashboard.putData("ToteTabsClose", new ToteTabsClose());
 
         SmartDashboard.putData("ResetElevatorPosition", new ResetElevatorPosition());
 
