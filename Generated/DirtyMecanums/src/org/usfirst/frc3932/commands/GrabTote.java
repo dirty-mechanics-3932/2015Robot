@@ -19,5 +19,7 @@ public class GrabTote extends CommandGroup {
     
     public  GrabTote() {
         addSequential(new ArmsHalfOpen());
+        addSequential(new WaitFor(.3));
+        addSequential(new WheelsOff());
     }
 }

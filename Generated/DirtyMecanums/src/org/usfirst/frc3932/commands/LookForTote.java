@@ -19,7 +19,7 @@ public class LookForTote extends CommandGroup {
     
     public  LookForTote() {
     	addSequential(new ElevatorToStart());
-    	addSequential(new ArmsFullOpen());
-    	
+    	addParallel(new ArmsFullOpen());
+    	addSequential(new WheelsIn());
     }
 }

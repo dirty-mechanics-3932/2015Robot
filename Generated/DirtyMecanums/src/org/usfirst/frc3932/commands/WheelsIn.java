@@ -15,11 +15,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3932.Robot;
 
 /**
- * Credit to team 955: https://github.com/Merfoo/MultiCamera/blob/master/src/org/usfirst/frc/team955/robot/Robot.java
+ *
  */
-public class  SwitchCameras extends Command {
+public class  WheelsIn extends Command {
 
-    public SwitchCameras() {
+    public WheelsIn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 
@@ -38,12 +38,11 @@ public class  SwitchCameras extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.switchCameras();
     }
 
     // Called when another command which requires one or more of the same
