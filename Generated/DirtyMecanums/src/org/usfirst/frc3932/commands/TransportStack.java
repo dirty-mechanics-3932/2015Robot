@@ -19,6 +19,6 @@ public class TransportStack extends CommandGroup {
     
     public  TransportStack() {
         addSequential(new ElevatorToTransport());
-        addSequential(new TabsOpen());
+        addSequential(new ToteTabsOpen());
     }
 }

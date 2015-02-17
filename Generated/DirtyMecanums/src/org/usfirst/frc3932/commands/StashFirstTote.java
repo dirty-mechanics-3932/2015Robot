@@ -20,6 +20,6 @@ public class StashFirstTote extends CommandGroup {
     public  StashFirstTote() {
         addSequential(new CanTabsOpen());
         addSequential(new ElevatorToTabs());
-        addSequential(new TabsClose());
+        addSequential(new ToteTabsClose());
     }
 }

@@ -19,8 +19,8 @@ public class StashTote extends CommandGroup {
     
     public  StashTote() {
         addSequential(new ElevatorToWeightBearing());
-        addSequential(new TabsOpen());
+        addSequential(new ToteTabsOpen());
         addSequential(new ElevatorToTabs());
-        addSequential(new TabsClose());
+        addSequential(new ToteTabsClose());
     }
 }

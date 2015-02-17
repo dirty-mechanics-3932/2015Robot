@@ -19,8 +19,8 @@ public class StashGroundTote extends CommandGroup {
     
     public  StashGroundTote() {
         addSequential(new ElevatorToTabs());
-        addSequential(new TabsOpen());
+        addSequential(new ToteTabsOpen());
         addSequential(new ElevatorToHang());
-        addSequential(new TabsClose());
+        addSequential(new ToteTabsClose());
     }
 }

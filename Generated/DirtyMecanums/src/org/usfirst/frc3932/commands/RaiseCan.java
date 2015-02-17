@@ -20,13 +20,13 @@ public class RaiseCan extends CommandGroup {
     public  RaiseCan() {
     	// part 1
         addParallel(new GatesFullOpen());
-        addParallel(new TabsOpen());
+        addParallel(new ToteTabsOpen());
         addParallel(new CanTabsOpen());
         addSequential(new ElevatorToLowCan());
         
         // part 2
         addParallel(new GatesClosed());
-        addSequential(new TabsClose());
+        addSequential(new ToteTabsClose());
         addSequential(new ArmsHalfOpen());
         
         // part 3
