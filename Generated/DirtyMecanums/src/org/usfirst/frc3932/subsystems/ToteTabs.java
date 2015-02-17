@@ -52,6 +52,12 @@ public class ToteTabs extends Subsystem {
     	rightTabSpike.set(Relay.Value.kForward);
     }
     
+    public void toteTabsOff(){
+    	//called when time is out
+    	leftTabSpike.set(Relay.Value.kOff);
+    	rightTabSpike.set(Relay.Value.kOff);
+    }
+    
     
 }
 

@@ -47,5 +47,10 @@ public class CanTabs extends Subsystem {
     public void canTabsClose(){
     	canSpikeforLeftAndRight.set(Relay.Value.kForward);
     }
+    
+    public void canTabsOff(){
+    	//called when the time is out
+    	canSpikeforLeftAndRight.set(Relay.Value.kOff);
+    }
 }
 
