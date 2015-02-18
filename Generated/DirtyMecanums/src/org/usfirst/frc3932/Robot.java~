@@ -135,7 +135,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
     	smartDashboardIO.execute();
         Scheduler.getInstance().run();
-        cameras.run();
+        try{cameras.run();} catch(Exception e){}
     }
 
     /**
@@ -147,6 +147,7 @@ public class Robot extends IterativeRobot {
     }
     
     public static void switchCameras() {
-    	cameras.switchCams();
+    	try{cameras.switchCams();}
+    	catch(Exception e){}
     }
 }

@@ -93,12 +93,12 @@ public class Arms extends Subsystem {
 	
 	public void wheelsIn() {
 		leftWheel.set(1);
-		rightWheel.set(1);
+		rightWheel.set(-1);
 	}
 	
 	public void wheelsOut() {
 		leftWheel.set(-1);
-		rightWheel.set(-1);
+		rightWheel.set(1);
 	}
 	
 	public void wheelsOff() {
@@ -108,7 +108,7 @@ public class Arms extends Subsystem {
 	
 	public void wheelsSkew() {
 		leftWheel.set(1);
-		rightWheel.set(-1);
+		rightWheel.set(1);
 	}
 }
 
