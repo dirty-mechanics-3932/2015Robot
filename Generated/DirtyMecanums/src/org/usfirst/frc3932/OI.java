@@ -65,8 +65,6 @@ import org.usfirst.frc3932.commands.StashGroundTote;
 import org.usfirst.frc3932.commands.StashTote;
 import org.usfirst.frc3932.commands.SwitchCameras;
 import org.usfirst.frc3932.commands.SwitchLights;
-import org.usfirst.frc3932.commands.TabsClose;
-import org.usfirst.frc3932.commands.TabsOpen;
 import org.usfirst.frc3932.commands.ToteTabsClose;
 import org.usfirst.frc3932.commands.ToteTabsOpen;
 import org.usfirst.frc3932.commands.Teleop;
@@ -200,10 +198,6 @@ public class OI {
         SmartDashboard.putData("RaiseArmsToTabs", new RaiseArmsToTabs());
 
         SmartDashboard.putData("RaiseArmsToUnload", new RaiseArmsToUnload());
-
-        SmartDashboard.putData("TabsOpen", new TabsOpen());
-
-        SmartDashboard.putData("TabsClose", new TabsClose());
 
         SmartDashboard.putData("ResetElevatorPosition", new ResetElevatorPosition());
 
