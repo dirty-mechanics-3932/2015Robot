@@ -56,7 +56,7 @@ public class DriveSystem extends Subsystem {
     }
     
     public void drive(double x, double y, double twist){
-    	mecanumDrive.mecanumDrive_Cartesian(adjust(x), adjust(y), adjust(twist), 0);
+    	mecanumDrive.mecanumDrive_Cartesian(adjust(x)/3, adjust(y)/3, adjust(twist)/3, 0);
     }
     
     protected double adjust(double val){

@@ -110,7 +110,7 @@ public class Elevator extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
 
-    	elevatorCANTalon.setPID(1, 0, 1);
+    	elevatorCANTalon.setPID(.3, 0, .3);
     	elevatorCANTalon.set(0);
     }
     
