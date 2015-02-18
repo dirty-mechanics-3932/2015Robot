@@ -34,8 +34,6 @@ public class DriveSystem extends Subsystem {
     CANTalon leftBack = RobotMap.driveSystemLeftBack;
     CANTalon rightFront = RobotMap.driveSystemRightFront;
     RobotDrive mecanumDrive = RobotMap.driveSystemMecanumDrive;
-    DoubleSolenoid leftTransmissionDblSolenoid = RobotMap.driveSystemLeftTransmissionDblSolenoid;
-    DoubleSolenoid rightTransmissionDblSolenoid = RobotMap.driveSystemRightTransmissionDblSolenoid;
     AnalogInput leftForwardIR = RobotMap.driveSystemLeftForwardIR;
     AnalogInput rightForwardIR = RobotMap.driveSystemRightForwardIR;
     AnalogInput leftDownIR = RobotMap.driveSystemLeftDownIR;
