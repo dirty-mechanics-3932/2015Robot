@@ -23,7 +23,7 @@ Children:
             default: '2'
             name: CAN ID
             validators: &id002 [CANID]
-            value: '2'
+            value: '3'
       - Name: Right Back
         Base: CAN TalonSRX
         Children: []
@@ -33,7 +33,7 @@ Children:
             default: '2'
             name: CAN ID
             validators: *id002
-            value: '3'
+            value: '4'
       - Name: Left Back
         Base: CAN TalonSRX
         Children: []
@@ -43,7 +43,7 @@ Children:
             default: '2'
             name: CAN ID
             validators: *id002
-            value: '4'
+            value: '5'
       - Name: Right Front
         Base: CAN TalonSRX
         Children: []
@@ -53,7 +53,7 @@ Children:
             default: '2'
             name: CAN ID
             validators: *id002
-            value: '5'
+            value: '2'
       Properties:
         Sensitivity: !!robotbuilder.data.properties.DoubleProperty {default: 0.5,
           name: Sensitivity, validators: null, value: 0.5}
@@ -178,7 +178,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '8'
+          value: '9'
     - Name: RightGateCANTalon
       Base: CAN TalonSRX
       Children: []
@@ -188,7 +188,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '9'
+          value: '8'
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: None}
@@ -204,7 +204,7 @@ Children:
           default: '0'
           name: Output Channel (Relay)
           validators: &id006 [RelayOutput]
-          value: '2'
+          value: '0'
     - Name: RightToteTabsSpike
       Base: Spike
       Children: []
@@ -214,7 +214,7 @@ Children:
           default: '0'
           name: Output Channel (Relay)
           validators: *id006
-          value: '0'
+          value: '2'
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: None}
@@ -691,6 +691,22 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: Elevator}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
+  - Name: TabsOpen
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: None}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: TabsClose
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: None}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
   - Name: ResetElevatorPosition
     Base: Command
     Children: []
@@ -912,7 +928,7 @@ Children:
     Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Arms}
+        name: Requires, type: Subsystem, validators: null, value: None}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   - Name: WheelsIn
@@ -920,7 +936,7 @@ Children:
     Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Arms}
+        name: Requires, type: Subsystem, validators: null, value: None}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   - Name: WheelsSkew
@@ -928,7 +944,7 @@ Children:
     Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Arms}
+        name: Requires, type: Subsystem, validators: null, value: None}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   - Name: WheelsOut
@@ -936,7 +952,7 @@ Children:
     Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Arms}
+        name: Requires, type: Subsystem, validators: null, value: None}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   - Name: LightsOn
@@ -971,7 +987,7 @@ Properties:
     folder: false, name: Wiring File, validators: null, value: wiring.html}
   Use Default Java Package: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Use Default Java Package, validators: null, value: false}
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: /Users/gengh/workspace,
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: /Users/sussmanz/workspace,
     extension: null, folder: true, name: Eclipse Workspace, validators: null, value: Generated}
   Java Package: !!robotbuilder.data.properties.StringProperty {default: org.usfirst.frc0000,
     name: Java Package, validators: null, value: org.usfirst.frc3932}
