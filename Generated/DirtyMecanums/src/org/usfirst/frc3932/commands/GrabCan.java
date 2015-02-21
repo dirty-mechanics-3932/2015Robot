@@ -13,7 +13,7 @@ package org.usfirst.frc3932.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * Closes the arms around the can
  */
 public class GrabCan extends CommandGroup {
     

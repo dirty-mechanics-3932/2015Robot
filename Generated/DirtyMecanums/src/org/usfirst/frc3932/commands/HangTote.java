@@ -13,7 +13,12 @@ package org.usfirst.frc3932.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * Loads a tote from the floor into the magazine
+ * Opens the gate 
+ * Raises elevator to hang position
+ * Closes the gate
+ * Closes the tab
+ * Resets arems to "look for tote position"
  */
 public class HangTote extends CommandGroup {
     

@@ -13,7 +13,9 @@ package org.usfirst.frc3932.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * Opens the arms half way
+ * Waits for .3 seconds
+ * Stops the wheels (what starts the wheels?)
  */
 public class GrabTote extends CommandGroup {
     

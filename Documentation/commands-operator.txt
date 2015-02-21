@@ -1,87 +1,6 @@
-Analog stick manually controls elevator.
+********************************************************************************
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 
-ArmsClosed.java - operator G20 (possibly driver throttle access for these 3)
-ArmsHalfOpen.java - operator G21
-ArmsFullOpen.java - operator G22
-
-
-
-ToteTabsOpen.java - operator Button Left of Analog
-CanTabsOpen.java - operator Button Left of Analog
-
-CanTabsClose.java - operator Button Below of Analog
-ToteTabsClose.java - operator Button Below of Analog
-
-
-HangTote.java - operator
-GrabTote.java - operator?
-GrabRecievedTote.java - operator?
-StashFirstTote.java - operator
-StashGroundTote.java - operator
-StashTote.java - operator
-RecieveFirstTote.java - operator
-RecieveTote.java - operator
-
-SetStackOnPlatform.java - operator
-
-
-GrabCan.java - operator?
-StackCan.java - operator
-
-GatesClosed.java - operator
-GatesFullOpen.java - operator
-GatesHalfOpen.java - operator
-LockGatesAroundCan.java  - operator
-
-WheelsIn.java - operator
-WheelsOff.java - operator
-WheelsOut.java - operator
-WheelsSkew.java - operator
-
-
-
-
-
-Elevator Basics
----------------
-
-*not implemented* ResetElevatorPosition.java - operator
-
-76.125" = ElevatorToTop.java - operator
-75.125" = ElevatorToStack.java - operator
-
-41.500" = ElevatorToCan.java - operator
-
-40.375" ElevatorToHang.java - operator
-
-29.025" = RaiseArmsToTabs.java - operator, opens tote tabs first
-29.025" = ElevatorToTabs.java - operator
-
-
-24.375" = ElevatorToLowCan.java - operator
-
-16.925" = ElevatorToWeightBearing.java - operator
-
-14.875" = ElevatorToCanBottom.java - operator
-
-11.500" = ElevatorToPlatform.java - operator
-
-10.500" = TransportStack.java - operator, opens tabs last
-10.500" = ElevatorToTransport.java - operator
-
-9.500" = ElevatorToStart.java - operator
-LowerArmsToStart.java - operator
-
-3.000" ElevatorToScoring.java - operator
-LowerArmsToScoring.java - operator
-
-*not fully implemented? calls elevator to scoring only* RaiseStackToScoring.java  - operator
-
-
-*not implemented* RaiseArmsToUnload.java - operator
-
-=======================================================
-RaiseCan.java - operator
 /**
  * Grabs the can at "low can height", so about 1/4 way up, 
  * raises it up high enough for the tote tabs to grab it and have it hang
@@ -90,6 +9,106 @@ RaiseCan.java - operator
  * all the way to the top of the elevator so it can stack on top of
  * all of the totes.
  */
-========================================================
+RaiseCan.java
+
+
+
+/**
+ * Closes the arms around the can
+ */
+GrabCan.java 
+
+/**
+ * Loads a tote from the floor into the magazine
+ * Opens the gate 
+ * Raises elevator to hang position
+ * Closes the gate
+ * Closes the tab
+ * Resets arems to "look for tote position"
+ */
+HangTote.java
+
+/**
+ * Opens the arms half way
+ * Waits for .3 seconds
+ * Stops the wheels (what starts the wheels?)
+ */
+GrabTote.java
+
+GrabRecievedTote.java
+StashFirstTote.java
+StashGroundTote.java
+StashTote.java
+RecieveFirstTote.java
+RecieveTote.java
+
+SetStackOnPlatform.java 
+
+
+StackCan.java 
+
+
+LockGatesAroundCan.java
+
+
+LowerArmsToStart.java 
+LowerArmsToScoring.java
+10.500" = TransportStack.java
+29.025" = RaiseArmsToTabs.java
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+********************************************************************************
+
+Manual Manipulator Commands
+===========================
+WheelsIn.java - operator
+WheelsOff.java - operator
+WheelsOut.java - operator
+WheelsSkew.java - operator
+
+GatesClosed.java - operator
+GatesFullOpen.java - operator
+GatesHalfOpen.java - operator
+
+
+Elevator Up One Postion
+Elevator Down One Postion
+
+ArmsClosed.java
+ArmsHalfOpen.java
+ArmsFullOpen.java
+
+ToteTabsOpen.java
+CanTabsOpen.java
+
+CanTabsClose.java
+ToteTabsClose.java
+
+Elevator Positions
+==================
+Analog stick manually controls elevator.
+
+*not implemented* ResetElevatorPosition.java - operator
+
+76.125" = ElevatorToTop.java - operator
+75.125" = ElevatorToStack.java - operator
+41.500" = ElevatorToCan.java - operator
+40.375" ElevatorToHang.java - operator
+29.025" = ElevatorToTabs.java - operator
+24.375" = ElevatorToLowCan.java - operator
+16.925" = ElevatorToWeightBearing.java - operator
+14.875" = ElevatorToCanBottom.java - operator
+11.500" = ElevatorToPlatform.java - operator
+10.500" = ElevatorToTransport.java - operator
+09.500" = ElevatorToStart.java - operator
+03.000" ElevatorToScoring.java - operator
+
+
+*not fully implemented? calls elevator to scoring only* RaiseStackToScoring.java  - operator
+
+
+*not implemented* RaiseArmsToUnload.java - operator
+
+
 
 
