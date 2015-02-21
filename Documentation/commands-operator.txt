@@ -1,0 +1,95 @@
+Analog stick manually controls elevator.
+
+ArmsClosed.java - operator G20 (possibly driver throttle access for these 3)
+ArmsHalfOpen.java - operator G21
+ArmsFullOpen.java - operator G22
+
+
+
+ToteTabsOpen.java - operator Button Left of Analog
+CanTabsOpen.java - operator Button Left of Analog
+
+CanTabsClose.java - operator Button Below of Analog
+ToteTabsClose.java - operator Button Below of Analog
+
+
+HangTote.java - operator
+GrabTote.java - operator?
+GrabRecievedTote.java - operator?
+StashFirstTote.java - operator
+StashGroundTote.java - operator
+StashTote.java - operator
+RecieveFirstTote.java - operator
+RecieveTote.java - operator
+
+SetStackOnPlatform.java - operator
+
+
+GrabCan.java - operator?
+StackCan.java - operator
+
+GatesClosed.java - operator
+GatesFullOpen.java - operator
+GatesHalfOpen.java - operator
+LockGatesAroundCan.java  - operator
+
+WheelsIn.java - operator
+WheelsOff.java - operator
+WheelsOut.java - operator
+WheelsSkew.java - operator
+
+
+
+
+
+Elevator Basics
+---------------
+
+*not implemented* ResetElevatorPosition.java - operator
+
+76.125" = ElevatorToTop.java - operator
+75.125" = ElevatorToStack.java - operator
+
+41.500" = ElevatorToCan.java - operator
+
+40.375" ElevatorToHang.java - operator
+
+29.025" = RaiseArmsToTabs.java - operator, opens tote tabs first
+29.025" = ElevatorToTabs.java - operator
+
+
+24.375" = ElevatorToLowCan.java - operator
+
+16.925" = ElevatorToWeightBearing.java - operator
+
+14.875" = ElevatorToCanBottom.java - operator
+
+11.500" = ElevatorToPlatform.java - operator
+
+10.500" = TransportStack.java - operator, opens tabs last
+10.500" = ElevatorToTransport.java - operator
+
+9.500" = ElevatorToStart.java - operator
+LowerArmsToStart.java - operator
+
+3.000" ElevatorToScoring.java - operator
+LowerArmsToScoring.java - operator
+
+*not fully implemented? calls elevator to scoring only* RaiseStackToScoring.java  - operator
+
+
+*not implemented* RaiseArmsToUnload.java - operator
+
+=======================================================
+RaiseCan.java - operator
+/**
+ * Grabs the can at "low can height", so about 1/4 way up, 
+ * raises it up high enough for the tote tabs to grab it and have it hang
+ * opens the arms a bit so we can slide the arms down to the bottom of the
+ * can and grab it again (close arms fully) and then raises the can
+ * all the way to the top of the elevator so it can stack on top of
+ * all of the totes.
+ */
+========================================================
+
+

@@ -13,7 +13,12 @@ package org.usfirst.frc3932.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * Grabs the can at "low can height", so about 1/4 way up, 
+ * raises it up high enough for the tote tabs to grab it and have it hang
+ * opens the arms a bit so we can slide the arms down to the bottom of the
+ * can and grab it again (close arms fully) and then raises the can
+ * all the way to the top of the elevator so it can stack on top of
+ * all of the totes.
  */
 public class RaiseCan extends CommandGroup {
     
