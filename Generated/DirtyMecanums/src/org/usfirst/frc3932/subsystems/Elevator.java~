@@ -46,6 +46,7 @@ public class Elevator extends Subsystem {
     private static final double TRANSPORT = START + 1d; // 1" above start
     private static final double PLATFORM = START + PLATFORM_HEIGHT; // 2" above start
     private static final double SCORING = PLATFORM_HEIGHT + 1d; // 3" above start
+    private static final double CAN_STEP = START + 6d; // at start height with respect to a can on the step
     private static final double CAN_BOTTOM = LOW_TAB_HEIGHT - RecycleBin.BOTTOM_TO_LIP; // at the bottom of the can, below the low tabs
     private static final double WEIGHT_BEARING = LOW_TAB_HEIGHT - (2d * Tote.HEIGHT_INCHES); // two totes below the low tabs
     private static final double LOW_CAN = LOW_TAB_HEIGHT - RecycleBin.BOTTOM_TO_LIP + START; // can at the low tabs
@@ -60,6 +61,7 @@ public class Elevator extends Subsystem {
     	TRANSPORT(Elevator.TRANSPORT),
     	PLATFORM(Elevator.PLATFORM), 
     	SCORING(Elevator.SCORING),
+    	CAN_STEP(Elevator.CAN_STEP),
     	CAN_BOTTOM(Elevator.CAN_BOTTOM),
     	WEIGHT_BEARING(Elevator.WEIGHT_BEARING),
     	LOW_CAN(Elevator.LOW_CAN),
@@ -110,7 +112,7 @@ public class Elevator extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
 
-    	elevatorCANTalon.setPID(1, 0, 1);
+    	elevatorCANTalon.setPID(.3, 0, .3);
     	elevatorCANTalon.set(0);
     }
     

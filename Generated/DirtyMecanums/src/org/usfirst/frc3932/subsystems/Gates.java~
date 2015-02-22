@@ -45,8 +45,8 @@ public class Gates extends Subsystem {
     	rightGateCANTalon.changeControlMode(ControlMode.Position);
     	leftGateCANTalon.setPosition(0);
     	rightGateCANTalon.setPosition(0);
-    	leftGateCANTalon.setPID(50, 0.0, 0.0);
-    	rightGateCANTalon.setPID(50, 0.0, 0.0);
+    	leftGateCANTalon.setPID(-20, 0.0, 0.0);
+    	rightGateCANTalon.setPID(20, 0.0, 0.0);
     }
     
     public void setLocationByTicks(int ticks) {

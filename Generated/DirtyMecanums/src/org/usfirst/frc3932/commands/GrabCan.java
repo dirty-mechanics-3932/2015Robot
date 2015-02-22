@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class GrabCan extends CommandGroup {
     
     public  GrabCan() {
-       addSequential(new ArmsClosed());
+    	addSequential(new WheelsOff());
+    	addSequential(new ArmsClosed());
     }
 }
