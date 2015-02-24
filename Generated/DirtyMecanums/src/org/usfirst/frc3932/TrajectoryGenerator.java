@@ -4,10 +4,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class TrajectoryGenerator {
 	
-    private int destination = 0;
-    private int currentTarget = 0;
-    private boolean goingDown = false;
-    private int ticksPerUpdate = 17;
+    protected int destination = 0;
+    protected int currentTarget = 0;
+    protected boolean goingDown = false;
+    protected int ticksPerUpdate = 17;
+    public static final int REVERSE = -1;
+    public static final int FORWARD = 1;
+    public int direction = FORWARD;
     
     public TrajectoryGenerator(int setpoint, int currentPosition, int ticksPerUpdate){
     	this.setDestination(setpoint);
@@ -21,15 +24,19 @@ public class TrajectoryGenerator {
     
     public void goToDestination(int pos) {
     	this.destination = pos;
-    	if (destination > currentTarget) goingDown = true;
-    	else goingDown = false;
+    	if (destination > currentTarget) {
+    		direction = FORWARD;
+    	} else {
+    		direction = REVERSE;
+    	}
     }
     
     public void execute(Settable output) {
-    	if (currentTarget >= destination-ticksPerUpdate) {
+    	int increment = ticksPerUpdate*direction;
+		if (currentTarget >= destination-ticksPerUpdate && currentTarget <= destination+ticksPerUpdate) {
 			this.currentTarget = destination;
     	} else {
-    		this.currentTarget = currentTarget + ticksPerUpdate;
+    		this.currentTarget = currentTarget + increment;
     	}
     	output.set(getCurrentTarget());
     	SmartDashboard.putNumber("Trajectory.out", getCurrentTarget());
