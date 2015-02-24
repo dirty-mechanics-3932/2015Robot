@@ -18,6 +18,7 @@ import org.usfirst.frc3932.subsystems.Elevator;
  *
  */
 public class  ElevatorToHang extends Command {
+	
 
     public ElevatorToHang() {
         // Use requires() here to declare subsystem dependencies
@@ -36,6 +37,7 @@ public class  ElevatorToHang extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.elevator.execute();
     }
 
     // Make this return true when this Command no longer needs to run execute()
