@@ -49,7 +49,7 @@ public class RobotMap {
     public static Relay toteTabsLeftToteTabsSpike;
     public static Relay toteTabsRightToteTabsSpike;
     public static CANTalon armsArmWidthCANTalon;
-    public static AnalogPotentiometer armsArmEncoder;
+    public static AnalogInput armsArmEncoder;
     public static PIDController armsArmPIDController;
     public static SpeedController armsLeftWheel;
     public static SpeedController armsRightWheel;
@@ -88,7 +88,7 @@ public class RobotMap {
         driveSystemRightForwardIR = new AnalogInput(1);
         LiveWindow.addSensor("DriveSystem", "RightForwardIR", driveSystemRightForwardIR);
         
-        driveSystemLeftDownIR = new AnalogInput(2);
+        driveSystemLeftDownIR = new AnalogInput(7);
         LiveWindow.addSensor("DriveSystem", "LeftDownIR", driveSystemLeftDownIR);
         
         driveSystemRightDownIR = new AnalogInput(3);
@@ -115,12 +115,12 @@ public class RobotMap {
         armsArmWidthCANTalon = new CANTalon(6);
         
         
-        armsArmEncoder = new AnalogPotentiometer(4, 120.0, -60.0);
+        armsArmEncoder = new AnalogInput(2);
         LiveWindow.addSensor("Arms", "ArmEncoder", armsArmEncoder);
         
         armsArmPIDController = new PIDController(40.0, 0.0, 0.0, 0.0, armsArmEncoder, armsArmWidthCANTalon, 0.02);
         LiveWindow.addActuator("Arms", "ArmPIDController", armsArmPIDController);
-        armsArmPIDController.setContinuous(false); armsArmPIDController.setAbsoluteTolerance(0.2); 
+        armsArmPIDController.setContinuous(true); armsArmPIDController.setAbsoluteTolerance(0.2); 
         armsArmPIDController.setOutputRange(-1.0, 1.0);        
 
         armsLeftWheel = new VictorSP(1);

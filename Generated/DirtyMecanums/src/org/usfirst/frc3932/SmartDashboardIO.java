@@ -47,6 +47,10 @@ public class SmartDashboardIO {
     	SmartDashboard.putNumber(label("Elevator", "Encoder"), RobotMap.elevatorElevatorCANTalon.getEncPosition());
     	SmartDashboard.putNumber(label("Elevator", "Setpoint"), RobotMap.elevatorElevatorCANTalon.getSetpoint());
     	SmartDashboard.putNumber(label("Elevator", "Output"), RobotMap.elevatorElevatorCANTalon.getOutputCurrent());
+    	SmartDashboard.putNumber(label("Arm", "Encoder"), RobotMap.armsArmEncoder.getAverageVoltage());
+    	SmartDashboard.putNumber(label("Arm", "Setpoint"), RobotMap.armsArmPIDController.getSetpoint());
+    	SmartDashboard.putNumber(label("Arm", "Output"), RobotMap.armsArmPIDController.get());
+    	
     	
 	}
 	
