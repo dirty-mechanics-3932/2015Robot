@@ -42,6 +42,8 @@ public class SmartDashboardIO {
     	
     	SmartDashboard.putNumber(label("LeftGate", "Encoder"), RobotMap.gatesLeftGateCANTalon.get());
     	SmartDashboard.putNumber(label("RightGate", "Encoder"), RobotMap.gatesRightGateCANTalon.get());
+    	SmartDashboard.putNumber(label("LeftGate", "Setpoint"), RobotMap.gatesLeftGateCANTalon.getSetpoint());
+    	SmartDashboard.putNumber(label("RightGate", "Setpoint"), RobotMap.gatesRightGateCANTalon.getSetpoint());
     	SmartDashboard.putNumber(label("Elevator", "Encoder"), RobotMap.elevatorElevatorCANTalon.getEncPosition());
     	SmartDashboard.putNumber(label("Elevator", "Setpoint"), RobotMap.elevatorElevatorCANTalon.getSetpoint());
     	SmartDashboard.putNumber(label("Elevator", "Output"), RobotMap.elevatorElevatorCANTalon.getOutputCurrent());

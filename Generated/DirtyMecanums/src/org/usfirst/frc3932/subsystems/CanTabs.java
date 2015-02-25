@@ -41,11 +41,11 @@ public class CanTabs extends Subsystem {
     }
     
     public void canTabsOpen(){
-    	canTabsSpike.set(Relay.Value.kReverse);
+    	canTabsSpike.set(Relay.Value.kForward);
     }
     
     public void canTabsClose(){
-    	canTabsSpike.set(Relay.Value.kForward);
+    	canTabsSpike.set(Relay.Value.kReverse);
     }
     
     public void canTabsOff(){

@@ -185,7 +185,7 @@ public class Elevator extends Subsystem implements Settable{
     }
     
     public double getHeight() {
-    	return elevatorCANTalon.get() / TICKS_PER_INCH;
+    	return elevatorCANTalon.get() / TICKS_PER_INCH + 9.5;
     }
     
     public boolean isFinished(){

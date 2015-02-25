@@ -101,9 +101,10 @@ public class RobotMap {
         
         
         gatesLeftGateCANTalon = new CANTalon(9);
-        
+        gatesLeftGateCANTalon.reverseOutput(true);
         
         gatesRightGateCANTalon = new CANTalon(8);
+        gatesRightGateCANTalon.reverseOutput(true);
         
         
         toteTabsLeftToteTabsSpike = new Relay(0);

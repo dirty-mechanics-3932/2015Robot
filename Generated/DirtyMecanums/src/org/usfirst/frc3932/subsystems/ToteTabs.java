@@ -43,13 +43,13 @@ public class ToteTabs extends Subsystem {
     }
     
     public void toteTabsOpen(){
-    	leftToteTabsSpike.set(Relay.Value.kReverse);
-    	rightToteTabsSpike.set(Relay.Value.kReverse);
+    	leftToteTabsSpike.set(Relay.Value.kForward);
+    	rightToteTabsSpike.set(Relay.Value.kForward);
     }
     
     public void toteTabsClose(){
-    	leftToteTabsSpike.set(Relay.Value.kForward);
-    	rightToteTabsSpike.set(Relay.Value.kForward);
+    	leftToteTabsSpike.set(Relay.Value.kReverse);
+    	rightToteTabsSpike.set(Relay.Value.kReverse);
     }
     
     public void toteTabsOff(){
