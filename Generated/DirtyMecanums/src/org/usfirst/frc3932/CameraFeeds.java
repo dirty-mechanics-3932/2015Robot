@@ -55,10 +55,12 @@ public class CameraFeeds
 	 */
 	public void changeCam(int newId)
     {
-		NIVision.IMAQdxStopAcquisition(curCam);
-    	NIVision.IMAQdxConfigureGrab(newId);
-    	NIVision.IMAQdxStartAcquisition(newId);
-    	curCam = newId;
+		if (isRearCamera != (newId == camRear)){
+			NIVision.IMAQdxStopAcquisition(curCam);
+	    	NIVision.IMAQdxConfigureGrab(newId);
+	    	NIVision.IMAQdxStartAcquisition(newId);
+	    	curCam = newId;
+		}
     }
     
 	/**
