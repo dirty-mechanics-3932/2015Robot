@@ -33,6 +33,7 @@ import org.usfirst.frc3932.commands.ElevatorToPlatform;
 import org.usfirst.frc3932.commands.ElevatorToScoring;
 import org.usfirst.frc3932.commands.ElevatorToStack;
 import org.usfirst.frc3932.commands.ElevatorToStart;
+import org.usfirst.frc3932.commands.ElevatorToStep;
 import org.usfirst.frc3932.commands.ElevatorToTabs;
 import org.usfirst.frc3932.commands.ElevatorToTop;
 import org.usfirst.frc3932.commands.ElevatorToTransport;
@@ -244,6 +245,8 @@ public class OI {
 
         SmartDashboard.putData("ElevatorToScoring", new ElevatorToScoring());
 
+        SmartDashboard.putData("ElevatorToStep", new ElevatorToStep());
+
         SmartDashboard.putData("ElevatorToCanStep", new ElevatorToCanStep());
 
         SmartDashboard.putData("ElevatorToCanBottom", new ElevatorToCanBottom());
@@ -325,6 +328,10 @@ public class OI {
         SmartDashboard.putData("LightsOff", new LightsOff());
 
         SmartDashboard.putData("SwitchLights", new SwitchLights());
+
+        SmartDashboard.putData("ElevatorManualControl", new ElevatorManualControl());
+
+        SmartDashboard.putData("ClearAll", new ClearAll());
 
         SmartDashboard.putData("ToteTabsOpen", new ToteTabsOpen());
 

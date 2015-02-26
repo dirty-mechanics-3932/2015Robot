@@ -34,7 +34,7 @@ public class Arms extends Subsystem implements Settable{
 	
 	public static final double GRAB = 3.0; // unknown
 	public static final double START = GRAB - 30*VOLTS_PER_DEGREE;
-	public static final double BACKOUT = GRAB + 5*VOLTS_PER_DEGREE;
+	public static final double BACKOUT = GRAB + 5000*VOLTS_PER_DEGREE;
 	public static final double WIDE = GRAB + 5*VOLTS_PER_DEGREE;
 	public static final double VOLTS_PER_UPDATE = 0.02;
 
@@ -60,8 +60,10 @@ public class Arms extends Subsystem implements Settable{
     	armWidthCANTalon.setPID(50d, 0d, 0d);
     	generator.setDestination((int)GRAB*1000);
     	generator.setCurrentTarget((int)GRAB*1000);
-    	generator.setTicksPerUpdate((int)VOLTS_PER_UPDATE*1000);
+    	generator.setTicksPerUpdate((int)(VOLTS_PER_UPDATE*1000));
     
+    	armPIDController.setSetpoint(GRAB);
+    	armPIDController.enable();
 	
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
@@ -97,6 +99,7 @@ public class Arms extends Subsystem implements Settable{
     
     public void set(int setpoint){
     	armPIDController.setSetpoint(setpoint/1000.0);
+    	
     }
 
     public void execute(){
