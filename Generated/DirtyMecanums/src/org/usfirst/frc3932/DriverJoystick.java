@@ -25,7 +25,6 @@ public class DriverJoystick extends Joystick{
 	JoystickButton button5;
 	JoystickButton button6;
 	JoystickButton hatUp;
-	JoystickButton hatDown;
 	JoystickButton toggle;
 	
 	public DriverJoystick(int port) {
@@ -38,7 +37,6 @@ public class DriverJoystick extends Joystick{
 		button5 = new JoystickButton(this, 5);
 		button6 = new JoystickButton(this, 6);
 		hatUp = new JoystickButton(this,7);// id number to be verified
-		hatDown = new JoystickButton(this,9);// id number to be verified
 		toggle = new JoystickButton(this, 8); // id number to be verified
 		
 		button1.whenPressed(new SwitchLights());
@@ -47,14 +45,14 @@ public class DriverJoystick extends Joystick{
 		button4.whenPressed(new LookForFirstTote());
 		button5.whenPressed(new CrabLeftOverTote());
 		button6.whenPressed(new LookForTote());
-		hatDown.whenPressed(new SwitchCameras());
+		hatUp.whenPressed(new SwitchCameras());
 		toggle.whenPressed(new LightsOn());
 		toggle.whenReleased(new LightsOff());
 		moveForward();
 	}
 	
 	private void moveForward(){
-		hatUp.whileHeld(new LeftSideMoveForward());
-		hatUp.whileHeld(new RightSideMoveForward());
+		toggle.whileHeld(new LeftSideMoveForward());
+		toggle.whileHeld(new RightSideMoveForward());
 	}
 }
