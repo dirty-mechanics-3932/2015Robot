@@ -25,8 +25,11 @@ public class HangTote extends CommandGroup {
     public  HangTote() {
         addParallel(new GatesFullOpen());
         addSequential(new ElevatorToHang());
+        addSequential(new WaitFor(0.25));
+        addParallel(new DisableToteTabSafety());
         addParallel(new GatesClosed());
         addSequential(new ToteTabsClose());
         addSequential(new LookForTote());
+        addSequential(new EnableToteTabSafety());
     }
 }

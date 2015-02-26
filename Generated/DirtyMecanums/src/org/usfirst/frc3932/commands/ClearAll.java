@@ -12,6 +12,8 @@
 package org.usfirst.frc3932.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Scheduler;
+
 import org.usfirst.frc3932.Robot;
 
 /**
@@ -30,6 +32,7 @@ public class  ClearAll extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Scheduler.getInstance().removeAll();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -38,7 +41,7 @@ public class  ClearAll extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

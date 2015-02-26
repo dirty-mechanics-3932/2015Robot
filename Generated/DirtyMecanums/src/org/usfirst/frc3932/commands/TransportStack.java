@@ -18,6 +18,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class TransportStack extends CommandGroup {
     
     public  TransportStack() {
+    	addSequential(new ArmsClosed());
+    	addSequential(new WheelsOff());
         addSequential(new ElevatorToTransport());
         addSequential(new ToteTabsOpen());
     }

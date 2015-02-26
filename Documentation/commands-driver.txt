@@ -3,8 +3,6 @@ CrabLeftOverCan.java - driver (button 3)
 CrabLeftOverTote.java - driver (button 5)
 *LeftSideMoveForward.java* - driver, see switch lights
 *RightSideMoveForward.java* - driver, see switch lights
-LightsOff.java - driver (below button 1, toggle)
-LightsOn.java - driver (below button 1, toggle)
 LookForFirstTote.java - auto/driver, open gates, elevator low, arms open, wheels turning in (button 4)
 LookForTote.java - auto/driver, same as LookForFirst but doesn't open gates (button 6)
 SwitchCameras.java - driver (hat up / down)

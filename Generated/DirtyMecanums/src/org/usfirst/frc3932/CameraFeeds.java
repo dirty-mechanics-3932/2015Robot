@@ -10,8 +10,8 @@ public class CameraFeeds
 	public static final String camNameRear = "cam0";
 	public static final int imageQuality = 60;
 	
-	private final int camRear;
-	private final int camFront;
+	public final int camRear;
+	public final int camFront;
 	private int curCam;
 	private Image frame;
 	private CameraServer server;
@@ -80,4 +80,6 @@ public class CameraFeeds
     		changeCam(camRear);
     	}
     }
+    
+    
 }

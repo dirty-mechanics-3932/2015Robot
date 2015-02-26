@@ -165,7 +165,7 @@ Children:
           value: '7'
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Default Command, type: Command, validators: null, value: None}
+        name: Default Command, type: Command, validators: null, value: ElevatorManualControl}
   - Name: Gates
     Base: Subsystem
     Children:
@@ -434,7 +434,7 @@ Children:
   - Name: ButtonsTo13
     Base: Joystick
     Children:
-    - Name: G1
+    - Name: G1LockCan
       Base: Joystick Button
       Children: []
       Properties:
@@ -458,7 +458,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G2
+    - Name: G2RecieveFirstT
       Base: Joystick Button
       Children: []
       Properties:
@@ -482,7 +482,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G3
+    - Name: G3GrabRdT
       Base: Joystick Button
       Children: []
       Properties:
@@ -506,7 +506,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G4
+    - Name: G4StashFirstT
       Base: Joystick Button
       Children: []
       Properties:
@@ -530,7 +530,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G5
+    - Name: G5RecieveT
       Base: Joystick Button
       Children: []
       Properties:
@@ -554,7 +554,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G6
+    - Name: G6StashT
       Base: Joystick Button
       Children: []
       Properties:
@@ -578,7 +578,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G7
+    - Name: G7TransportStack
       Base: Joystick Button
       Children: []
       Properties:
@@ -602,7 +602,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G8
+    - Name: G8LookFor
       Base: Joystick Button
       Children: []
       Properties:
@@ -626,7 +626,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G9
+    - Name: G9GrabT
       Base: Joystick Button
       Children: []
       Properties:
@@ -650,7 +650,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G10
+    - Name: G10HangT
       Base: Joystick Button
       Children: []
       Properties:
@@ -674,7 +674,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G11
+    - Name: G11StashGroundT
       Base: Joystick Button
       Children: []
       Properties:
@@ -698,7 +698,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G13
+    - Name: G13RaiseStack
       Base: Joystick Button
       Children: []
       Properties:
@@ -732,7 +732,7 @@ Children:
   - Name: ButtonsTo24
     Base: Joystick
     Children:
-    - Name: G14
+    - Name: G14SetStack
       Base: Joystick Button
       Children: []
       Properties:
@@ -756,7 +756,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G15
+    - Name: G15GrabCan
       Base: Joystick Button
       Children: []
       Properties:
@@ -780,7 +780,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G16
+    - Name: G16GetFromStep
       Base: Joystick Button
       Children: []
       Properties:
@@ -804,7 +804,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G17
+    - Name: G17RaiseCan
       Base: Joystick Button
       Children: []
       Properties:
@@ -828,7 +828,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G18
+    - Name: G18StackCan
       Base: Joystick Button
       Children: []
       Properties:
@@ -852,7 +852,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: Thumb23
+    - Name: Thumb23GatesOpen
       Base: Joystick Button
       Children: []
       Properties:
@@ -876,7 +876,7 @@ Children:
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: Thumb24
+    - Name: Thumb24GatesClose
       Base: Joystick Button
       Children: []
       Properties:
@@ -1088,7 +1088,7 @@ Children:
     Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: None}
+        name: Requires, type: Subsystem, validators: null, value: Elevator}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   - Name: ElevatorToCanStep
@@ -1457,6 +1457,22 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: None}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
+  - Name: ElevatorManualControl
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Elevator}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: ClearAll
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: None}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
   - Name: ToteTabsOpen
     Base: Command
     Children: []
@@ -1471,6 +1487,38 @@ Children:
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: None}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: DisableToteTabSafety
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: ToteTabs}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: EnableToteTabSafety
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: ToteTabs}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: DisAbleCanTabSafety
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: CanTabs}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: EnableCanTabSafety
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: CanTabs}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   Properties: {}

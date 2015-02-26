@@ -135,6 +135,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
     	smartDashboardIO.execute();
         Scheduler.getInstance().run();
+        oi.execute();
         try{cameras.run();} catch(Exception e){}
     }
 
@@ -149,5 +150,19 @@ public class Robot extends IterativeRobot {
     public static void switchCameras() {
     	try{cameras.switchCams();}
     	catch(Exception e){}
+    }
+    
+    public static void frontCamera(){
+    	try {
+    		cameras.changeCam(cameras.camFront);
+    	}
+    	catch (Exception e){}
+    }
+    
+    public static void rearCamera(){
+    	try {
+    		cameras.changeCam(cameras.camRear);
+    	}
+    	catch (Exception e){}
     }
 }
