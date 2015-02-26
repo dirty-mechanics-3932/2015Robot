@@ -1,0 +1,17 @@
+At the competition in Fort Lauderdale when thy flashed the router we had issues connecting tethered.  We were able to connect to the router on 10.39.32.1 with our IP as …5 or 6, but couldn't ping the rio.
+
+Solution:
+Ping the rio by host name…
+
+Adam-Gresh-MBP:2015Robot agresh$ ping roborio-3932.local
+PING roborio-3932.local (169.254.122.227): 56 data bytes
+64 bytes from 169.254.122.227: icmp_seq=0 ttl=64 time=0.769 ms
+64 bytes from 169.254.122.227: icmp_seq=1 ttl=64 time=0.390 ms
+64 bytes from 169.254.122.227: icmp_seq=2 ttl=64 time=0.364 ms
+64 bytes from 169.254.122.227: icmp_seq=3 ttl=64 time=0.447 ms
+64 bytes from 169.254.122.227: icmp_seq=4 ttl=64 time=0.373 ms
+64 bytes from 169.254.122.227: icmp_seq=5 ttl=64 time=0.385 ms
+
+…which gives you the IP of the rio.  You can then configure a fixed IP in the same range, e.g. 169.254.122.226.  After that you can drop code to the rio.
+
+Do the same thing for the driver station.
