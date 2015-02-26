@@ -124,7 +124,7 @@ Children:
           default: '0'
           name: Input Channel (Analog)
           validators: *id004
-          value: '2'
+          value: '7'
     - Name: RightDownIR
       Base: Analog Input
       Children: []
@@ -235,19 +235,15 @@ Children:
             validators: *id002
             value: '6'
       - Name: ArmEncoder
-        Base: Analog Potentiometer
+        Base: Analog Input
         Children: []
         Properties:
-          Offset: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Offset,
-            validators: null, value: -60.0}
           Input Channel (Analog): !!robotbuilder.data.properties.ChoicesProperty
-            choices: ['0', '1', '2', '3', '4', '5', '6', '7']
+            choices: *id003
             default: '0'
             name: Input Channel (Analog)
-            validators: [AnalogInput]
-            value: '4'
-          Full Range: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Full Range,
-            validators: null, value: 120.0}
+            validators: *id004
+            value: '2'
       Properties:
         D: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: D, validators: null,
           value: 0.0}
@@ -266,7 +262,7 @@ Children:
         Tolerance: !!robotbuilder.data.properties.DoubleProperty {default: 0.2, name: Tolerance,
           validators: null, value: 0.2}
         Continuous: !!robotbuilder.data.properties.BooleanProperty {default: false,
-          name: Continuous, validators: null, value: false}
+          name: Continuous, validators: null, value: true}
         Maximum Output: !!robotbuilder.data.properties.DoubleProperty {default: 1,
           name: Maximum Output, validators: null, value: 1.0}
         Limit Input: !!robotbuilder.data.properties.BooleanProperty {default: false,
