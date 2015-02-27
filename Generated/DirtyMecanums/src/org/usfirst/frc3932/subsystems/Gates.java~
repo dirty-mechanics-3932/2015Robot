@@ -70,13 +70,13 @@ public class Gates extends Subsystem implements Settable{
     }
     public void gatesClosed()
     {
-    	setLocationByTicks((int) (AM2816A_ENCODER_TICKS_PER_REVOLUTION/2));
+    	setLocationByTicks((int) (TICKS_PER_DEGREE*180.0));
     	areOpen = false;
     }
 
     public void gatesHalfOpen()
     {
-    	setLocationByTicks(AM2816A_ENCODER_TICKS_PER_REVOLUTION/4);
+    	setLocationByTicks((int) (TICKS_PER_DEGREE*92.5));
     	areOpen = true;
     }
 

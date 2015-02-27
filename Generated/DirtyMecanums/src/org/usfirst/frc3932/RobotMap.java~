@@ -120,7 +120,8 @@ public class RobotMap {
         
         armsArmPIDController = new PIDController(-0.5, 0.0, 0.0, 0.0, armsArmEncoder, armsArmWidthCANTalon, 0.02);
         LiveWindow.addActuator("Arms", "ArmPIDController", armsArmPIDController);
-        armsArmPIDController.setContinuous(true); armsArmPIDController.setAbsoluteTolerance(0.2); 
+        armsArmPIDController.setContinuous(false); armsArmPIDController.setAbsoluteTolerance(0.2); 
+        armsArmPIDController.setInputRange(2.0, 4.3);
         armsArmPIDController.setOutputRange(-1.0, 1.0);        
 
         armsLeftWheel = new VictorSP(1);

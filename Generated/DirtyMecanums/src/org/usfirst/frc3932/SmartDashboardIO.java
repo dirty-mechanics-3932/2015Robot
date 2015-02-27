@@ -19,8 +19,8 @@ public class SmartDashboardIO {
 	public static final String LEFT_DRIVE_TALON = "LeftDriveTalon";
 	public static final String RIGHT_DRIVE_TALON = "RightDriveTalon";
 	public static final String DRIVE = "DriveSystem";
-	public static final String DRIVE_LEFT_DOWN_IR = DRIVE + "LeftDownIR";
-	public static final String DRIVE_RIGHT_DOWN_IR = DRIVE + "RightDownIR";
+	public static final String DRIVE_LEFT_DOWN_IR = label(DRIVE,"LeftDownIR");
+	public static final String DRIVE_RIGHT_DOWN_IR = label(DRIVE,"RightDownIR");
 	public static final String CURRENT = "Current";
 	public static final String POSITION = "Position";
 	public static final String SPEED = "Speed";
@@ -36,6 +36,10 @@ public class SmartDashboardIO {
     	putBoolean(label(DRIVE, "CrabLeftDone"), Robot.driveSystem.isCrabLeftDone());
     	putNumber(label(DRIVE_LEFT_DOWN_IR, "AvgVolts"), RobotMap.driveSystemLeftDownIR.getAverageVoltage());
     	putNumber(label(DRIVE_RIGHT_DOWN_IR, "AvgVolts"), RobotMap.driveSystemRightDownIR.getAverageVoltage());
+    	putNumber(label(DRIVE, "LF_IR_Volts"), RobotMap.driveSystemLeftForwardIR.getAverageVoltage());
+    	putNumber(label(DRIVE, "RF_IR_Volts"), RobotMap.driveSystemRightForwardIR.getAverageVoltage());
+
+    	
     	
     	//ELEVATOR
     	enumerateElevatorPositions(df);
@@ -89,7 +93,7 @@ public class SmartDashboardIO {
 		SmartDashboard.putNumber(key, value);
 	}
 	
-	public String label(String component, String measure) {
+	public static String label(String component, String measure) {
 		return component + DELIM + measure;
 	}
 
