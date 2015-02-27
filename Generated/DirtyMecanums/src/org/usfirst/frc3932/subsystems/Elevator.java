@@ -28,7 +28,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Elevator extends Subsystem implements Settable {
 
-	private static final double PID_P = 2d;
+	private static final double PID_P = 4d;
 	private static final double PID_I = 0.007d; // .2
 
 	private static final int TICKS_PER_UPDATE = 76;

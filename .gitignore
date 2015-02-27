@@ -18,3 +18,7 @@ Generated/DirtyMecanums/src/org/usfirst/frc3932/OI.java~
 *.java~
 
 *.java~
+
+Generated/DirtyMecanums/build/jars/NetworkTables.jar
+
+Generated/DirtyMecanums/build/jars/WPILib.jar
