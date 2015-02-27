@@ -22,9 +22,10 @@ import org.usfirst.frc3932.Robot;
  */
 public class  AutonomousCommand extends Command {
 
+	private static final int AUTO_EXEC_TIME = 10;
 	Timer timer = null;
 	Command currentCommand = null;
-	boolean interrupted = false;
+	boolean emergencyExit = false;
 	
     public AutonomousCommand() {
         // Use requires() here to declare subsystem dependencies
@@ -45,18 +46,30 @@ public class  AutonomousCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (timer.hasPeriodPassed(14.5) || timer.hasPeriodPassed(1.5) && interrupted){
-    		currentCommand.cancel();
-    		currentCommand = new AutonomousSetDown();
-    		currentCommand.start();
+    	if (isTimeToPutDownAndBackAway()){
+    		putDownAndBackAway();
     	}
-    	else if (timer.hasPeriodPassed(13)){
-    		currentCommand.cancel();
-    		currentCommand = new AutoMoveBackwards();
-    		currentCommand.start();
-    		interrupted = true;
+    	else if (timer.hasPeriodPassed(AUTO_EXEC_TIME)){
+    		autoEmergencyExit();
     	}
     }
+
+	private void autoEmergencyExit() {
+		currentCommand.cancel();
+		currentCommand = new AutoMoveBackwards();
+		currentCommand.start();
+		emergencyExit = true;
+	}
+
+	private void putDownAndBackAway() {
+		currentCommand.cancel();
+		currentCommand = new AutonomousSetDown();
+		currentCommand.start();
+	}
+
+	private boolean isTimeToPutDownAndBackAway() {
+		return timer.hasPeriodPassed(14.5) || (emergencyExit && timer.hasPeriodPassed(1.5));
+	}
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

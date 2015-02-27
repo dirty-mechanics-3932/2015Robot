@@ -31,6 +31,7 @@ public class  AutoMoveBackwards extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	setTimeout(6);
     	Robot.driveSystem.drive(0, -.5, 0);
     }
 
