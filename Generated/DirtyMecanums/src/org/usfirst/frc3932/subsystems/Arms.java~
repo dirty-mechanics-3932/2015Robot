@@ -147,5 +147,9 @@ public class Arms extends Subsystem implements Settable{
 	public void armsCloseManual(){
 		armWidthCANTalon.set(JOYSTICK_SCALE);
 	}
+	
+	public void armsOff(){
+		armWidthCANTalon.set(0);
+	}
 }
 

@@ -98,8 +98,8 @@ public class Gates extends Subsystem implements Settable{
 	}
 	
 	public void set(int setpoint){
-		leftGateCANTalon.set(setpoint);
-		rightGateCANTalon.set(-setpoint);
+		leftGateCANTalon.set(-setpoint);
+		rightGateCANTalon.set(setpoint);
 	}
 }
 

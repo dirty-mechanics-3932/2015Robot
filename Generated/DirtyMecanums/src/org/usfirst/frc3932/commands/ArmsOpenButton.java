@@ -31,6 +31,7 @@ public class  ArmsOpenButton extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.arms.armsOpenManual();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -40,7 +41,8 @@ public class  ArmsOpenButton extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return !Robot.oi.g7ArmsOpen.get();
+//        return !Robot.oi.g14ArmsClose.get();
+    	return false;
     }
 
     // Called once after isFinished returns true
@@ -53,4 +55,5 @@ public class  ArmsOpenButton extends Command {
     protected void interrupted() {
     	Robot.arms.armsOff();
     }
+
 }
