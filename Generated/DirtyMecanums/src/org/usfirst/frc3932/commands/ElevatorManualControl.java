@@ -18,6 +18,9 @@ import org.usfirst.frc3932.Robot;
  *
  */
 public class  ElevatorManualControl extends Command {
+	
+	private static double JOYSTICK_SCALE = 76;
+
 
     public ElevatorManualControl() {
         // Use requires() here to declare subsystem dependencies
@@ -35,7 +38,7 @@ public class  ElevatorManualControl extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.elevator.move(Robot.oi.getLogitechJoy().getY());
+    	Robot.elevator.move(filterValue(Robot.oi.getLogitechJoy().getY()));
     	Robot.elevator.execute();
     }
 
@@ -52,4 +55,21 @@ public class  ElevatorManualControl extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
+    
+    protected double getJoystickValue() {
+    	return filterValue(Robot.oi.getLogitechJoy().getY());
+    }
+
+	private double filterValue(double x) {
+		// TODO Auto-generated method stub
+		if (x < -0.25) {
+			return (x+0.25) * JOYSTICK_SCALE;
+		}
+		else if (x > 0.25) {
+			return (x-0.25) * JOYSTICK_SCALE;
+		}
+		else {
+			return 0;
+		}
+	}
 }
