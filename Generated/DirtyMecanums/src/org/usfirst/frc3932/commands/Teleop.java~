@@ -21,7 +21,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class  Teleop extends Command {
 
-    public Teleop() {
+	public Teleop() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 
@@ -40,20 +40,7 @@ public class  Teleop extends Command {
     	Joystick joystick = Robot.oi.getDriverJoy1();
     	Robot.driveSystem.drive(joystick.getX(), joystick.getY(), joystick.getRawAxis(3));
     	
-    	if (!Robot.gates.gatesOpen() && Robot.elevator.getHeight() < 46.125 && Robot.elevator.getHeight() > 38.125 && !Robot.toteTabs.isDisableSafety()) {
-    		
-    		Robot.toteTabs.toteTabsOpen();
-    	}
-    	else {
-    		Robot.toteTabs.toteTabsOff();
-    	}
     	
-    	if (!Robot.gates.gatesOpen() && Robot.elevator.getHeight() < 63.25 && Robot.elevator.getHeight() > 55.25 && !Robot.canTabs.isDisableSafety()) {
-    		Robot.canTabs.canTabsOpen();
-    	}
-    	else {
-    		Robot.canTabs.canTabsOff();
-    	}
     	
     	
     }

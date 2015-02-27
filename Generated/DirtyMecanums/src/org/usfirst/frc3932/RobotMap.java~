@@ -118,7 +118,7 @@ public class RobotMap {
         armsArmEncoder = new AnalogInput(2);
         LiveWindow.addSensor("Arms", "ArmEncoder", armsArmEncoder);
         
-        armsArmPIDController = new PIDController(40.0, 0.0, 0.0, 0.0, armsArmEncoder, armsArmWidthCANTalon, 0.02);
+        armsArmPIDController = new PIDController(-0.5, 0.0, 0.0, 0.0, armsArmEncoder, armsArmWidthCANTalon, 0.02);
         LiveWindow.addActuator("Arms", "ArmPIDController", armsArmPIDController);
         armsArmPIDController.setContinuous(true); armsArmPIDController.setAbsoluteTolerance(0.2); 
         armsArmPIDController.setOutputRange(-1.0, 1.0);        

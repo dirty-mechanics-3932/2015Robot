@@ -13,8 +13,8 @@ package org.usfirst.frc3932.subsystems;
 
 import org.usfirst.frc3932.RobotMap;
 import org.usfirst.frc3932.commands.*;
-import edu.wpi.first.wpilibj.*;
 
+import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
@@ -60,6 +60,10 @@ public class CanTabs extends Subsystem {
 
 	public void setDisableSafety(boolean isDisableSafety) {
 		this.isDisableSafety = isDisableSafety;
+	}
+	
+	public Relay.Value getState() {
+		return canTabsSpike.get();
 	}
 }
 

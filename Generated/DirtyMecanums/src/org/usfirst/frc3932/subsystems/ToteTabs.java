@@ -65,6 +65,15 @@ public class ToteTabs extends Subsystem {
 	public void setDisableSafety(boolean disableSafety) {
 		this.disableSafety = disableSafety;
 	}
+	
+	public Relay.Value getLeftSpike() {
+		return leftToteTabsSpike.get();
+	}
+	
+	public Relay.Value getRightSpike() {
+		return rightToteTabsSpike.get();
+	}
+
 
 	
     

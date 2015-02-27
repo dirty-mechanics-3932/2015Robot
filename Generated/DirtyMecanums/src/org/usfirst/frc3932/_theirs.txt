@@ -1,0 +1,73 @@
+
+public class CK_17 extends IterativeRobot {
+
+    SendableChooser autoChooser;
+    Command autonomousCommand, arcadeDriveCommand, initialShiftCommand,
+            testLauncherCommand, rollerControlCommand, initialRetractCommand,
+            fireAutomatedCommand, trussAutomatedCommand, lightPassAutomated,
+            launcherOverride;
+    
+
+    public void robotInit() {
+        autoChooser = new SendableChooser();
+        autoChooser.addObject("Simple Drive", new SimpleDrive());
+        autoChooser.addObject("Simple Drive Then Shot", new SimpleDriveThenShot());
+        autoChooser.addDefault("Drive Then Hot Shot", new DriveThenHotShot());
+        autoChooser.addObject("Do Nothing", new DoNothing());
+        SmartDashboard.putData("Choose an autonomous mode", autoChooser);
+        
+    }
+
+    public void autonomousInit() {
+        // Reset hot goal counts
+        autonomousCommand = (Command)autoChooser.getSelected();
+        autonomousCommand.start(); // schedule the autonomous command
+        initialRetractCommand.start();
+    }
+
+   
+    
+    public void teleopInit() {
+        // Try catch just in case auton isn't set yet
+        try {
+            autonomousCommand.cancel(); // Make sure auton is finished
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        
+        RobotMap.compressor.start(); // Start compressor
+        initialShiftCommand.start();
+        arcadeDriveCommand.start(); // Start teleop arcade drive
+        rollerControlCommand.start();
+        initialRetractCommand.start();
+        
+//        CommandBase.launcher.HIGH_GOAL_RAISE_POWER = (float) SmartDashboard.getNumber("RAISE_POWER");
+    }
+
+    /**
+     * This function is called periodically during operator control
+     */
+    public void teleopPeriodic() {
+        Scheduler.getInstance().run();
+//        SmartDashboard.putNumber("ENC", CommandBase.drive.getAvgRevs());
+    }
+
+    
+    public void disabledInit() {
+        // Stop counting
+        server.stopSamplingCounts();
+        
+        Scheduler.getInstance().removeAll(); // Stop all commands
+        RobotMap.compressor.stop(); // Stop compressor
+    }
+
+    public void testInit() {
+//        RobotMap.compressor.start();  // Start compressor
+    }
+    /**
+     * This function is called periodically during test mode
+     */
+    public void testPeriodic() {
+        LiveWindow.run();
+    }
+}

@@ -12,16 +12,14 @@
 package org.usfirst.frc3932.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc3932.Robot;
-import org.usfirst.frc3932.subsystems.Arms;
 
 /**
  *
  */
-public class  ArmManualControl extends Command {
-	
-	public ArmManualControl() {
+public class  ArmsCloseButton extends Command {
+
+    public ArmsCloseButton() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 
@@ -37,37 +35,22 @@ public class  ArmManualControl extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.arms.manualDrive(getJoystickValue());
+    	Robot.arms.armsCloseManual();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return !Robot.oi.g14ArmsClose.get();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.arms.armsOff();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.arms.armsOff();
     }
-    
-    protected double getJoystickValue() {
-    	return filterValue(Robot.oi.getLogitechJoy().getX());
-    }
-
-	private double filterValue(double x) {
-		// TODO Auto-generated method stub
-		if (x < -0.25) {
-			return (x+0.25) * Arms.JOYSTICK_SCALE;
-		}
-		else if (x > 0.25) {
-			return (x-0.25) * Arms.JOYSTICK_SCALE;
-		}
-		else {
-			return 0;
-		}
-	}
 }
