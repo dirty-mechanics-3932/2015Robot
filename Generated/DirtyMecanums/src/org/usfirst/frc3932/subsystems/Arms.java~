@@ -32,10 +32,10 @@ public class Arms extends Subsystem implements Settable{
 	public static final double OFFSET = 0.5;
 	public static final double VOLTS_PER_DEGREE = RANGE/340d;
 	
-	public static final double GRAB = 3.0; // unknown
-	public static final double START = GRAB - 30*VOLTS_PER_DEGREE;
-	public static final double BACKOUT = GRAB + 5000*VOLTS_PER_DEGREE;
-	public static final double WIDE = GRAB + 5*VOLTS_PER_DEGREE;
+	public static final double GRAB = 3.32; // unknown
+	public static final double START = 3.13;
+	public static final double BACKOUT = 3.55;
+	public static final double WIDE = 4.27;
 	public static final double VOLTS_PER_UPDATE = 0.02;
 
 			
