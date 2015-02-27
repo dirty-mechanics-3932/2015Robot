@@ -1737,7 +1737,7 @@ Properties:
     folder: false, name: Wiring File, validators: null, value: wiring.html}
   Use Default Java Package: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Use Default Java Package, validators: null, value: false}
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: /Users/sussmanz/workspace,
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: /Users/agresh/workspace,
     extension: null, folder: true, name: Eclipse Workspace, validators: null, value: Generated}
   Java Package: !!robotbuilder.data.properties.StringProperty {default: org.usfirst.frc0000,
     name: Java Package, validators: null, value: org.usfirst.frc3932}
