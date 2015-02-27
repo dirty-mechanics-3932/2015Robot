@@ -68,6 +68,7 @@ public class  AutonomousCommand extends Command {
 	}
 
 	private boolean isTimeToPutDownAndBackAway() {
+		//Order here is important.  If hasPeriodPassed evaluates true the time gets reset.
 		return timer.hasPeriodPassed(14.5) || (emergencyExit && timer.hasPeriodPassed(1.5));
 	}
 
