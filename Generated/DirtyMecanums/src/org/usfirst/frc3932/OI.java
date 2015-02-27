@@ -30,6 +30,7 @@ import org.usfirst.frc3932.commands.DisableToteTabSafety;
 import org.usfirst.frc3932.commands.ElevatorManualControl;
 import org.usfirst.frc3932.commands.ElevatorToCan;
 import org.usfirst.frc3932.commands.ElevatorToCanBottom;
+import org.usfirst.frc3932.commands.ElevatorToCanStep;
 import org.usfirst.frc3932.commands.ElevatorToHang;
 import org.usfirst.frc3932.commands.ElevatorToLowCan;
 import org.usfirst.frc3932.commands.ElevatorToPlatform;
@@ -278,6 +279,8 @@ public class OI {
         SmartDashboard.putData("ElevatorToScoring", new ElevatorToScoring());
 
         SmartDashboard.putData("ElevatorToStep", new ElevatorToStep());
+
+        SmartDashboard.putData("ElevatorToCanStep", new ElevatorToCanStep());
 
         SmartDashboard.putData("ElevatorToCanBottom", new ElevatorToCanBottom());
 
