@@ -13,7 +13,6 @@ package org.usfirst.frc3932.subsystems;
 
 import org.usfirst.frc3932.RobotMap;
 import org.usfirst.frc3932.Settable;
-import org.usfirst.frc3932.TrajectoryGenerator;
 import org.usfirst.frc3932.commands.ArmManualControl;
 
 import edu.wpi.first.wpilibj.AnalogInput;
@@ -76,6 +75,7 @@ public class Arms extends Subsystem implements Settable{
     public void setLocation(double setpoint) {
 
 //    	tragGenerator.goToDestination((int)setpoint*1000);
+    	armsPIDEnable();
     	armPIDController.setSetpoint(setpoint);
     }
     
@@ -110,7 +110,9 @@ public class Arms extends Subsystem implements Settable{
 
     public void execute(){
 //    	tragGenerator.execute(this);
-    	armWidthCANTalon.set(armPIDController.get());
+    	if (armPIDController.isEnable()){
+    		armWidthCANTalon.set(armPIDController.get());
+    	}
     }
 	public boolean atSetpoint() {
 //		return tragGenerator.isFinished() && 
@@ -151,6 +153,16 @@ public class Arms extends Subsystem implements Settable{
 	
 	public void armsOff(){
 		armWidthCANTalon.set(0);
+	}
+	
+	public void armsCancel(){
+		armPIDController.disable();
+	}
+	
+	public void armsPIDEnable(){
+		if (armPIDController.isEnable()){
+			armPIDController.enable();
+		}
 	}
 }
 

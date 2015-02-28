@@ -19,7 +19,10 @@ import org.usfirst.frc3932.Robot;
  */
 public class  AutoMoveBackwards extends Command {
 
-    public AutoMoveBackwards() {
+	private static final double JOY_Y_IN = -.8d;
+	private static final double JOY_IN_0 = 0d;
+
+	public AutoMoveBackwards() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 
@@ -32,16 +35,17 @@ public class  AutoMoveBackwards extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	setTimeout(6);
-    	Robot.driveSystem.drive(0, -.5, 0);
+    	Robot.driveSystem.drive(JOY_IN_0, JOY_Y_IN, JOY_IN_0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.driveSystem.drive(JOY_IN_0, JOY_Y_IN, JOY_IN_0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true

@@ -2,13 +2,6 @@
 public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
-
-   
-    
-
-
-    public static OI oi;
-    public static SmartDashboardIO smartDashboardIO;
     SendableChooser autoChooser;
     
 
@@ -20,25 +13,27 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-    RobotMap.init();
         autonomousCommand = new AutoMoveBackwards();
 
-			initSendableChooser();
-        
-    }
-    
-    	private void initSendableChooser() {
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("Default", new AutonomousCommand());
         autoChooser.addObject("MoveBackwards", new AutoMoveBackwards());
         autoChooser.addObject("Nothing", new WaitFor());
         SmartDashboard.putData("Pick Auto:", autoChooser);
+        
+    }
+    
+    	private void initSendableChooser() {
+		
 	
     public void autonomousInit() {
         // schedule the autonomous command (example)
     	
     	try {
-//			readAutonomousFromChooser();
+//			Command commandFromChooser = (Command) autoChooser.getSelected();
+    	if (commandFromChooser != null) {
+    		autonomousCommand = commandFromChooser;
+    	}
 //			if (autonomousCommand != null) autonomousCommand.start();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -46,26 +41,12 @@ public class Robot extends IterativeRobot {
     }
     
     private void readAutonomousFromChooser() {
-		Command commandFromChooser = (Command) autoChooser.getSelected();
-    	if (commandFromChooser != null) {
-    		autonomousCommand = commandFromChooser;
-    	}
+		
 	}
     
 
 
-    /**
-     * This function is called when the disabled button is hit.
-     * You can use it to reset subsystems before shutting down.
-     */
-    public void disabledInit(){
 
-    }
-
-    public void disabledPeriodic() {
-    	Robot.smartDashboardIO.execute();
-        Scheduler.getInstance().run();
-    }
 
 
 

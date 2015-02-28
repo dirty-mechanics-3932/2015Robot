@@ -22,7 +22,6 @@ public class CK_17 extends IterativeRobot {
         // Reset hot goal counts
         autonomousCommand = (Command)autoChooser.getSelected();
         autonomousCommand.start(); // schedule the autonomous command
-        initialRetractCommand.start();
     }
 
    
@@ -34,36 +33,8 @@ public class CK_17 extends IterativeRobot {
         } catch (Exception ex){
             ex.printStackTrace();
         }
-        
-        RobotMap.compressor.start(); // Start compressor
-        initialShiftCommand.start();
-        arcadeDriveCommand.start(); // Start teleop arcade drive
-        rollerControlCommand.start();
-        initialRetractCommand.start();
-        
-//        CommandBase.launcher.HIGH_GOAL_RAISE_POWER = (float) SmartDashboard.getNumber("RAISE_POWER");
     }
 
-    /**
-     * This function is called periodically during operator control
-     */
-    public void teleopPeriodic() {
-        Scheduler.getInstance().run();
-//        SmartDashboard.putNumber("ENC", CommandBase.drive.getAvgRevs());
-    }
-
-    
-    public void disabledInit() {
-        // Stop counting
-        server.stopSamplingCounts();
-        
-        Scheduler.getInstance().removeAll(); // Stop all commands
-        RobotMap.compressor.stop(); // Stop compressor
-    }
-
-    public void testInit() {
-//        RobotMap.compressor.start();  // Start compressor
-    }
     /**
      * This function is called periodically during test mode
      */
