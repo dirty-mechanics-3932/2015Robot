@@ -33,16 +33,20 @@ import org.usfirst.frc3932.commands.DisableToteTabSafety;
 import org.usfirst.frc3932.commands.ElevatorManualControl;
 import org.usfirst.frc3932.commands.ElevatorToCan;
 import org.usfirst.frc3932.commands.ElevatorToCanBottom;
+import org.usfirst.frc3932.commands.ElevatorToFourTotes;
 import org.usfirst.frc3932.commands.ElevatorToHang;
 import org.usfirst.frc3932.commands.ElevatorToLowCan;
+import org.usfirst.frc3932.commands.ElevatorToOneTote;
 import org.usfirst.frc3932.commands.ElevatorToPlatform;
 import org.usfirst.frc3932.commands.ElevatorToScoring;
 import org.usfirst.frc3932.commands.ElevatorToStack;
 import org.usfirst.frc3932.commands.ElevatorToStart;
 import org.usfirst.frc3932.commands.ElevatorToStep;
 import org.usfirst.frc3932.commands.ElevatorToTabs;
+import org.usfirst.frc3932.commands.ElevatorToThreeTotes;
 import org.usfirst.frc3932.commands.ElevatorToTop;
 import org.usfirst.frc3932.commands.ElevatorToTransport;
+import org.usfirst.frc3932.commands.ElevatorToTwoTotes;
 import org.usfirst.frc3932.commands.ElevatorToWeightBearing;
 import org.usfirst.frc3932.commands.EnableCanTabSafety;
 import org.usfirst.frc3932.commands.EnableToteTabSafety;
@@ -133,16 +137,16 @@ public class OI {
     public JoystickButton lookForTote6;
     public Joystick driverJoy1;
     public Joystick logitechJoy;
-    public JoystickButton g1LockCan;
-    public JoystickButton g2RecieveFirstT;
-    public JoystickButton g3GrabRdT;
-    public JoystickButton g4StashFirstT;
+    public JoystickButton g1Elevator1T;
+    public JoystickButton g2Elevator2T;
+    public JoystickButton g3Elevator3T;
+    public JoystickButton g4Elevator4T;
     public JoystickButton g5RecieveT;
     public JoystickButton g6StashT;
     public JoystickButton g7ArmsOpen;
-    public JoystickButton g8LookFor;
-    public JoystickButton g9GrabT;
-    public JoystickButton g10HangT;
+    public JoystickButton g8ArmsWide;
+    public JoystickButton g9ArmsGrab;
+    public JoystickButton g10ArmsClosed;
     public JoystickButton g11StashGroundT;
     public JoystickButton g12WheelsIn;
     public JoystickButton g13RaiseStack;
@@ -197,26 +201,26 @@ public class OI {
         g12WheelsIn.whenPressed(new WheelsIn());
         g11StashGroundT = new JoystickButton(buttonsTo13, 11);
         g11StashGroundT.whenPressed(new StashGroundTote());
-        g10HangT = new JoystickButton(buttonsTo13, 10);
-        g10HangT.whenPressed(new HangTote());
-        g9GrabT = new JoystickButton(buttonsTo13, 9);
-        g9GrabT.whenPressed(new GrabTote());
-        g8LookFor = new JoystickButton(buttonsTo13, 8);
-        g8LookFor.whenPressed(new LookForTote());
+        g10ArmsClosed = new JoystickButton(buttonsTo13, 10);
+        g10ArmsClosed.whenPressed(new ArmsClosed());
+        g9ArmsGrab = new JoystickButton(buttonsTo13, 9);
+        g9ArmsGrab.whenPressed(new ArmsHalfOpen());
+        g8ArmsWide = new JoystickButton(buttonsTo13, 8);
+        g8ArmsWide.whenPressed(new ArmsFullOpen());
         g7ArmsOpen = new JoystickButton(buttonsTo13, 7);
         g7ArmsOpen.whileHeld(new ArmsOpenButton());
         g6StashT = new JoystickButton(buttonsTo13, 6);
         g6StashT.whenPressed(new StashTote());
         g5RecieveT = new JoystickButton(buttonsTo13, 5);
         g5RecieveT.whenPressed(new RecieveTote());
-        g4StashFirstT = new JoystickButton(buttonsTo13, 4);
-        g4StashFirstT.whenPressed(new StashFirstTote());
-        g3GrabRdT = new JoystickButton(buttonsTo13, 3);
-        g3GrabRdT.whenPressed(new GrabRecievedTote());
-        g2RecieveFirstT = new JoystickButton(buttonsTo13, 2);
-        g2RecieveFirstT.whenPressed(new RecieveFirstTote());
-        g1LockCan = new JoystickButton(buttonsTo13, 1);
-        g1LockCan.whenPressed(new LockGatesAroundCan());
+        g4Elevator4T = new JoystickButton(buttonsTo13, 4);
+        g4Elevator4T.whenPressed(new ElevatorToFourTotes());
+        g3Elevator3T = new JoystickButton(buttonsTo13, 3);
+        g3Elevator3T.whenPressed(new ElevatorToThreeTotes());
+        g2Elevator2T = new JoystickButton(buttonsTo13, 2);
+        g2Elevator2T.whenPressed(new ElevatorToTwoTotes());
+        g1Elevator1T = new JoystickButton(buttonsTo13, 1);
+        g1Elevator1T.whenPressed(new ElevatorToOneTote());
         logitechJoy = new Joystick(1);
         
         driverJoy1 = new Joystick(0);
@@ -297,6 +301,14 @@ public class OI {
         SmartDashboard.putData("ElevatorToStack", new ElevatorToStack());
 
         SmartDashboard.putData("ElevatorToTop", new ElevatorToTop());
+
+        SmartDashboard.putData("ElevatorToOneTote", new ElevatorToOneTote());
+
+        SmartDashboard.putData("ElevatorToTwoTotes", new ElevatorToTwoTotes());
+
+        SmartDashboard.putData("ElevatorToThreeTotes", new ElevatorToThreeTotes());
+
+        SmartDashboard.putData("ElevatorToFourTotes", new ElevatorToFourTotes());
 
         SmartDashboard.putData("RaiseArmsToTabs", new RaiseArmsToTabs());
 

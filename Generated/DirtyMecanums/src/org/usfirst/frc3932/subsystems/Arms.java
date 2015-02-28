@@ -30,10 +30,10 @@ public class Arms extends Subsystem implements Settable{
 	private static final double PID_MARGIN_OF_ERROR = 0.001;
 	
 	
-	public static final double WIDE = 3.5;
-	public static final double BACKOUT = 3.3;
-	public static final double GRAB = 2.99; // unknown
-	public static final double START = 2.85;
+	public static final double WIDE = 3.8;
+	public static final double BACKOUT = 3.6;
+	public static final double GRAB =3.35; // unknown
+	public static final double START = 3.2;
 	
 	
 	public static final double VOLTS_PER_UPDATE = 0.02;
@@ -110,23 +110,27 @@ public class Arms extends Subsystem implements Settable{
 
     public void execute(){
 //    	tragGenerator.execute(this);
-    	if (armPIDController.isEnable()){
+    	if (isPidEnabled()){
     		armWidthCANTalon.set(armPIDController.get());
     	}
     }
+
+	private boolean isPidEnabled() {
+		return armPIDController.isEnable();
+	}
 	public boolean atSetpoint() {
 //		return tragGenerator.isFinished() && 
 		return Math.abs(armPIDController.getError()) < PID_MARGIN_OF_ERROR;
 	}
 	
 	public void wheelsIn() {
-		leftWheel.set(1);
-		rightWheel.set(-1);
+		leftWheel.set(-1);
+		rightWheel.set(1);
 	}
 	
 	public void wheelsOut() {
-		leftWheel.set(-1);
-		rightWheel.set(1);
+		leftWheel.set(1);
+		rightWheel.set(-1);
 	}
 	
 	public void manualDrive(double val) {
@@ -160,7 +164,7 @@ public class Arms extends Subsystem implements Settable{
 	}
 	
 	public void armsPIDEnable(){
-		if (armPIDController.isEnable()){
+		if (!isPidEnabled()){
 			armPIDController.enable();
 		}
 	}

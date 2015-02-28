@@ -13,7 +13,6 @@ package org.usfirst.frc3932.subsystems;
 
 import org.usfirst.frc3932.RobotMap;
 import org.usfirst.frc3932.Settable;
-import org.usfirst.frc3932.TrajectoryGenerator;
 import org.usfirst.frc3932.commands.ArmManualControl;
 
 import edu.wpi.first.wpilibj.AnalogInput;
@@ -31,10 +30,10 @@ public class Arms extends Subsystem implements Settable{
 	private static final double PID_MARGIN_OF_ERROR = 0.001;
 	
 	
-	public static final double WIDE = 3.5;
-	public static final double BACKOUT = 3.3;
-	public static final double GRAB = 2.99; // unknown
-	public static final double START = 2.85;
+	public static final double WIDE = 3.8;
+	public static final double BACKOUT = 3.6;
+	public static final double GRAB =3.35; // unknown
+	public static final double START = 3.2;
 	
 	
 	public static final double VOLTS_PER_UPDATE = 0.02;
@@ -76,6 +75,7 @@ public class Arms extends Subsystem implements Settable{
     public void setLocation(double setpoint) {
 
 //    	tragGenerator.goToDestination((int)setpoint*1000);
+    	armsPIDEnable();
     	armPIDController.setSetpoint(setpoint);
     }
     
@@ -110,21 +110,27 @@ public class Arms extends Subsystem implements Settable{
 
     public void execute(){
 //    	tragGenerator.execute(this);
-    	armWidthCANTalon.set(armPIDController.get());
+    	if (isPidEnabled()){
+    		armWidthCANTalon.set(armPIDController.get());
+    	}
     }
+
+	private boolean isPidEnabled() {
+		return armPIDController.isEnable();
+	}
 	public boolean atSetpoint() {
 //		return tragGenerator.isFinished() && 
 		return Math.abs(armPIDController.getError()) < PID_MARGIN_OF_ERROR;
 	}
 	
 	public void wheelsIn() {
-		leftWheel.set(1);
-		rightWheel.set(-1);
+		leftWheel.set(-1);
+		rightWheel.set(1);
 	}
 	
 	public void wheelsOut() {
-		leftWheel.set(-1);
-		rightWheel.set(1);
+		leftWheel.set(1);
+		rightWheel.set(-1);
 	}
 	
 	public void manualDrive(double val) {
@@ -151,6 +157,16 @@ public class Arms extends Subsystem implements Settable{
 	
 	public void armsOff(){
 		armWidthCANTalon.set(0);
+	}
+	
+	public void armsCancel(){
+		armPIDController.disable();
+	}
+	
+	public void armsPIDEnable(){
+		if (!isPidEnabled()){
+			armPIDController.enable();
+		}
 	}
 }
 
