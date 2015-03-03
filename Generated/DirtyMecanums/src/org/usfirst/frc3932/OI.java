@@ -65,6 +65,7 @@ import org.usfirst.frc3932.commands.LockGatesAroundCan;
 import org.usfirst.frc3932.commands.LookForFirstTote;
 import org.usfirst.frc3932.commands.LookForTote;
 import org.usfirst.frc3932.commands.LowerArmsToStart;
+import org.usfirst.frc3932.commands.MoveForward;
 import org.usfirst.frc3932.commands.RaiseArmsToTabs;
 import org.usfirst.frc3932.commands.RaiseArmsToUnload;
 import org.usfirst.frc3932.commands.RaiseCan;
@@ -352,11 +353,13 @@ public class OI {
 
         SmartDashboard.putData("StackCan", new StackCan());
 
-        SmartDashboard.putData("LeftSideMoveForward", new LeftSideMoveForward());
-
         SmartDashboard.putData("WaitFor", new WaitFor());
 
         SmartDashboard.putData("RightSideMoveForward", new RightSideMoveForward());
+
+        SmartDashboard.putData("LeftSideMoveForward", new LeftSideMoveForward());
+
+        SmartDashboard.putData("MoveForward", new MoveForward());
 
         SmartDashboard.putData("SwitchCameras", new SwitchCameras());
 
