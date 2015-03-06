@@ -30,32 +30,34 @@ public class SmartDashboardIO {
 	public void execute() {
 		DecimalFormat df = new DecimalFormat("#.000"); 
 		
-		putNumber(label(LEFT_DRIVE_TALON, CURRENT), RobotMap.driveSystemLeftBack.getOutputCurrent());
-    	putNumber(label(LEFT_DRIVE_TALON, POSITION), RobotMap.driveSystemLeftBack.getPosition());
-    	putNumber(label(LEFT_DRIVE_TALON, POSITION), RobotMap.driveSystemLeftBack.getSpeed());
-    	putBoolean(label(DRIVE, "CrabLeftDone"), Robot.driveSystem.isCrabLeftDone());
-    	putNumber(label(DRIVE_LEFT_DOWN_IR, "AvgVolts"), RobotMap.driveSystemLeftDownIR.getAverageVoltage());
-    	putNumber(label(DRIVE_RIGHT_DOWN_IR, "AvgVolts"), RobotMap.driveSystemRightDownIR.getAverageVoltage());
+		putNumber(label(LEFT_DRIVE_TALON, CURRENT), RobotMap.driveSystemLeftBack.getOutputVoltage());
+//    	putNumber(label(LEFT_DRIVE_TALON, POSITION), RobotMap.driveSystemLeftBack.getPosition());
+//    	putNumber(label(LEFT_DRIVE_TALON, SPEED), RobotMap.driveSystemLeftBack.getSpeed());
+//    	putBoolean(label(DRIVE, "CrabLeftDone"), Robot.driveSystem.isCrabLeftDone());
+//    	putNumber(label(DRIVE_LEFT_DOWN_IR, "AvgVolts"), RobotMap.driveSystemLeftDownIR.getAverageVoltage());
+//    	putNumber(label(DRIVE_RIGHT_DOWN_IR, "AvgVolts"), RobotMap.driveSystemRightDownIR.getAverageVoltage());
     	putNumber(label(DRIVE, "LF_IR_Volts"), RobotMap.driveSystemLeftForwardIR.getAverageVoltage());
     	putNumber(label(DRIVE, "RF_IR_Volts"), RobotMap.driveSystemRightForwardIR.getAverageVoltage());
+    	
+    	putNumber(label("Gyro", "AvgVolts"), RobotMap.driveSystemGyro.getAverageVoltage());
 
     	
     	
     	//ELEVATOR
-    	enumerateElevatorPositions(df);
+//    	enumerateElevatorPositions(df);
     	putNumber(label(ELEVATOR, ENCODER), RobotMap.elevatorElevatorCANTalon.getEncPosition());
     	putNumber(label(ELEVATOR, SETPOINT), RobotMap.elevatorElevatorCANTalon.getSetpoint());
     	putNumber(label(ELEVATOR, OUTPUT), RobotMap.elevatorElevatorCANTalon.getOutputCurrent());
     	
-    	putNumber(label(LEFT_GATE, ENCODER), RobotMap.gatesLeftGateCANTalon.get());
-    	putNumber(label(LEFT_GATE, SETPOINT), RobotMap.gatesLeftGateCANTalon.getSetpoint());
-    	
-    	putNumber(label(RIGHT_GATE, ENCODER), RobotMap.gatesRightGateCANTalon.get());
-    	putNumber(label(RIGHT_GATE, SETPOINT), RobotMap.gatesRightGateCANTalon.getSetpoint());
+//    	putNumber(label(LEFT_GATE, ENCODER), RobotMap.gatesLeftGateCANTalon.get());
+//    	putNumber(label(LEFT_GATE, SETPOINT), RobotMap.gatesLeftGateCANTalon.getSetpoint());
+//    	
+//    	putNumber(label(RIGHT_GATE, ENCODER), RobotMap.gatesRightGateCANTalon.get());
+//    	putNumber(label(RIGHT_GATE, SETPOINT), RobotMap.gatesRightGateCANTalon.getSetpoint());
     	
     	putString(label(TOTE_TABS, "RightTab"), Robot.toteTabs.getRightSpike().toString());
     	putString(label(TOTE_TABS, "LeftTab"), Robot.toteTabs.getLeftSpike().toString());
-    	
+//    	putString(label("CanTabs", "Gates"), Robot.canTabs.getState().toString());
     	
     	putNumber(label(ARM, ENCODER), RobotMap.armsArmEncoder.getAverageVoltage());
     	putNumber(label(ARM, SETPOINT), RobotMap.armsArmPIDController.getSetpoint());
@@ -63,7 +65,7 @@ public class SmartDashboardIO {
     	putNumber(label(ARM, "LeftWheel"), RobotMap.armsLeftWheel.get());
     	putNumber(label(ARM, "RightWheel"), RobotMap.armsRightWheel.get());
     	
-    	putString(label("CanTabs", "Gates"), Robot.canTabs.getState().toString());
+    	
     	
     	
     	
@@ -94,7 +96,7 @@ public class SmartDashboardIO {
 	}
 	
 	public static String label(String component, String measure) {
-		return component + DELIM + measure;
+		return /* component + DELIM + */ measure; //every byte counts, no components
 	}
 
 }

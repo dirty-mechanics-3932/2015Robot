@@ -42,6 +42,7 @@ public class RobotMap {
     public static AnalogInput driveSystemRightForwardIR;
     public static AnalogInput driveSystemLeftDownIR;
     public static AnalogInput driveSystemRightDownIR;
+    public static AnalogInput driveSystemGyro;
     public static DigitalInput elevatorbottomLimitSwitch;
     public static CANTalon elevatorElevatorCANTalon;
     public static CANTalon gatesLeftGateCANTalon;
@@ -93,6 +94,9 @@ public class RobotMap {
         
         driveSystemRightDownIR = new AnalogInput(3);
         LiveWindow.addSensor("DriveSystem", "RightDownIR", driveSystemRightDownIR);
+        
+        driveSystemGyro = new AnalogInput(5);
+        LiveWindow.addSensor("DriveSystem", "Gyro", driveSystemGyro);
         
         elevatorbottomLimitSwitch = new DigitalInput(0);
         LiveWindow.addSensor("Elevator", "bottomLimitSwitch", elevatorbottomLimitSwitch);
