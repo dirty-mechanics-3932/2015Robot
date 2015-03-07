@@ -136,8 +136,12 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void disabledPeriodic() {
-		Robot.smartDashboardIO.execute();
-		Scheduler.getInstance().run();
+		try {
+			Robot.smartDashboardIO.execute();
+			Scheduler.getInstance().run();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void autonomousInit() {

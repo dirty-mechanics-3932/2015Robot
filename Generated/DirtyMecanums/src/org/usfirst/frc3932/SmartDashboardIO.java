@@ -30,7 +30,8 @@ public class SmartDashboardIO {
 	public void execute() {
 		DecimalFormat df = new DecimalFormat("#.000"); 
 		
-		putNumber(label(LEFT_DRIVE_TALON, CURRENT), RobotMap.driveSystemLeftBack.getOutputVoltage());
+		putNumber(label(LEFT_DRIVE_TALON, "LBTalon"), RobotMap.driveSystemLeftBack.getOutputVoltage());
+		putNumber(label(RIGHT_DRIVE_TALON, "RBTalon"), RobotMap.driveSystemRightBack.getOutputVoltage());
 //    	putNumber(label(LEFT_DRIVE_TALON, POSITION), RobotMap.driveSystemLeftBack.getPosition());
 //    	putNumber(label(LEFT_DRIVE_TALON, SPEED), RobotMap.driveSystemLeftBack.getSpeed());
 //    	putBoolean(label(DRIVE, "CrabLeftDone"), Robot.driveSystem.isCrabLeftDone());
