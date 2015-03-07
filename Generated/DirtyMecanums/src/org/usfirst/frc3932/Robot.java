@@ -148,7 +148,7 @@ public class Robot extends IterativeRobot {
 		// schedule the autonomous command (example)
 
 		try {
-//			 readAutonomousFromChooser();
+			 readAutonomousFromChooser();
 			 if (autonomousCommand != null) autonomousCommand.start();
 		} catch (Exception e) {
 			e.printStackTrace();
