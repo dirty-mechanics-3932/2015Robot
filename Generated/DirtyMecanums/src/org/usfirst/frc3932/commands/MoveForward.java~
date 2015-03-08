@@ -19,6 +19,6 @@ public class MoveForward extends CommandGroup {
     
     public  MoveForward() {
         addParallel(new LeftSideMoveForward());
-        addSequential(new RightSideMoveForward());
+        addSequential(new RightSideDock());
     }
 }

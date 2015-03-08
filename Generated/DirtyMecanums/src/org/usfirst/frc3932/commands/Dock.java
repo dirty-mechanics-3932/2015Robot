@@ -10,15 +10,26 @@
 
 
 package org.usfirst.frc3932.commands;
+import org.usfirst.frc3932.Robot;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class MoveForward extends CommandGroup {
+public class Dock extends CommandGroup {
     
-    public  MoveForward() {
-        addParallel(new LeftSideMoveForward());
-        addSequential(new RightSideMoveForward());
+    public  Dock() {
+    	requires(Robot.driveSystem);
+        RightSideDock rightSideDock = new RightSideDock();
+        LeftSideDock leftSideDock = new LeftSideDock();
+        addParallel(rightSideDock);
+		addParallel(leftSideDock);
+    }
+    
+    @Override
+    protected void execute() {
+    	super.execute();
+    	Robot.smartDashboardIO.execute();
     }
 }
