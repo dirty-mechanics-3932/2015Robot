@@ -26,6 +26,12 @@ public class SmartDashboardIO {
 	public static final String SPEED = "Speed";
 	public static final String DELIM = ".";
 	public static final String ELEVATOR = "Elevator";
+	Camera camera;
+	
+	
+	public SmartDashboardIO() {
+		camera = new USBCamera();
+	}
 	
 	public void execute() {
 		DecimalFormat df = new DecimalFormat("#.000"); 
@@ -50,11 +56,11 @@ public class SmartDashboardIO {
     	putNumber(label(ELEVATOR, SETPOINT), RobotMap.elevatorElevatorCANTalon.getSetpoint());
     	putNumber(label(ELEVATOR, OUTPUT), RobotMap.elevatorElevatorCANTalon.getOutputCurrent());
     	
-//    	putNumber(label(LEFT_GATE, ENCODER), RobotMap.gatesLeftGateCANTalon.get());
-//    	putNumber(label(LEFT_GATE, SETPOINT), RobotMap.gatesLeftGateCANTalon.getSetpoint());
+    	putNumber(label(LEFT_GATE, "LGtTalonGet"), RobotMap.gatesLeftGateCANTalon.get());
+    	putNumber(label(LEFT_GATE, "LGtTalonSet"), RobotMap.gatesLeftGateCANTalon.getSetpoint());
 //    	
-//    	putNumber(label(RIGHT_GATE, ENCODER), RobotMap.gatesRightGateCANTalon.get());
-//    	putNumber(label(RIGHT_GATE, SETPOINT), RobotMap.gatesRightGateCANTalon.getSetpoint());
+    	putNumber(label(RIGHT_GATE, "RGtTalonGet"), RobotMap.gatesRightGateCANTalon.get());
+    	putNumber(label(RIGHT_GATE, "RGtTalonSet"), RobotMap.gatesRightGateCANTalon.getSetpoint());
     	
     	putString(label(TOTE_TABS, "RightTab"), Robot.toteTabs.getRightSpike().toString());
     	putString(label(TOTE_TABS, "LeftTab"), Robot.toteTabs.getLeftSpike().toString());
@@ -66,12 +72,11 @@ public class SmartDashboardIO {
     	putNumber(label(ARM, "LeftWheel"), RobotMap.armsLeftWheel.get());
     	putNumber(label(ARM, "RightWheel"), RobotMap.armsRightWheel.get());
     	
-    	
-    	
-    	
-    	
+    	camera.executeCamera();
     	
 	}
+	
+
 
 	private void enumerateElevatorPositions(DecimalFormat df) {
 		for (Elevator.Position position : Elevator.Position.values()) {
@@ -99,5 +104,6 @@ public class SmartDashboardIO {
 	public static String label(String component, String measure) {
 		return /* component + DELIM + */ measure; //every byte counts, no components
 	}
+
 
 }

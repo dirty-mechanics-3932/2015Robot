@@ -24,6 +24,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Gates extends Subsystem implements Settable{
+	private static final double _P = 20;
+	private static final double _I = 0.0;
+	private static final double _D = 0.0;
+	
 	public int AM2816A_ENCODER_TICKS_PER_REVOLUTION = 1988;
 	public double TICKS_PER_DEGREE = AM2816A_ENCODER_TICKS_PER_REVOLUTION/360d;
 	private boolean areOpen;
@@ -52,8 +56,8 @@ public class Gates extends Subsystem implements Settable{
     	rightGateCANTalon.changeControlMode(ControlMode.Position);
     	leftGateCANTalon.setPosition(0);
     	rightGateCANTalon.setPosition(0);
-    	leftGateCANTalon.setPID(10, 0.0, 0.0);
-    	rightGateCANTalon.setPID(10, 0.0, 0.01);
+    	leftGateCANTalon.setPID(_P, _I, _D);
+    	rightGateCANTalon.setPID(_P, _I, _D);
     	generator.setCurrentTarget(0);
     	generator.setDestination(0);
     	generator.setTicksPerUpdate(25);
