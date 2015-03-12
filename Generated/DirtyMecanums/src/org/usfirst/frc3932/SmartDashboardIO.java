@@ -26,11 +26,11 @@ public class SmartDashboardIO {
 	public static final String SPEED = "Speed";
 	public static final String DELIM = ".";
 	public static final String ELEVATOR = "Elevator";
-	Camera camera;
+//	Camera camera;
 	
 	
 	public SmartDashboardIO() {
-		camera = new USBCamera();
+//		camera = new USBCamera();
 	}
 	
 	public void execute() {
@@ -73,7 +73,7 @@ public class SmartDashboardIO {
     	putNumber(label(ARM, "RightWheel"), RobotMap.armsRightWheel.get());
     	SmartDashboard.putNumber("LeftForwardRangeFinder", RobotMap.driveSystemLeftForwardUltra.getAverageVoltage());
     	
-    	camera.executeCamera();
+//    	camera.executeCamera();
     	
 	}
 	
