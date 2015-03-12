@@ -38,11 +38,13 @@ public class RobotMap {
     public static CANTalon driveSystemLeftBack;
     public static CANTalon driveSystemRightFront;
     public static RobotDrive driveSystemMecanumDrive;
-    public static AnalogInput driveSystemLeftForwardRangeFinder;
-    public static AnalogInput driveSystemRightForwardRangeFinder;
-    public static AnalogInput driveSystemLeftDownRangeFinder;
-    public static AnalogInput driveSystemRightDownRangeFinder;
+    public static AnalogInput driveSystemLeftForwardIR;
+    public static AnalogInput driveSystemRightForwardIR;
+    public static AnalogInput driveSystemLeftDownIR;
+    public static AnalogInput driveSystemRightDownIR;
     public static AnalogInput driveSystemGyro;
+    public static AnalogInput driveSystemLeftForwardUltra;
+    public static AnalogInput driveSystemRightForwardUltra;
     public static DigitalInput elevatorbottomLimitSwitch;
     public static CANTalon elevatorElevatorCANTalon;
     public static CANTalon gatesLeftGateCANTalon;
@@ -83,20 +85,26 @@ public class RobotMap {
         driveSystemMecanumDrive.setMaxOutput(1.0);
         driveSystemMecanumDrive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
         driveSystemMecanumDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
-        driveSystemLeftForwardRangeFinder = new AnalogInput(0);
-        LiveWindow.addSensor("DriveSystem", "LeftForwardRangeFinder", driveSystemLeftForwardRangeFinder);
+        driveSystemLeftForwardIR = new AnalogInput(0);
+        LiveWindow.addSensor("DriveSystem", "LeftForwardIR", driveSystemLeftForwardIR);
         
-        driveSystemRightForwardRangeFinder = new AnalogInput(1);
-        LiveWindow.addSensor("DriveSystem", "RightForwardRangeFinder", driveSystemRightForwardRangeFinder);
+        driveSystemRightForwardIR = new AnalogInput(1);
+        LiveWindow.addSensor("DriveSystem", "RightForwardIR", driveSystemRightForwardIR);
         
-        driveSystemLeftDownRangeFinder = new AnalogInput(7);
-        LiveWindow.addSensor("DriveSystem", "LeftDownRangeFinder", driveSystemLeftDownRangeFinder);
+        driveSystemLeftDownIR = new AnalogInput(7);
+        LiveWindow.addSensor("DriveSystem", "LeftDownIR", driveSystemLeftDownIR);
         
-        driveSystemRightDownRangeFinder = new AnalogInput(3);
-        LiveWindow.addSensor("DriveSystem", "RightDownRangeFinder", driveSystemRightDownRangeFinder);
+        driveSystemRightDownIR = new AnalogInput(3);
+        LiveWindow.addSensor("DriveSystem", "RightDownIR", driveSystemRightDownIR);
         
         driveSystemGyro = new AnalogInput(5);
         LiveWindow.addSensor("DriveSystem", "Gyro", driveSystemGyro);
+        
+        driveSystemLeftForwardUltra = new AnalogInput(4);
+        LiveWindow.addSensor("DriveSystem", "LeftForwardUltra", driveSystemLeftForwardUltra);
+        
+        driveSystemRightForwardUltra = new AnalogInput(6);
+        LiveWindow.addSensor("DriveSystem", "RightForwardUltra", driveSystemRightForwardUltra);
         
         elevatorbottomLimitSwitch = new DigitalInput(0);
         LiveWindow.addSensor("Elevator", "bottomLimitSwitch", elevatorbottomLimitSwitch);

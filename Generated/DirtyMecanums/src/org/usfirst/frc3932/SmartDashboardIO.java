@@ -43,8 +43,8 @@ public class SmartDashboardIO {
 //    	putBoolean(label(DRIVE, "CrabLeftDone"), Robot.driveSystem.isCrabLeftDone());
 //    	putNumber(label(DRIVE_LEFT_DOWN_IR, "AvgVolts"), RobotMap.driveSystemLeftDownIR.getAverageVoltage());
 //    	putNumber(label(DRIVE_RIGHT_DOWN_IR, "AvgVolts"), RobotMap.driveSystemRightDownIR.getAverageVoltage());
-    	putNumber(label(DRIVE, "LF_IR_Volts"), RobotMap.driveSystemLeftForwardRangeFinder.getAverageVoltage());
-    	putNumber(label(DRIVE, "RF_IR_Volts"), RobotMap.driveSystemRightForwardRangeFinder.getAverageVoltage());
+    	putNumber(label(DRIVE, "LF_IR_Volts"), RobotMap.driveSystemLeftForwardUltra.getAverageVoltage());
+    	putNumber(label(DRIVE, "RF_IR_Volts"), RobotMap.driveSystemRightForwardUltra.getAverageVoltage());
     	
     	putNumber(label("Gyro", "AvgVolts"), RobotMap.driveSystemGyro.getAverageVoltage());
 
@@ -71,6 +71,7 @@ public class SmartDashboardIO {
     	putNumber(label(ARM, OUTPUT), RobotMap.armsArmPIDController.get());
     	putNumber(label(ARM, "LeftWheel"), RobotMap.armsLeftWheel.get());
     	putNumber(label(ARM, "RightWheel"), RobotMap.armsRightWheel.get());
+    	SmartDashboard.putNumber("LeftForwardRangeFinder", RobotMap.driveSystemLeftForwardUltra.getAverageVoltage());
     	
     	camera.executeCamera();
     	
