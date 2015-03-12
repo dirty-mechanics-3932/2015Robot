@@ -43,8 +43,8 @@ public class SmartDashboardIO {
 //    	putBoolean(label(DRIVE, "CrabLeftDone"), Robot.driveSystem.isCrabLeftDone());
 //    	putNumber(label(DRIVE_LEFT_DOWN_IR, "AvgVolts"), RobotMap.driveSystemLeftDownIR.getAverageVoltage());
 //    	putNumber(label(DRIVE_RIGHT_DOWN_IR, "AvgVolts"), RobotMap.driveSystemRightDownIR.getAverageVoltage());
-    	putNumber(label(DRIVE, "LF_IR_Volts"), RobotMap.driveSystemLeftForwardIR.getAverageVoltage());
-    	putNumber(label(DRIVE, "RF_IR_Volts"), RobotMap.driveSystemRightForwardIR.getAverageVoltage());
+    	putNumber(label(DRIVE, "LF_IR_Volts"), RobotMap.driveSystemLeftForwardRangeFinder.getAverageVoltage());
+    	putNumber(label(DRIVE, "RF_IR_Volts"), RobotMap.driveSystemRightForwardRangeFinder.getAverageVoltage());
     	
     	putNumber(label("Gyro", "AvgVolts"), RobotMap.driveSystemGyro.getAverageVoltage());
 

@@ -95,7 +95,7 @@ Children:
           value: DriveSystem Left Front
         Safety Expiration Time: !!robotbuilder.data.properties.DoubleProperty {default: 0.1,
           name: Safety Expiration Time, validators: null, value: 0.1}
-    - Name: LeftForwardIR
+    - Name: LeftForwardRangeFinder
       Base: Analog Input
       Children: []
       Properties:
@@ -105,7 +105,7 @@ Children:
           name: Input Channel (Analog)
           validators: &id004 [AnalogInput]
           value: '0'
-    - Name: RightForwardIR
+    - Name: RightForwardRangeFinder
       Base: Analog Input
       Children: []
       Properties:
@@ -115,7 +115,7 @@ Children:
           name: Input Channel (Analog)
           validators: *id004
           value: '1'
-    - Name: LeftDownIR
+    - Name: LeftDownRangeFinder
       Base: Analog Input
       Children: []
       Properties:
@@ -125,7 +125,7 @@ Children:
           name: Input Channel (Analog)
           validators: *id004
           value: '7'
-    - Name: RightDownIR
+    - Name: RightDownRangeFinder
       Base: Analog Input
       Children: []
       Properties:
@@ -1474,7 +1474,7 @@ Children:
         name: Input
         type: PIDSource
         validators: &id015 [TypeDropdownSelected]
-        value: DriveSystem RightForwardIR
+        value: DriveSystem RightForwardRangeFinder
       Limit Output: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Limit Output, validators: null, value: true}
       Tolerance: !!robotbuilder.data.properties.DoubleProperty {default: 0.2, name: Tolerance,
@@ -1518,7 +1518,7 @@ Children:
         name: Input
         type: PIDSource
         validators: *id015
-        value: DriveSystem LeftForwardIR
+        value: DriveSystem LeftForwardRangeFinder
       Limit Output: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Limit Output, validators: null, value: true}
       Tolerance: !!robotbuilder.data.properties.DoubleProperty {default: 0.2, name: Tolerance,
@@ -1833,7 +1833,7 @@ Properties:
     folder: false, name: Wiring File, validators: null, value: wiring.html}
   Use Default Java Package: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Use Default Java Package, validators: null, value: false}
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: /Users/sussmanz/workspace,
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: /Users/gengh/workspace,
     extension: null, folder: true, name: Eclipse Workspace, validators: null, value: Generated}
   Java Package: !!robotbuilder.data.properties.StringProperty {default: org.usfirst.frc0000,
     name: Java Package, validators: null, value: org.usfirst.frc3932}
