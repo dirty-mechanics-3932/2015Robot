@@ -26,11 +26,11 @@ public class SmartDashboardIO {
 	public static final String SPEED = "Speed";
 	public static final String DELIM = ".";
 	public static final String ELEVATOR = "Elevator";
-//	Camera camera;
+	Camera camera;
 	
 	
 	public SmartDashboardIO() {
-//		camera = new USBCamera();
+		camera = new SimpleCamera();
 	}
 	
 	public void execute() {

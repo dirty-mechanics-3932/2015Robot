@@ -1238,7 +1238,7 @@ Children:
     Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: None}
+        name: Requires, type: Subsystem, validators: null, value: Arms}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   - Name: ArmsFullOpen
@@ -1941,7 +1941,7 @@ Properties:
     folder: false, name: Wiring File, validators: null, value: wiring.html}
   Use Default Java Package: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Use Default Java Package, validators: null, value: false}
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: /Users/gengh/workspace,
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: /Users/agresh/workspace,
     extension: null, folder: true, name: Eclipse Workspace, validators: null, value: Generated}
   Java Package: !!robotbuilder.data.properties.StringProperty {default: org.usfirst.frc0000,
     name: Java Package, validators: null, value: org.usfirst.frc3932}
