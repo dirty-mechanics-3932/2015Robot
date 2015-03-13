@@ -106,7 +106,7 @@ public class Elevator extends Subsystem implements Settable {
 	private static final int FOUR_TOTE_TICKS = 14400;
 	private static final double FOUR_TOTE_INCHES = 72.625;
 	
-	private static final int MIN_TICKS = 200;
+	private static final int MIN_TICKS = 300;
 	private static final int MAX_TICKS = 14820;
 
 	private TrajectoryGenerator trajectory = new TrajectoryGenerator();
@@ -160,8 +160,8 @@ public class Elevator extends Subsystem implements Settable {
 	public Elevator() {
 		elevatorCANTalon.changeControlMode(ControlMode.Position);
 		elevatorCANTalon.setPosition(0);
-		trajectory.setDestination(0);
-		trajectory.setCurrentTarget(0);
+		trajectory.setDestination(MIN_TICKS);
+		trajectory.setCurrentTarget(MIN_TICKS);
 		trajectory.setTicksPerUpdate(TICKS_PER_UPDATE);
 	}
 
@@ -178,7 +178,7 @@ public class Elevator extends Subsystem implements Settable {
 		// setDefaultCommand(new MySpecialCommand());
 
 		elevatorCANTalon.setPID(PID_P, PID_I, 0);
-		elevatorCANTalon.set(0);
+		elevatorCANTalon.set(MIN_TICKS);
 	}
 
 	// /**

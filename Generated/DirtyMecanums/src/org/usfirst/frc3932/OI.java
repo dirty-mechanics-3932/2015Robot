@@ -213,7 +213,7 @@ public class OI {
         driverJoy1 = new Joystick(0);
         
         dock1 = new JoystickButton(driverJoy1, 1);
-        dock1.whileHeld(new Dock());
+        dock1.whileHeld(new UltraDock());
         lookForTote6 = new JoystickButton(driverJoy1, 6);
         lookForTote6.whenPressed(new LookForTote());
         crabLeftOverT5 = new JoystickButton(driverJoy1, 5);
