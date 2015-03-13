@@ -1,16 +1,27 @@
 <xml version="1.0">
 <dashboard>
-	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.WebcamViewerExtension">
-		<location x="193" y="76"/>
-		<width>362</width>
-		<height>272</height>
-		<property name="FPS" value="4"/>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.VideoStreamViewerExtension">
+		<location x="182" y="88"/>
+		<width>331</width>
+		<height>224</height>
 	</static-widget>
-	<widget field="LGtTalonGet" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="899" y="294"/>
+	<widget field="UltraDock" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="496"/>
 	</widget>
-	<widget field="LGtTalonSet" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="897" y="320"/>
+	<widget field="ElevSet" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="475"/>
+	</widget>
+	<widget field="ElevEncoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="454"/>
+	</widget>
+	<widget field="LFRangeFinder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="311"/>
+	</widget>
+	<widget field="AutoMoveSideways" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="194"/>
+	</widget>
+	<widget field="RFRangeFinder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="173"/>
 	</widget>
 	<widget field="RBTalon" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="329" y="25"/>
@@ -21,20 +32,8 @@
 	<widget field="Dock" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="1030" y="413"/>
 	</widget>
-	<widget field="RGtTalonGet" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1048" y="294"/>
-	</widget>
-	<widget field="RGtTalonSet" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1050" y="323"/>
-	</widget>
-	<widget field="LockGatesAroundCan" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="952" y="383"/>
-	</widget>
 	<widget field="Output" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="388" y="521"/>
-	</widget>
-	<widget field="StashTote" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="54" y="352"/>
 	</widget>
 	<widget field="Trajectory.destination" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="209" y="674"/>
@@ -42,44 +41,14 @@
 	<widget field="ElevatorToFourTotes" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="532" y="343"/>
 	</widget>
-	<widget field="RightTab" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="229" y="578"/>
-	</widget>
 	<widget field="Trajectory.out" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="30" y="673"/>
-	</widget>
-	<widget field="AvgVolts" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="386" y="497"/>
-	</widget>
-	<widget field="RightWheel" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="243" y="651"/>
-	</widget>
-	<widget field="GatesHalfOpen" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="958" y="226"/>
-	</widget>
-	<widget field="RF_IR_Volts" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="309" y="49"/>
-	</widget>
-	<widget field="GatesClosed" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="974" y="258"/>
-	</widget>
-	<widget field="LeftTab" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="86" y="577"/>
-	</widget>
-	<widget field="RecieveTote" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="45" y="420"/>
 	</widget>
 	<widget field="Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="892" y="21"/>
 	</widget>
-	<widget field="LeftWheel" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="95" y="649"/>
-	</widget>
 	<widget field="Setpoint" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="893" y="48"/>
-	</widget>
-	<widget field="LF_IR_Volts" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="165" y="47"/>
 	</widget>
 	<widget field="ElevatorToThreeTotes" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="526" y="376"/>
@@ -99,32 +68,17 @@
 	<widget field="PickAuto" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
 		<location x="606" y="54"/>
 	</widget>
-	<widget field="DisAbleCanTabSafety" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1079" y="102"/>
-	</widget>
 	<widget field="ClearAll" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="522" y="6"/>
 	</widget>
-	<widget field="EnableToteTabSafety" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="890" y="77"/>
-	</widget>
 	<widget field="ElevatorToStep" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="742" y="193"/>
-	</widget>
-	<widget field="DisableToteTabSafety" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="887" y="104"/>
-	</widget>
-	<widget field="EnableCanTabSafety" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1081" y="73"/>
 	</widget>
 	<widget field="ElevatorManualControl" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="704" y="372"/>
 	</widget>
 	<widget field="AutoMoveBackwards" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="936" y="651"/>
-	</widget>
-	<widget field="WheelsOut" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="789" y="573"/>
 	</widget>
 	<widget field="ElevatorToHang" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="740" y="107"/>
@@ -135,20 +89,8 @@
 	<widget field="ElevatorToCanBottom" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="711" y="215"/>
 	</widget>
-	<widget field="WheelsOff" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="789" y="623"/>
-	</widget>
-	<widget field="GrabCan" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="13" y="277"/>
-	</widget>
-	<widget field="WheelsSkew" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="780" y="650"/>
-	</widget>
 	<widget field="ArmsBackout" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="995" y="478"/>
-	</widget>
-	<widget field="LookForTote" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="44" y="386"/>
 	</widget>
 	<widget field="ElevatorToCan" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="743" y="84"/>
@@ -158,9 +100,6 @@
 	</widget>
 	<widget field="ResetElevatorPosition" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="709" y="337"/>
-	</widget>
-	<widget field="WheelsIn" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="797" y="600"/>
 	</widget>
 	<widget field="ElevatorToTransport" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="717" y="257"/>
@@ -173,18 +112,6 @@
 	</widget>
 	<widget field="ElevatorToTop" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="740" y="15"/>
-	</widget>
-	<widget field="CanTabsOpen" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1109" y="22"/>
-	</widget>
-	<widget field="GatesFullOpen" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="963" y="196"/>
-	</widget>
-	<widget field="CanTabsClose" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1112" y="46"/>
-	</widget>
-	<widget field="StackCan" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="11" y="246"/>
 	</widget>
 	<widget field="ArmsHalfOpen" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="18" y="43"/>
@@ -213,74 +140,11 @@
 	<widget field="SwitchLights" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="1004" y="449"/>
 	</widget>
-	<widget field="MoveForward" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="986" y="514"/>
-	</widget>
 	<widget field="ArmsCloseButton" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="5" y="103"/>
 	</widget>
 </dashboard>
 <live-window>
-	<widget field="DriveSystem" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
-		<widget field="RightDownIR" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
-			<location x="6" y="16"/>
-			<height>20</height>
-			<width>93</width>
-		</widget>
-		<widget field="Gyro" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
-			<location x="6" y="36"/>
-			<height>20</height>
-			<width>93</width>
-		</widget>
-		<widget field="RightForwardIR" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
-			<location x="6" y="56"/>
-			<height>20</height>
-			<width>93</width>
-		</widget>
-		<widget field="LeftDownIR" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
-			<location x="6" y="76"/>
-			<height>20</height>
-			<width>93</width>
-		</widget>
-		<widget field="LeftForwardIR" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
-			<location x="6" y="96"/>
-			<height>20</height>
-			<width>93</width>
-		</widget>
-		<location x="274" y="156"/>
-		<width>105</width>
-		<height>123</height>
-	</widget>
-	<widget field="Lights" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
-		<widget field="SignalLED" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.DigitalOutputController">
-			<location x="6" y="16"/>
-			<height>23</height>
-			<width>106</width>
-		</widget>
-		<location x="272" y="101"/>
-		<width>118</width>
-		<height>46</height>
-	</widget>
-	<widget field="Elevator" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
-		<widget field="bottomLimitSwitch" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.DigitalInputDisplay">
-			<location x="6" y="16"/>
-			<height>20</height>
-			<width>113</width>
-		</widget>
-		<location x="99" y="241"/>
-		<width>125</width>
-		<height>43</height>
-	</widget>
-	<widget field="CanTabs" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
-		<widget field="CanTabsSpike" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.RelayController">
-			<location x="6" y="16"/>
-			<height>20</height>
-			<width>147</width>
-		</widget>
-		<location x="74" y="103"/>
-		<width>159</width>
-		<height>43</height>
-	</widget>
 	<widget field="Arms" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
 		<widget field="ArmEncoder" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
 			<location x="6" y="16"/>
@@ -306,6 +170,66 @@
 		<width>305</width>
 		<height>271</height>
 	</widget>
+	<widget field="DriveSystem" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
+		<widget field="RightDownIR" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+			<location x="6" y="16"/>
+			<height>20</height>
+			<width>121</width>
+		</widget>
+		<widget field="Gyro" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+			<location x="6" y="36"/>
+			<height>20</height>
+			<width>121</width>
+		</widget>
+		<widget field="RightForwardIR" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+			<location x="6" y="56"/>
+			<height>20</height>
+			<width>121</width>
+		</widget>
+		<widget field="LeftDownIR" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+			<location x="6" y="76"/>
+			<height>20</height>
+			<width>121</width>
+		</widget>
+		<widget field="LeftForwardIR" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+			<location x="6" y="96"/>
+			<height>20</height>
+			<width>121</width>
+		</widget>
+		<widget field="RightForwardUltra" type="Analog Input" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+			<location x="6" y="116"/>
+			<height>20</height>
+			<width>121</width>
+		</widget>
+		<widget field="LeftForwardUltra" type="Analog Input" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+			<location x="6" y="136"/>
+			<height>20</height>
+			<width>121</width>
+		</widget>
+		<location x="274" y="156"/>
+		<width>133</width>
+		<height>163</height>
+	</widget>
+	<widget field="CanTabs" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
+		<widget field="CanTabsSpike" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.RelayController">
+			<location x="6" y="16"/>
+			<height>20</height>
+			<width>147</width>
+		</widget>
+		<location x="74" y="103"/>
+		<width>159</width>
+		<height>43</height>
+	</widget>
+	<widget field="Elevator" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
+		<widget field="bottomLimitSwitch" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.DigitalInputDisplay">
+			<location x="6" y="16"/>
+			<height>20</height>
+			<width>113</width>
+		</widget>
+		<location x="99" y="241"/>
+		<width>125</width>
+		<height>43</height>
+	</widget>
 	<widget field="ToteTabs" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
 		<widget field="LeftToteTabsSpike" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.RelayController">
 			<location x="6" y="16"/>
@@ -320,6 +244,16 @@
 		<location x="43" y="166"/>
 		<width>191</width>
 		<height>63</height>
+	</widget>
+	<widget field="Lights" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
+		<widget field="SignalLED" type="Table" class="edu.wpi.first.smartdashboard.livewindow.elements.DigitalOutputController">
+			<location x="6" y="16"/>
+			<height>23</height>
+			<width>106</width>
+		</widget>
+		<location x="272" y="101"/>
+		<width>118</width>
+		<height>46</height>
 	</widget>
 </live-window>
 </xml>
