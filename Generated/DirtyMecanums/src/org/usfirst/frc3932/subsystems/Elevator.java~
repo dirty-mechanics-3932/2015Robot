@@ -30,6 +30,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Elevator extends Subsystem implements Settable {
 
+
 	private static final double PID_P = 4d;
 	private static final double PID_I = 0.007d; // .2
 
@@ -102,11 +103,11 @@ public class Elevator extends Subsystem implements Settable {
 	private static final int TWO_TOTE_TICKS = 6797;
 	private static final int THREE_TOTE_TICKS = 8898;
 	private static final double THREE_TOTE_INCHES = 50;
-	private static final int FOUR_TOTE_TICKS = 14000;
+	private static final int FOUR_TOTE_TICKS = 14400;
 	private static final double FOUR_TOTE_INCHES = 72.625;
 	
-	
-	private static final int MAX_TICKS = 14037;
+	private static final int MIN_TICKS = 200;
+	private static final int MAX_TICKS = 14820;
 
 	private TrajectoryGenerator trajectory = new TrajectoryGenerator();
 	
@@ -295,8 +296,8 @@ public class Elevator extends Subsystem implements Settable {
 
 	public void move(double scale) {
 		int newDestination = trajectory.getCurrentTarget() + (int) (scale * TICKS_PER_UPDATE);
-		if (newDestination < 0) {
-			newDestination = 0;
+		if (newDestination < MIN_TICKS) {
+			newDestination = MIN_TICKS;
 		}
 		if (newDestination > MAX_TICKS-20) {
 			newDestination = MAX_TICKS-20;

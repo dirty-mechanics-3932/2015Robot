@@ -11,6 +11,7 @@
 package org.usfirst.frc3932;
 
 import org.usfirst.frc3932.commands.AutoMoveBackwards;
+import org.usfirst.frc3932.commands.AutoMoveSideways;
 import org.usfirst.frc3932.commands.AutonomousCommand;
 import org.usfirst.frc3932.commands.WaitFor;
 import org.usfirst.frc3932.subsystems.Arms;
@@ -109,6 +110,7 @@ public class Robot extends IterativeRobot {
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("Default", new AutonomousCommand());
 		autoChooser.addObject("MoveBackwards", new AutoMoveBackwards());
+		autoChooser.addObject("MoveRight", new AutoMoveSideways());
 		autoChooser.addObject("Nothing", new WaitFor());
 		SmartDashboard.putData("PickAuto", autoChooser);
 	}

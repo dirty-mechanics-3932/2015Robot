@@ -104,7 +104,7 @@ Children:
           default: '0'
           name: Input Channel (Analog)
           validators: &id004 [AnalogInput]
-          value: '0'
+          value: '4'
     - Name: RightForwardIR
       Base: Analog Input
       Children: []
@@ -114,7 +114,7 @@ Children:
           default: '0'
           name: Input Channel (Analog)
           validators: *id004
-          value: '1'
+          value: '6'
     - Name: LeftDownIR
       Base: Analog Input
       Children: []
@@ -154,7 +154,7 @@ Children:
           default: '0'
           name: Input Channel (Analog)
           validators: *id004
-          value: '4'
+          value: '0'
     - Name: RightForwardUltra
       Base: Analog Input
       Children: []
@@ -164,7 +164,7 @@ Children:
           default: '0'
           name: Input Channel (Analog)
           validators: *id004
-          value: '6'
+          value: '1'
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: Teleop}
@@ -1217,6 +1217,14 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: DriveSystem}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
+  - Name: AutoMoveSideways
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: DriveSystem}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
   - Name: Teleop
     Base: Command
     Children: []
@@ -1933,6 +1941,12 @@ Children:
         validators: null, value: 5.0}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
+  - Name: UltraDock
+    Base: Command Group
+    Children: []
+    Properties:
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
   Properties: {}
 Properties:
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
@@ -1941,7 +1955,7 @@ Properties:
     folder: false, name: Wiring File, validators: null, value: wiring.html}
   Use Default Java Package: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Use Default Java Package, validators: null, value: false}
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: /Users/agresh/workspace,
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: /Users/sussmanz/workspace,
     extension: null, folder: true, name: Eclipse Workspace, validators: null, value: Generated}
   Java Package: !!robotbuilder.data.properties.StringProperty {default: org.usfirst.frc0000,
     name: Java Package, validators: null, value: org.usfirst.frc3932}

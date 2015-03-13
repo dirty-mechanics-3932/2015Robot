@@ -85,10 +85,10 @@ public class RobotMap {
         driveSystemMecanumDrive.setMaxOutput(1.0);
         driveSystemMecanumDrive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
         driveSystemMecanumDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
-        driveSystemLeftForwardIR = new AnalogInput(0);
+        driveSystemLeftForwardIR = new AnalogInput(4);
         LiveWindow.addSensor("DriveSystem", "LeftForwardIR", driveSystemLeftForwardIR);
         
-        driveSystemRightForwardIR = new AnalogInput(1);
+        driveSystemRightForwardIR = new AnalogInput(6);
         LiveWindow.addSensor("DriveSystem", "RightForwardIR", driveSystemRightForwardIR);
         
         driveSystemLeftDownIR = new AnalogInput(7);
@@ -100,10 +100,10 @@ public class RobotMap {
         driveSystemGyro = new AnalogInput(5);
         LiveWindow.addSensor("DriveSystem", "Gyro", driveSystemGyro);
         
-        driveSystemLeftForwardUltra = new AnalogInput(4);
+        driveSystemLeftForwardUltra = new AnalogInput(0);
         LiveWindow.addSensor("DriveSystem", "LeftForwardUltra", driveSystemLeftForwardUltra);
         
-        driveSystemRightForwardUltra = new AnalogInput(6);
+        driveSystemRightForwardUltra = new AnalogInput(1);
         LiveWindow.addSensor("DriveSystem", "RightForwardUltra", driveSystemRightForwardUltra);
         
         elevatorbottomLimitSwitch = new DigitalInput(0);

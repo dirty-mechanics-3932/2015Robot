@@ -72,6 +72,7 @@ public class SmartDashboardIO {
     	putNumber(label(ARM, "LeftWheel"), RobotMap.armsLeftWheel.get());
     	putNumber(label(ARM, "RightWheel"), RobotMap.armsRightWheel.get());
     	SmartDashboard.putNumber("LeftForwardRangeFinder", RobotMap.driveSystemLeftForwardUltra.getAverageVoltage());
+    	SmartDashboard.putNumber("RightForwardRangeFinder", RobotMap.driveSystemRightForwardUltra.getAverageVoltage());
     	
 //    	camera.executeCamera();
     	

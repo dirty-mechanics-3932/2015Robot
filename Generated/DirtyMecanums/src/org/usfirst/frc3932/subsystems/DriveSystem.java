@@ -47,6 +47,7 @@ public class DriveSystem extends Subsystem {
     
 //    Gyro gyroOutput = new Gyro(gyro);
     private final static double DRIVE_SPEED_SCALE = 0.50d;
+	private static final double ULTRA_VOLTAGE_AT_WALL = 0.93d;
 
     
     // Put methods for controlling this subsystem
@@ -118,6 +119,17 @@ public class DriveSystem extends Subsystem {
 //	public double getGyroAngleDegrees(){
 //		return gyroOutput.getAngle();
 //	}
+	
+	public boolean isLeftUltraTargetReached()
+	{
+		return (leftForwardUltra.getAverageVoltage() > ULTRA_VOLTAGE_AT_WALL);
+	}
+	
+	public boolean isRightUltraTargetReached()
+	{
+		return (rightForwardUltra.getAverageVoltage() > ULTRA_VOLTAGE_AT_WALL);
+	}
+	
 	
 }
 
