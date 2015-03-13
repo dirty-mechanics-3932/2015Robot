@@ -106,7 +106,7 @@ public class Elevator extends Subsystem implements Settable {
 	private static final int FOUR_TOTE_TICKS = 14400;
 	private static final double FOUR_TOTE_INCHES = 72.625;
 	
-	private static final int MIN_TICKS = 300;
+	private static final int MIN_TICKS = 50;
 	private static final int MAX_TICKS = 14820;
 
 	private TrajectoryGenerator trajectory = new TrajectoryGenerator();

@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class SmartDashboardIO {
 	
 	private static final String TOTE_TABS = "ToteTabs";
-	private static final String OUTPUT = "Output";
+//	private static final String OUTPUT = "Output";
 	private static final String RIGHT_GATE = "RightGate";
 	private static final String LEFT_GATE = "LeftGate";
 	private static final String SETPOINT = "Setpoint";
@@ -43,36 +43,36 @@ public class SmartDashboardIO {
 //    	putBoolean(label(DRIVE, "CrabLeftDone"), Robot.driveSystem.isCrabLeftDone());
 //    	putNumber(label(DRIVE_LEFT_DOWN_IR, "AvgVolts"), RobotMap.driveSystemLeftDownIR.getAverageVoltage());
 //    	putNumber(label(DRIVE_RIGHT_DOWN_IR, "AvgVolts"), RobotMap.driveSystemRightDownIR.getAverageVoltage());
-    	putNumber(label(DRIVE, "LF_IR_Volts"), RobotMap.driveSystemLeftForwardUltra.getAverageVoltage());
-    	putNumber(label(DRIVE, "RF_IR_Volts"), RobotMap.driveSystemRightForwardUltra.getAverageVoltage());
+//    	putNumber(label(DRIVE, "LF_IR_Volts"), RobotMap.driveSystemLeftForwardUltra.getAverageVoltage());
+//    	putNumber(label(DRIVE, "RF_IR_Volts"), RobotMap.driveSystemRightForwardUltra.getAverageVoltage());
     	
-    	putNumber(label("Gyro", "AvgVolts"), RobotMap.driveSystemGyro.getAverageVoltage());
+//    	putNumber(label("Gyro", "AvgVolts"), RobotMap.driveSystemGyro.getAverageVoltage());
 
     	
     	
     	//ELEVATOR
 //    	enumerateElevatorPositions(df);
-    	putNumber(label(ELEVATOR, ENCODER), RobotMap.elevatorElevatorCANTalon.getEncPosition());
-    	putNumber(label(ELEVATOR, SETPOINT), RobotMap.elevatorElevatorCANTalon.getSetpoint());
-    	putNumber(label(ELEVATOR, OUTPUT), RobotMap.elevatorElevatorCANTalon.getOutputCurrent());
+    	putNumber(label(ELEVATOR, "ElevEncoder"), RobotMap.elevatorElevatorCANTalon.getEncPosition());
+    	putNumber(label(ELEVATOR, "ElevSet"), RobotMap.elevatorElevatorCANTalon.getSetpoint());
+//    	putNumber(label(ELEVATOR, OUTPUT), RobotMap.elevatorElevatorCANTalon.getOutputCurrent());
     	
-    	putNumber(label(LEFT_GATE, "LGtTalonGet"), RobotMap.gatesLeftGateCANTalon.get());
-    	putNumber(label(LEFT_GATE, "LGtTalonSet"), RobotMap.gatesLeftGateCANTalon.getSetpoint());
-//    	
-    	putNumber(label(RIGHT_GATE, "RGtTalonGet"), RobotMap.gatesRightGateCANTalon.get());
-    	putNumber(label(RIGHT_GATE, "RGtTalonSet"), RobotMap.gatesRightGateCANTalon.getSetpoint());
+//    	putNumber(label(LEFT_GATE, "LGtTalonGet"), RobotMap.gatesLeftGateCANTalon.get());
+//    	putNumber(label(LEFT_GATE, "LGtTalonSet"), RobotMap.gatesLeftGateCANTalon.getSetpoint());
+////    	
+//    	putNumber(label(RIGHT_GATE, "RGtTalonGet"), RobotMap.gatesRightGateCANTalon.get());
+//    	putNumber(label(RIGHT_GATE, "RGtTalonSet"), RobotMap.gatesRightGateCANTalon.getSetpoint());
     	
-    	putString(label(TOTE_TABS, "RightTab"), Robot.toteTabs.getRightSpike().toString());
-    	putString(label(TOTE_TABS, "LeftTab"), Robot.toteTabs.getLeftSpike().toString());
+//    	putString(label(TOTE_TABS, "RightTab"), Robot.toteTabs.getRightSpike().toString());
+//    	putString(label(TOTE_TABS, "LeftTab"), Robot.toteTabs.getLeftSpike().toString());
 //    	putString(label("CanTabs", "Gates"), Robot.canTabs.getState().toString());
     	
-    	putNumber(label(ARM, ENCODER), RobotMap.armsArmEncoder.getAverageVoltage());
-    	putNumber(label(ARM, SETPOINT), RobotMap.armsArmPIDController.getSetpoint());
-    	putNumber(label(ARM, OUTPUT), RobotMap.armsArmPIDController.get());
-    	putNumber(label(ARM, "LeftWheel"), RobotMap.armsLeftWheel.get());
-    	putNumber(label(ARM, "RightWheel"), RobotMap.armsRightWheel.get());
-    	SmartDashboard.putNumber("LeftForwardRangeFinder", RobotMap.driveSystemLeftForwardUltra.getAverageVoltage());
-    	SmartDashboard.putNumber("RightForwardRangeFinder", RobotMap.driveSystemRightForwardUltra.getAverageVoltage());
+    	putNumber(label(ARM, "ArmEncVolts"), RobotMap.armsArmEncoder.getAverageVoltage());
+    	putNumber(label(ARM, "ArmPidSet"), RobotMap.armsArmPIDController.getSetpoint());
+    	putNumber(label(ARM, "ArmPidGet"), RobotMap.armsArmPIDController.get());
+//    	putNumber(label(ARM, "LeftWheel"), RobotMap.armsLeftWheel.get());
+//    	putNumber(label(ARM, "RightWheel"), RobotMap.armsRightWheel.get());
+    	SmartDashboard.putNumber("LFRangeFinder", RobotMap.driveSystemLeftForwardUltra.getAverageVoltage());
+    	SmartDashboard.putNumber("RFRangeFinder", RobotMap.driveSystemRightForwardUltra.getAverageVoltage());
     	
 //    	camera.executeCamera();
     	

@@ -245,16 +245,6 @@ public class OI {
 
         SmartDashboard.putData("ArmsBackout", new ArmsBackout());
 
-        SmartDashboard.putData("CanTabsOpen", new CanTabsOpen());
-
-        SmartDashboard.putData("CanTabsClose", new CanTabsClose());
-
-        SmartDashboard.putData("GatesClosed", new GatesClosed());
-
-        SmartDashboard.putData("GatesHalfOpen", new GatesHalfOpen());
-
-        SmartDashboard.putData("GatesFullOpen", new GatesFullOpen());
-
         SmartDashboard.putData("ElevatorToStart", new ElevatorToStart());
 
         SmartDashboard.putData("ElevatorToTransport", new ElevatorToTransport());
@@ -291,39 +281,11 @@ public class OI {
 
         SmartDashboard.putData("ResetElevatorPosition", new ResetElevatorPosition());
 
-        SmartDashboard.putData("LockGatesAroundCan", new LockGatesAroundCan());
-
-        SmartDashboard.putData("RecieveTote", new RecieveTote());
-
-        SmartDashboard.putData("StashTote", new StashTote());
-
-        SmartDashboard.putData("LookForTote", new LookForTote());
-
-        SmartDashboard.putData("GrabCan", new GrabCan());
-
-        SmartDashboard.putData("StackCan", new StackCan());
-
-        SmartDashboard.putData("WheelsOff", new WheelsOff());
-
-        SmartDashboard.putData("WheelsIn", new WheelsIn());
-
-        SmartDashboard.putData("WheelsSkew", new WheelsSkew());
-
-        SmartDashboard.putData("WheelsOut", new WheelsOut());
-
         SmartDashboard.putData("SwitchLights", new SwitchLights());
 
         SmartDashboard.putData("ElevatorManualControl", new ElevatorManualControl());
 
         SmartDashboard.putData("ClearAll", new ClearAll());
-
-        SmartDashboard.putData("DisableToteTabSafety", new DisableToteTabSafety());
-
-        SmartDashboard.putData("EnableToteTabSafety", new EnableToteTabSafety());
-
-        SmartDashboard.putData("DisAbleCanTabSafety", new DisAbleCanTabSafety());
-
-        SmartDashboard.putData("EnableCanTabSafety", new EnableCanTabSafety());
 
         SmartDashboard.putData("ArmManualControl", new ArmManualControl());
 
@@ -332,10 +294,6 @@ public class OI {
         SmartDashboard.putData("ArmsCloseButton", new ArmsCloseButton());
 
         SmartDashboard.putData("Dock", new Dock());
-
-        SmartDashboard.putData("LeftSideUltraDock", new LeftSideUltraDock());
-
-        SmartDashboard.putData("RightSideUltraDock", new RightSideUltraDock());
 
         SmartDashboard.putData("UltraDock", new UltraDock());
 
