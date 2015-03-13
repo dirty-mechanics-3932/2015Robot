@@ -32,7 +32,7 @@ public class Arms extends Subsystem implements Settable{
 	
 	public static final double WIDE = 3.8;
 	public static final double BACKOUT = 3.6;
-	public static final double GRAB =3.30; // unknown
+	public static final double GRAB = 3.0;
 	public static final double START = 3.2;
 	
 	
