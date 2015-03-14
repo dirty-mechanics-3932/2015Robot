@@ -775,7 +775,7 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whenPressed
+          value: whileHeld
     - Name: G9ArmsGrab
       Base: Joystick Button
       Children: []
@@ -799,7 +799,7 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whenPressed
+          value: whileHeld
     - Name: G10ArmsClosed
       Base: Joystick Button
       Children: []
@@ -823,7 +823,7 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whenPressed
+          value: whileHeld
     - Name: G11StashGroundT
       Base: Joystick Button
       Children: []
@@ -1868,7 +1868,7 @@ Children:
         validators: *id015
         value: DriveSystem LeftForwardUltra
       Limit Output: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Limit Output, validators: null, value: false}
+        name: Limit Output, validators: null, value: true}
       Tolerance: !!robotbuilder.data.properties.DoubleProperty {default: 0.2, name: Tolerance,
         validators: null, value: 0.2}
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
@@ -1876,7 +1876,7 @@ Children:
       Continuous: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Continuous, validators: null, value: false}
       Maximum Output: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Maximum Output,
-        validators: null, value: 1.0}
+        validators: null, value: 0.6}
       Limit Input: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Limit Input, validators: null, value: false}
       Output: !!robotbuilder.data.properties.TypeSelectionProperty
@@ -1888,7 +1888,7 @@ Children:
       Minimum Input: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Minimum Input,
         validators: null, value: 0.0}
       Minimum Output: !!robotbuilder.data.properties.DoubleProperty {default: -1,
-        name: Minimum Output, validators: null, value: -1.0}
+        name: Minimum Output, validators: null, value: -0.6}
       I: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: I, validators: null,
         value: 0.0}
       P: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: P, validators: null,
@@ -1912,7 +1912,7 @@ Children:
         validators: *id015
         value: DriveSystem RightForwardUltra
       Limit Output: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Limit Output, validators: null, value: false}
+        name: Limit Output, validators: null, value: true}
       Tolerance: !!robotbuilder.data.properties.DoubleProperty {default: 0.2, name: Tolerance,
         validators: null, value: 0.2}
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
@@ -1920,7 +1920,7 @@ Children:
       Continuous: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Continuous, validators: null, value: false}
       Maximum Output: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Maximum Output,
-        validators: null, value: 1.0}
+        validators: null, value: 0.6}
       Limit Input: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Limit Input, validators: null, value: false}
       Output: !!robotbuilder.data.properties.TypeSelectionProperty
@@ -1932,7 +1932,7 @@ Children:
       Minimum Input: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Minimum Input,
         validators: null, value: 0.0}
       Minimum Output: !!robotbuilder.data.properties.DoubleProperty {default: -1,
-        name: Minimum Output, validators: null, value: -1.0}
+        name: Minimum Output, validators: null, value: -0.6}
       I: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: I, validators: null,
         value: 0.0}
       P: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: P, validators: null,

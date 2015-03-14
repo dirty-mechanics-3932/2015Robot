@@ -189,11 +189,11 @@ public class OI {
         g11StashGroundT = new JoystickButton(buttonsTo13, 11);
         g11StashGroundT.whenPressed(new StashGroundTote());
         g10ArmsClosed = new JoystickButton(buttonsTo13, 10);
-        g10ArmsClosed.whenPressed(new ArmsClosed());
+        g10ArmsClosed.whileHeld(new ArmsClosed());
         g9ArmsGrab = new JoystickButton(buttonsTo13, 9);
-        g9ArmsGrab.whenPressed(new ArmsHalfOpen());
+        g9ArmsGrab.whileHeld(new ArmsHalfOpen());
         g8ArmsWide = new JoystickButton(buttonsTo13, 8);
-        g8ArmsWide.whenPressed(new ArmsFullOpen());
+        g8ArmsWide.whileHeld(new ArmsFullOpen());
         g7ArmsOpen = new JoystickButton(buttonsTo13, 7);
         g7ArmsOpen.whileHeld(new ArmsOpenButton());
         g6StashT = new JoystickButton(buttonsTo13, 6);
