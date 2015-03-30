@@ -8,7 +8,6 @@ import org.usfirst.frc3932.commands.LightsOff;
 import org.usfirst.frc3932.commands.LightsOn;
 import org.usfirst.frc3932.commands.LookForFirstTote;
 import org.usfirst.frc3932.commands.LookForTote;
-import org.usfirst.frc3932.commands.SwitchCameras;
 import org.usfirst.frc3932.commands.SwitchLights;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -43,7 +42,6 @@ public class DriverJoystick extends Joystick{
 		button4.whenPressed(new LookForFirstTote());
 		button5.whenPressed(new CrabLeftOverTote());
 		button6.whenPressed(new LookForTote());
-		hatUp.whenPressed(new SwitchCameras());
 		toggle.whenPressed(new LightsOn());
 		toggle.whenReleased(new LightsOff());
 		moveForward();

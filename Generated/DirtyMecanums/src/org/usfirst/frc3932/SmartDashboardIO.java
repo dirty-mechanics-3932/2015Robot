@@ -26,12 +26,6 @@ public class SmartDashboardIO {
 	public static final String SPEED = "Speed";
 	public static final String DELIM = ".";
 	public static final String ELEVATOR = "Elevator";
-	Camera camera;
-	
-	
-	public SmartDashboardIO() {
-		camera = new SimpleCamera();
-	}
 	
 	public void execute() {
 		DecimalFormat df = new DecimalFormat("#.000"); 
@@ -74,7 +68,6 @@ public class SmartDashboardIO {
     	SmartDashboard.putNumber("LFRangeFinder", RobotMap.driveSystemLeftForwardUltra.getAverageVoltage());
     	SmartDashboard.putNumber("RFRangeFinder", RobotMap.driveSystemRightForwardUltra.getAverageVoltage());
     	
-//    	camera.executeCamera();
     	
 	}
 	
