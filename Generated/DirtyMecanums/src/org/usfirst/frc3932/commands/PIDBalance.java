@@ -1,7 +1,6 @@
 package org.usfirst.frc3932.commands;
 
 import org.usfirst.frc3932.RobotMap;
-import java.lang.Math;
 
 public class PIDBalance extends Balance {
 	

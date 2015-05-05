@@ -1,8 +1,9 @@
 package org.usfirst.frc3932.sensor;
 
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
+import edu.wpi.first.wpilibj.PIDSource;
 
-public class BalancingAccelerometer extends BuiltInAccelerometer {
+public class BalancingAccelerometer extends BuiltInAccelerometer implements PIDSource {
 	double level = 0d;
 	
 	public BalancingAccelerometer(Range k4g) {
@@ -21,6 +22,11 @@ public class BalancingAccelerometer extends BuiltInAccelerometer {
 	
 	public double calculateAbsoluteAngle() {
 		return level - calculateRelativeAngle();
+	}
+
+	@Override
+	public double pidGet() {
+		return calculateAbsoluteAngle();
 	}
 
 }
