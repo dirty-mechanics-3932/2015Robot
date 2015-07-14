@@ -20,6 +20,7 @@ import org.usfirst.frc3932.subsystems.DriveSystem;
 import org.usfirst.frc3932.subsystems.Elevator;
 import org.usfirst.frc3932.subsystems.Gates;
 import org.usfirst.frc3932.subsystems.Lights;
+import org.usfirst.frc3932.subsystems.PneumaticArms;
 import org.usfirst.frc3932.subsystems.ToteTabs;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
