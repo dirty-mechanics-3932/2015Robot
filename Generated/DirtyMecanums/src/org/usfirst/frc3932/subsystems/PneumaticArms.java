@@ -15,6 +15,7 @@ import org.usfirst.frc3932.RobotMap;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
@@ -39,6 +40,14 @@ public class PneumaticArms extends Subsystem {
 	
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    }
+    
+    public void open() {
+    	armsSolenoid.set(Value.kForward);
+    }
+    
+    public void close() {
+    	armsSolenoid.set(Value.kReverse);
     }
 }
 

@@ -48,7 +48,9 @@ public class DriveSystem extends Subsystem {
     
 //    Gyro gyroOutput = new Gyro(gyro);
     Accelerometer accel = new BuiltInAccelerometer(Accelerometer.Range.k4G); 
-    private final static double DRIVE_SPEED_SCALE = 0.40d;
+    private final static double FORWARD_DRIVE_SPEED_SCALE = 0.40d;
+    private final static double SIDEWAYS_DRIVE_SPEED_SCALE = 0.60d;
+    private final static double TWIST_SPEED_SCALE = 0.40d;
 	private static final double ULTRA_VOLTAGE_AT_WALL = 0.93d;
 
     
@@ -68,7 +70,7 @@ public class DriveSystem extends Subsystem {
     }
     
     public void drive(double x, double y, double twist){
-    	mecanumDrive.mecanumDrive_Cartesian(adjust(x)*DRIVE_SPEED_SCALE, adjust(y)*DRIVE_SPEED_SCALE, adjust(twist)*DRIVE_SPEED_SCALE, 0);
+    	mecanumDrive.mecanumDrive_Cartesian(adjust(x)*SIDEWAYS_DRIVE_SPEED_SCALE, adjust(y)*FORWARD_DRIVE_SPEED_SCALE, adjust(twist)*TWIST_SPEED_SCALE, 0);
     }
     
     protected double adjust(double val){

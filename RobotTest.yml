@@ -788,7 +788,7 @@ Children:
           name: Command
           type: Command
           validators: *id010
-          value: ArmsOpenButton
+          value: PneumaticArmsOpen
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id011
           default: '1'
@@ -966,7 +966,7 @@ Children:
           name: Command
           type: Command
           validators: *id010
-          value: ArmsCloseButton
+          value: PneumaticArmsClose
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id011
           default: '1'
@@ -1988,6 +1988,22 @@ Children:
     Base: Command Group
     Children: []
     Properties:
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: PneumaticArmsOpen
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: PneumaticArms}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: PneumaticArmsClose
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: PneumaticArms}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   - Name: Balance

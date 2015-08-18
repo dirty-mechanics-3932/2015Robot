@@ -51,6 +51,8 @@ import org.usfirst.frc3932.commands.GetFromStep;
 import org.usfirst.frc3932.commands.GrabCan;
 import org.usfirst.frc3932.commands.LookForFirstTote;
 import org.usfirst.frc3932.commands.LookForTote;
+import org.usfirst.frc3932.commands.PneumaticArmsClose;
+import org.usfirst.frc3932.commands.PneumaticArmsOpen;
 import org.usfirst.frc3932.commands.RaiseCan;
 import org.usfirst.frc3932.commands.RaiseStackToScoring;
 import org.usfirst.frc3932.commands.RecieveTote;
@@ -169,7 +171,7 @@ public class OI {
         g15GrabCan = new JoystickButton(buttonsTo24, 2);
         g15GrabCan.whenPressed(new GrabCan());
         g14ArmsClose = new JoystickButton(buttonsTo24, 1);
-        g14ArmsClose.whileHeld(new ArmsCloseButton());
+        g14ArmsClose.whileHeld(new PneumaticArmsClose());
         buttonsTo13 = new Joystick(2);
         
         g13RaiseStack = new JoystickButton(buttonsTo13, 13);
@@ -185,7 +187,7 @@ public class OI {
         g8ArmsWide = new JoystickButton(buttonsTo13, 8);
         g8ArmsWide.whileHeld(new ArmsFullOpen());
         g7ArmsOpen = new JoystickButton(buttonsTo13, 7);
-        g7ArmsOpen.whileHeld(new ArmsOpenButton());
+        g7ArmsOpen.whileHeld(new PneumaticArmsOpen());
         g6StashT = new JoystickButton(buttonsTo13, 6);
         g6StashT.whenPressed(new StashTote());
         g5RecieveT = new JoystickButton(buttonsTo13, 5);
@@ -286,6 +288,10 @@ public class OI {
         SmartDashboard.putData("Dock", new Dock());
 
         SmartDashboard.putData("UltraDock", new UltraDock());
+
+        SmartDashboard.putData("PneumaticArmsOpen", new PneumaticArmsOpen());
+
+        SmartDashboard.putData("PneumaticArmsClose", new PneumaticArmsClose());
 
         SmartDashboard.putData("Balance", new Balance());
 
