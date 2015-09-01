@@ -57,6 +57,7 @@ import org.usfirst.frc3932.commands.RaiseCan;
 import org.usfirst.frc3932.commands.RaiseStackToScoring;
 import org.usfirst.frc3932.commands.RecieveTote;
 import org.usfirst.frc3932.commands.ResetElevatorPosition;
+import org.usfirst.frc3932.commands.RightSideUltraDock;
 import org.usfirst.frc3932.commands.StackCan;
 import org.usfirst.frc3932.commands.StashGroundTote;
 import org.usfirst.frc3932.commands.StashTote;
@@ -286,6 +287,8 @@ public class OI {
         SmartDashboard.putData("ArmsCloseButton", new ArmsCloseButton());
 
         SmartDashboard.putData("Dock", new Dock());
+
+        SmartDashboard.putData("RightSideUltraDock", new RightSideUltraDock());
 
         SmartDashboard.putData("UltraDock", new UltraDock());
 
