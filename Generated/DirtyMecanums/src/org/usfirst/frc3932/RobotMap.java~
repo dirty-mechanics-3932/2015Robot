@@ -43,25 +43,11 @@ public class RobotMap {
     public static CANTalon driveSystemLeftBack;
     public static CANTalon driveSystemRightFront;
     public static RobotDrive driveSystemMecanumDrive;
-    public static AnalogInput driveSystemLeftForwardIR;
-    public static AnalogInput driveSystemRightForwardIR;
-    public static AnalogInput driveSystemLeftDownIR;
-    public static AnalogInput driveSystemRightDownIR;
     public static AnalogInput driveSystemLeftForwardUltra;
     public static AnalogInput driveSystemRightForwardUltra;
     public static AnalogAccelerometer driveSystemBuiltinAccelerometer;
     public static DigitalInput elevatorbottomLimitSwitch;
     public static CANTalon elevatorElevatorCANTalon;
-    public static CANTalon gatesLeftGateCANTalon;
-    public static CANTalon gatesRightGateCANTalon;
-    public static Relay toteTabsLeftToteTabsSpike;
-    public static Relay toteTabsRightToteTabsSpike;
-    public static CANTalon armsArmWidthCANTalon;
-    public static AnalogInput armsArmEncoder;
-    public static PIDController armsArmPIDController;
-    public static SpeedController armsLeftWheel;
-    public static SpeedController armsRightWheel;
-    public static Relay canTabsCanTabsSpike;
     public static Solenoid lightsSignalLED;
     public static Compressor pneumaticArmscompressor;
     public static DoubleSolenoid pneumaticArmsarmsSolenoid;
@@ -93,18 +79,6 @@ public class RobotMap {
         driveSystemMecanumDrive.setMaxOutput(1.0);
         driveSystemMecanumDrive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
         driveSystemMecanumDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
-        driveSystemLeftForwardIR = new AnalogInput(4);
-        LiveWindow.addSensor("DriveSystem", "LeftForwardIR", driveSystemLeftForwardIR);
-        
-        driveSystemRightForwardIR = new AnalogInput(6);
-        LiveWindow.addSensor("DriveSystem", "RightForwardIR", driveSystemRightForwardIR);
-        
-        driveSystemLeftDownIR = new AnalogInput(7);
-        LiveWindow.addSensor("DriveSystem", "LeftDownIR", driveSystemLeftDownIR);
-        
-        driveSystemRightDownIR = new AnalogInput(3);
-        LiveWindow.addSensor("DriveSystem", "RightDownIR", driveSystemRightDownIR);
-        
         driveSystemLeftForwardUltra = new AnalogInput(0);
         LiveWindow.addSensor("DriveSystem", "LeftForwardUltra", driveSystemLeftForwardUltra);
         
@@ -120,39 +94,6 @@ public class RobotMap {
         
         elevatorElevatorCANTalon = new CANTalon(7);
         
-        
-        gatesLeftGateCANTalon = new CANTalon(9);
-        
-        
-        gatesRightGateCANTalon = new CANTalon(8);
-        
-        
-        toteTabsLeftToteTabsSpike = new Relay(0);
-        LiveWindow.addActuator("ToteTabs", "LeftToteTabsSpike", toteTabsLeftToteTabsSpike);
-        
-        toteTabsRightToteTabsSpike = new Relay(2);
-        LiveWindow.addActuator("ToteTabs", "RightToteTabsSpike", toteTabsRightToteTabsSpike);
-        
-        armsArmWidthCANTalon = new CANTalon(6);
-        
-        
-        armsArmEncoder = new AnalogInput(2);
-        LiveWindow.addSensor("Arms", "ArmEncoder", armsArmEncoder);
-        
-        armsArmPIDController = new PIDController(-5.0, 0.0, 0.0, 0.0, armsArmEncoder, armsArmWidthCANTalon, 0.02);
-        LiveWindow.addActuator("Arms", "ArmPIDController", armsArmPIDController);
-        armsArmPIDController.setContinuous(false); armsArmPIDController.setAbsoluteTolerance(0.2); 
-        armsArmPIDController.setInputRange(2.0, 4.3);
-        armsArmPIDController.setOutputRange(-1.0, 1.0);        
-
-        armsLeftWheel = new VictorSP(1);
-        LiveWindow.addActuator("Arms", "LeftWheel", (VictorSP) armsLeftWheel);
-        
-        armsRightWheel = new VictorSP(2);
-        LiveWindow.addActuator("Arms", "RightWheel", (VictorSP) armsRightWheel);
-        
-        canTabsCanTabsSpike = new Relay(1);
-        LiveWindow.addActuator("CanTabs", "CanTabsSpike", canTabsCanTabsSpike);
         
         lightsSignalLED = new Solenoid(0, 0);
         LiveWindow.addActuator("Lights", "SignalLED", lightsSignalLED);

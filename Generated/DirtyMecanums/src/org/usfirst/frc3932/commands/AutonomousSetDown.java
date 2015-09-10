@@ -19,7 +19,6 @@ public class AutonomousSetDown extends CommandGroup {
     
     public  AutonomousSetDown() {
         addSequential(new ElevatorToStart());
-        addSequential(new ArmsFullOpen());
         addSequential(new AutoMoveBackwards());
     }
 }

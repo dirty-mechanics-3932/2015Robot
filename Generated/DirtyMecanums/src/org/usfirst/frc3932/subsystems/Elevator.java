@@ -262,38 +262,6 @@ public class Elevator extends Subsystem implements Settable {
 //		executeTabSafetyProtocol();
 	}
 
-	private void executeTabSafetyProtocol() {
-		Relay.Value valueToRestore = Robot.toteTabs.getLeftSpike();
-		if (!Robot.toteTabs.isDisableSafety()){
-    		if (gatesClosedAndInToteTabZone()) {
-    			valueToRestore = Robot.toteTabs.getLeftSpike();
-    			Robot.toteTabs.toteTabsOpen();
-    		}
-    		else {
-    			Robot.toteTabs.toteTabsOff();
-    		}
-    	}
-    	if (!Robot.canTabs.isDisableSafety()){
-    		if (gatesClosedAndElevatorInCanTabZone()) {
-    			valueToRestore = Robot.toteTabs.getLeftSpike();
-    			Robot.canTabs.canTabsOpen();
-    		}
-    		else {
-    			Robot.canTabs.canTabsOff();
-    		}
-    	}
-    	//What if the tabs were supposed to be closed?
-	}
-	
-	private boolean gatesClosedAndElevatorInCanTabZone() {
-		return !Robot.gates.gatesOpen() && Robot.elevator.getHeight() < CAN_TAB_TOP_LIMIT && Robot.elevator.getHeight() > CAN_TAB_BOTTOM_LIMIT;
-	}
-
-	private boolean gatesClosedAndInToteTabZone() {
-		return !Robot.gates.gatesOpen() && Robot.elevator.getHeight() < TOT_TAB_TOP_LIMIT && Robot.elevator.getHeight() > TOTE_TAB_BOTTOM_LIMIT;
-	}
-
-
 	public void move(double scale) {
 		int newDestination = trajectory.getCurrentTarget() + (int) (scale * TICKS_PER_UPDATE);
 		if (newDestination < MIN_TICKS) {

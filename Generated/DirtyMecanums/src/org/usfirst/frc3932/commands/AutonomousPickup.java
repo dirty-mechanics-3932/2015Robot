@@ -18,16 +18,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousPickup extends CommandGroup {
     
     public  AutonomousPickup() {
-        addSequential(new CrabLeftOverCan());
         addSequential(new ElevatorToStart());
-        addSequential(new ArmsClosed());
-        addSequential(new ElevatorToWeightBearing()); //TODO: ?
-        addSequential(new CrabLeftOverTote());
-        addSequential(new ElevatorToPlatform()); //TODO: ?
-        addSequential(new ArmsFullOpen());
         addSequential(new ElevatorToStart());
-        addSequential(new ArmsHalfOpen());
-        addSequential(new ElevatorToScoring());
         addSequential(new AutoMoveBackwards());
     }
 }

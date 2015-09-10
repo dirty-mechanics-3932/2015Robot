@@ -1,13 +1,8 @@
 package org.usfirst.frc3932;
 
 import org.usfirst.frc3932.commands.BackAwaySlowly;
-import org.usfirst.frc3932.commands.CrabLeftOverCan;
-import org.usfirst.frc3932.commands.CrabLeftOverTote;
-import org.usfirst.frc3932.commands.Dock;
 import org.usfirst.frc3932.commands.LightsOff;
 import org.usfirst.frc3932.commands.LightsOn;
-import org.usfirst.frc3932.commands.LookForFirstTote;
-import org.usfirst.frc3932.commands.LookForTote;
 import org.usfirst.frc3932.commands.SwitchLights;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -38,17 +33,8 @@ public class DriverJoystick extends Joystick{
 		
 		button1.whenPressed(new SwitchLights());
 		button2.whenPressed(new BackAwaySlowly());
-		button3.whenPressed(new CrabLeftOverCan());
-		button4.whenPressed(new LookForFirstTote());
-		button5.whenPressed(new CrabLeftOverTote());
-		button6.whenPressed(new LookForTote());
 		toggle.whenPressed(new LightsOn());
 		toggle.whenReleased(new LightsOff());
-		moveForward();
 	}
 	
-	private void moveForward(){
-		toggle.whileHeld(new Dock());
-//		toggle.whileHeld(new RightSideDock());
-	}
 }
