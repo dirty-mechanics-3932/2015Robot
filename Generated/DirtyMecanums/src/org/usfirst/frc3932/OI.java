@@ -11,12 +11,8 @@
 
 package org.usfirst.frc3932;
 
-import org.usfirst.frc3932.commands.AutoMoveBackwards;
-import org.usfirst.frc3932.commands.AutoMoveSideways;
-import org.usfirst.frc3932.commands.AutonomousCommand;
 import org.usfirst.frc3932.commands.BackAwaySlowly;
 import org.usfirst.frc3932.commands.ClearAll;
-import org.usfirst.frc3932.commands.ElevatorManualControl;
 import org.usfirst.frc3932.commands.ElevatorToFourTotes;
 import org.usfirst.frc3932.commands.ElevatorToOneTote;
 import org.usfirst.frc3932.commands.ElevatorToStart;
@@ -26,7 +22,6 @@ import org.usfirst.frc3932.commands.PneumaticArmsClose;
 import org.usfirst.frc3932.commands.PneumaticArmsOpen;
 import org.usfirst.frc3932.commands.ResetElevatorPosition;
 import org.usfirst.frc3932.commands.SwitchLights;
-import org.usfirst.frc3932.commands.Teleop;
 import org.usfirst.frc3932.commands.UltraDock;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -116,14 +111,6 @@ public class OI {
 
 	    
         // SmartDashboard Buttons
-        SmartDashboard.putData("AutonomousCommand", new AutonomousCommand());
-
-        SmartDashboard.putData("AutoMoveBackwards", new AutoMoveBackwards());
-
-        SmartDashboard.putData("AutoMoveSideways", new AutoMoveSideways());
-
-        SmartDashboard.putData("Teleop", new Teleop());
-
         SmartDashboard.putData("ElevatorToStart", new ElevatorToStart());
 
         SmartDashboard.putData("ElevatorToOneTote", new ElevatorToOneTote());
@@ -135,10 +122,6 @@ public class OI {
         SmartDashboard.putData("ElevatorToFourTotes", new ElevatorToFourTotes());
 
         SmartDashboard.putData("ResetElevatorPosition", new ResetElevatorPosition());
-
-        SmartDashboard.putData("SwitchLights", new SwitchLights());
-
-        SmartDashboard.putData("ElevatorManualControl", new ElevatorManualControl());
 
         SmartDashboard.putData("ClearAll", new ClearAll());
 

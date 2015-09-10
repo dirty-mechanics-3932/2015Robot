@@ -14,8 +14,8 @@ public class SmartDashboardIO {
     	putNumber("ElevEncoder", RobotMap.elevatorElevatorCANTalon.getEncPosition());
     	putNumber("ElevSet", RobotMap.elevatorElevatorCANTalon.getSetpoint());
 
-    	SmartDashboard.putNumber("LFRangeFinderV", RobotMap.driveSystemLeftForwardUltra.getAverageVoltage());
-    	SmartDashboard.putNumber("RFRangeFinderV", RobotMap.driveSystemRightForwardUltra.getAverageVoltage());
+    	putNumber("LFRangeFinderV", RobotMap.driveSystemLeftForwardUltra.getAverageVoltage());
+    	putNumber("RFRangeFinderV", RobotMap.driveSystemRightForwardUltra.getAverageVoltage());
     	
     	
 	}

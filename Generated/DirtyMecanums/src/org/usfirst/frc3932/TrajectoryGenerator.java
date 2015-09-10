@@ -39,16 +39,13 @@ public class TrajectoryGenerator {
     		this.currentTarget = currentTarget + increment;
     	}
     	output.set(getCurrentTarget());
-    	SmartDashboard.putNumber("Trajectory.out", getCurrentTarget());
-    	SmartDashboard.putNumber("Trajectory.destination", getDestination());
-    	
     }
     
     public boolean isFinished() {
     	return currentTarget == destination;
     }
 
-	private int getDestination() {
+	public int getDestination() {
 		return destination;
 	}
 
