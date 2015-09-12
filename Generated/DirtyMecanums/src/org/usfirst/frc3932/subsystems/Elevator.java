@@ -109,7 +109,7 @@ public class Elevator extends Subsystem implements Settable {
 	private static final int MIN_TICKS = 50;
 	private static final int MAX_TICKS = 14100;
 
-	private TrajectoryGenerator trajectory = new TrajectoryGenerator();
+	protected TrajectoryGenerator trajectory = new TrajectoryGenerator();
 	
     /**
      * Used to insure tabs are open as the recycle bin goes by
