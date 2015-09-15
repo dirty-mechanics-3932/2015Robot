@@ -1,13 +1,13 @@
 package org.usfirst.frc3932;
 
-import java.text.DecimalFormat;
-
-import org.usfirst.frc3932.subsystems.Elevator;
-
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 	
 
 public class SmartDashboardIO {
+	
+	
+	public SmartDashboardIO(){
+	}
 	
 	
 	public void execute() {
@@ -16,6 +16,8 @@ public class SmartDashboardIO {
 
     	putNumber("LFRangeFinderV", RobotMap.driveSystemLeftForwardUltra.getAverageVoltage());
     	putNumber("RFRangeFinderV", RobotMap.driveSystemRightForwardUltra.getAverageVoltage());
+    	
+    	
     	
     	
 	}

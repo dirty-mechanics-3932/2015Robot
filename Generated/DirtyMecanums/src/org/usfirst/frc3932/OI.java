@@ -13,6 +13,7 @@ package org.usfirst.frc3932;
 
 import org.usfirst.frc3932.commands.BackAwaySlowly;
 import org.usfirst.frc3932.commands.ClearAll;
+import org.usfirst.frc3932.commands.ElevatorManualControl;
 import org.usfirst.frc3932.commands.ElevatorToFourTotes;
 import org.usfirst.frc3932.commands.ElevatorToOneTote;
 import org.usfirst.frc3932.commands.ElevatorToStart;
@@ -119,6 +120,8 @@ public class OI {
         SmartDashboard.putData("ElevatorToFourTotes", new ElevatorToFourTotes());
 
         SmartDashboard.putData("ResetElevatorPosition", new ResetElevatorPosition());
+
+        SmartDashboard.putData("ElevatorManualControl", new ElevatorManualControl());
 
         SmartDashboard.putData("ClearAll", new ClearAll());
 
