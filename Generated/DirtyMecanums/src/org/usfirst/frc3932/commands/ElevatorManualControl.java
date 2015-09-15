@@ -38,7 +38,7 @@ public class  ElevatorManualControl extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.elevator.move(filterValue(Robot.oi.getLogitechJoy().getY()) * -1);
+    	Robot.elevator.move(filterValue(Robot.oi.getOperatorJoy1().getY()) * -1);
     	Robot.elevator.execute();
     }
 
@@ -57,7 +57,7 @@ public class  ElevatorManualControl extends Command {
     }
     
     protected double getJoystickValue() {
-    	return filterValue(Robot.oi.getLogitechJoy().getY());
+    	return filterValue(Robot.oi.getOperatorJoy1().getY());
     }
 
 	private double filterValue(double x) {

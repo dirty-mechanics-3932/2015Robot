@@ -3,7 +3,7 @@ package org.usfirst.frc3932.subsystems;
 import edu.wpi.first.wpilibj.CANTalon.ControlMode;
 
 public class ArthurElevator extends Elevator {
-	private final static int TICKS_PER_UPDATE = 50;
+	private final static int TICKS_PER_UPDATE = 30;
 	private final static int MIN_TICKS = 50;
 	private final static int MAX_TICKS = 8650;
 	

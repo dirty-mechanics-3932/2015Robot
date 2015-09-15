@@ -317,20 +317,10 @@ Children:
         name: Number
         validators: &id009 [Joystick]
         value: '0'
-  - Name: LogitechJoy
-    Base: Joystick
-    Children: []
-    Properties:
-      Number: !!robotbuilder.data.properties.ChoicesProperty
-        choices: *id008
-        default: 1
-        name: Number
-        validators: *id009
-        value: '1'
-  - Name: ButtonsTo13
+  - Name: OperatorJoy1
     Base: Joystick
     Children:
-    - Name: G1Elevator1T
+    - Name: Elevator1T
       Base: Joystick Button
       Children: []
       Properties:
@@ -347,14 +337,14 @@ Children:
           validators: null
           value: '1'
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: ButtonsTo13}
+          name: Joystick, validators: null, value: OperatorJoy1}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id007
           default: whileHeld
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G2Elevator2T
+    - Name: Elevator2T
       Base: Joystick Button
       Children: []
       Properties:
@@ -371,14 +361,14 @@ Children:
           validators: null
           value: '2'
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: ButtonsTo13}
+          name: Joystick, validators: null, value: OperatorJoy1}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id007
           default: whileHeld
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G3Elevator3T
+    - Name: Elevator3T
       Base: Joystick Button
       Children: []
       Properties:
@@ -395,14 +385,14 @@ Children:
           validators: null
           value: '3'
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: ButtonsTo13}
+          name: Joystick, validators: null, value: OperatorJoy1}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id007
           default: whileHeld
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G4Elevator4T
+    - Name: Elevator4T
       Base: Joystick Button
       Children: []
       Properties:
@@ -419,14 +409,14 @@ Children:
           validators: null
           value: '4'
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: ButtonsTo13}
+          name: Joystick, validators: null, value: OperatorJoy1}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id007
           default: whileHeld
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: G7ArmsOpen
+    - Name: ArmsOpen
       Base: Joystick Button
       Children: []
       Properties:
@@ -441,26 +431,16 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '7'
+          value: '5'
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: ButtonsTo13}
+          name: Joystick, validators: null, value: OperatorJoy1}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id007
           default: whileHeld
           name: When to Run
           validators: null
-          value: whileHeld
-    Properties:
-      Number: !!robotbuilder.data.properties.ChoicesProperty
-        choices: *id008
-        default: 1
-        name: Number
-        validators: *id009
-        value: '2'
-  - Name: ButtonsTo24
-    Base: Joystick
-    Children:
-    - Name: G14ArmsClose
+          value: whenPressed
+    - Name: ArmsClosed
       Base: Joystick Button
       Children: []
       Properties:
@@ -475,22 +455,46 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '1'
+          value: '6'
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: ButtonsTo24}
+          name: Joystick, validators: null, value: OperatorJoy1}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id007
           default: whileHeld
           name: When to Run
           validators: null
-          value: whileHeld
+          value: whenPressed
+    - Name: ElevatorToStartButton
+      Base: Joystick Button
+      Children: []
+      Properties:
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id005
+          value: ElevatorToStart
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id006
+          default: '1'
+          name: Button
+          validators: null
+          value: '8'
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: OperatorJoy1}
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id007
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whenPressed
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: *id008
         default: 1
         name: Number
         validators: *id009
-        value: '3'
+        value: '1'
   Properties: {}
 - Name: Commands
   Base: Commands

@@ -10,7 +10,6 @@
 
 package org.usfirst.frc3932.subsystems;
 
-import org.usfirst.frc3932.Robot;
 import org.usfirst.frc3932.RobotMap;
 import org.usfirst.frc3932.Settable;
 import org.usfirst.frc3932.TrajectoryGenerator;
@@ -21,8 +20,6 @@ import org.usfirst.frc3932.field.Tote;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CANTalon.ControlMode;
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Relay;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -31,7 +28,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Elevator extends Subsystem implements Settable {
 
 
-	private static final double PID_P = 4d;
+	private static final double PID_P = 3.75d;
 	private static final double PID_I = 0.007d; // .2
 
 	private static final int TICKS_PER_UPDATE = 100;
@@ -48,53 +45,50 @@ public class Elevator extends Subsystem implements Settable {
 	public static final double LOW_TAB_HEIGHT = 41.125d;
 	public static final double HIGH_TAB_HEIGHT = 58.25d;
 
-	// public static final int GROUND = 0; // on the ground
-	private static final double START = 9.5d; // on the ground
-	private static final double TRANSPORT = START + 1d; // 1" above start
-	private static final double PLATFORM = START + PLATFORM_HEIGHT; // 2" above
-																	// start
-	private static final double SCORING = PLATFORM_HEIGHT + 1d; // 3" above
-																// start
-	private static final double STEP = START + 6d; // at start height with
-													// respect to a can on
-													// the step
-	private static final double CAN_BOTTOM = LOW_TAB_HEIGHT - RecycleBin.BOTTOM_TO_LIP; // at
-																						// the
-																						// bottom
-																						// of
-																						// the
-																						// can,
-																						// below
-																						// the
-																						// low
-																						// tabs
-	private static final double WEIGHT_BEARING = LOW_TAB_HEIGHT - (2d * Tote.HEIGHT_INCHES); // two
-																								// totes
-																								// below
-																								// the
-																								// low
-																								// tabs
-	private static final double LOW_CAN = LOW_TAB_HEIGHT - RecycleBin.BOTTOM_TO_LIP + START; // can
-																								// at
-																								// the
-																								// low
-																								// tabs
-	private static final double TABS = LOW_TAB_HEIGHT - Tote.HEIGHT_INCHES; // one
-																			// tote
-																			// below
-																			// the
-																			// tabs
-	private static final double HANG = LOW_TAB_HEIGHT - Tote.LIP_RIB; // around
-																		// a
-																		// half
-																		// inch
-																		// below
-																		// the
-																		// tabs
-	private static final double CAN = HIGH_TAB_HEIGHT - RecycleBin.BOTTOM_TO_LIP + START; // can
-																							// at
-																							// the
-																							// cantabs
+	/**
+	 * On the ground
+	 */
+	private static final double START = 9.5d;
+	/**
+	 * 1" above start
+	 */
+	private static final double TRANSPORT = START + 1d; 
+	/**
+	 * 2" above start
+	 */
+	private static final double PLATFORM = START + PLATFORM_HEIGHT; 
+	/**
+	 * 3" above start
+	 */
+	private static final double SCORING = PLATFORM_HEIGHT + 1d;
+	/**
+	 * at start height with respect to a can on the step
+	 */
+	private static final double STEP = START + 6d; 
+	/**
+	 * at the bottom of the can below the low tabs
+	 */
+	private static final double CAN_BOTTOM = LOW_TAB_HEIGHT - RecycleBin.BOTTOM_TO_LIP;
+	/**
+	 * two toes below the low tabs
+	 */
+	private static final double WEIGHT_BEARING = LOW_TAB_HEIGHT - (2d * Tote.HEIGHT_INCHES);
+	/**
+	 * can at the low tabs
+	 */
+	private static final double LOW_CAN = LOW_TAB_HEIGHT - RecycleBin.BOTTOM_TO_LIP + START; 
+	/**
+	 * one tote below the tabs
+	 */
+	private static final double TABS = LOW_TAB_HEIGHT - Tote.HEIGHT_INCHES; 
+	/**
+	 * around a half inch below the tabs
+	 */
+	private static final double HANG = LOW_TAB_HEIGHT - Tote.LIP_RIB; 
+	/**
+	 * can at the can tabs
+	 */
+	private static final double CAN = HIGH_TAB_HEIGHT - RecycleBin.BOTTOM_TO_LIP + START;
 	private static final double TOP = 76.125d; // at the very tippy top
 	private static final double STACK = TOP - 1d; // one inch below top
 	
@@ -111,23 +105,6 @@ public class Elevator extends Subsystem implements Settable {
 
 	protected TrajectoryGenerator trajectory = new TrajectoryGenerator();
 	
-    /**
-     * Used to insure tabs are open as the recycle bin goes by
-     */
-	private static final double CAN_TAB_BOTTOM_LIMIT = 55.25;
-	/**
-	 * Used to insure tabs are opne as the recycle bin goes by
-	 */
-	private static final double CAN_TAB_TOP_LIMIT = 63.25;
-	/**
-	 * Used to insure tabs are opne as the recycle bin goes by
-	 */
-	private static final double TOTE_TAB_BOTTOM_LIMIT = 38.125;
-	/**
-	 * Used to insure tabs are opne as the recycle bin goes by
-	 */
-	private static final double TOT_TAB_TOP_LIMIT = 46.125;
-
 	public static enum Position {
 		START(Elevator.START,1), TRANSPORT(Elevator.TRANSPORT, 2), PLATFORM(Elevator.PLATFORM,3), SCORING(Elevator.SCORING,4), STEP(Elevator.STEP,5), CAN_BOTTOM(
 				Elevator.CAN_BOTTOM,6), WEIGHT_BEARING(Elevator.WEIGHT_BEARING,7), LOW_CAN(Elevator.LOW_CAN,8), TABS(Elevator.TABS,9), HANG(Elevator.HANG,10), CAN(
