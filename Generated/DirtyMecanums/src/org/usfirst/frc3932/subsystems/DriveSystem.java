@@ -47,7 +47,7 @@ public class DriveSystem extends Subsystem {
     Accelerometer accel = new BuiltInAccelerometer(Accelerometer.Range.k4G); 
     private final static double FORWARD_DRIVE_SPEED_SCALE = 0.40d;
     private final static double SIDEWAYS_DRIVE_SPEED_SCALE = 0.60d;
-    private final static double TWIST_SPEED_SCALE = 0.40d;
+    private final static double TWIST_SPEED_SCALE = 0.60d; //0.4d before
 	private static final double ULTRA_VOLTAGE_AT_WALL = 0.93d;
 
     

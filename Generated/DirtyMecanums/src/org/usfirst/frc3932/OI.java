@@ -90,9 +90,9 @@ public class OI {
         armsClosed.whenPressed(new PneumaticArmsClose());
         armsOpen = new JoystickButton(operatorJoy1, 5);
         armsOpen.whenPressed(new PneumaticArmsOpen());
-        elevator4T = new JoystickButton(operatorJoy1, 4);
+        elevator4T = new JoystickButton(operatorJoy1, 3);
         elevator4T.whenPressed(new ElevatorToFourTotes());
-        elevator3T = new JoystickButton(operatorJoy1, 3);
+        elevator3T = new JoystickButton(operatorJoy1, 4);
         elevator3T.whenPressed(new ElevatorToThreeTotes());
         elevator2T = new JoystickButton(operatorJoy1, 2);
         elevator2T.whenPressed(new ElevatorToTwoTotes());

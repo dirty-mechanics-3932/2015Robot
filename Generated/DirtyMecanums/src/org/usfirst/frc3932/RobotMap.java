@@ -117,7 +117,8 @@ public class RobotMap {
         LiveWindow.addSensor("DriveSystem", "RealBuiltingAccel", balancingAccelerometer);
         
 
-        
+        driveSystemRightForwardUltra.setAverageBits(2);
+        driveSystemLeftForwardUltra.setAverageBits(2);
         
     }
     
