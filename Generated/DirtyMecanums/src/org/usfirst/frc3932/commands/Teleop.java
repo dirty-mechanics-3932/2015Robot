@@ -38,7 +38,7 @@ public class  Teleop extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Joystick joystick = Robot.oi.getDriverJoy1();
-    	Robot.driveSystem.drive(joystick.getX(), joystick.getY(), joystick.getRawAxis(3));
+    	Robot.driveSystem.drive(joystick.getX(), joystick.getY(), joystick.getRawAxis(2));
     	
     	
     	
