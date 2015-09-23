@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.AnalogAccelerometer;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
@@ -66,10 +67,16 @@ public class DriveSystem extends Subsystem {
 //        gyroOutput.reset();
     }
     
+    public void drive(Joystick joystick){
+    	double x = joystick.getX();
+    	double y = joystick.getY();
+    	double twist = joystick.getRawAxis(2);
+    	drive(x,y,twist);
+    }
+    
     public void drive(double x, double y, double twist){
     	mecanumDrive.mecanumDrive_Cartesian(adjust(x)*SIDEWAYS_DRIVE_SPEED_SCALE, adjust(y)*FORWARD_DRIVE_SPEED_SCALE, adjust(twist)*TWIST_SPEED_SCALE, 0);
     }
-    
     protected double adjust(double val){
     	return adjust(val, 50);
     }
