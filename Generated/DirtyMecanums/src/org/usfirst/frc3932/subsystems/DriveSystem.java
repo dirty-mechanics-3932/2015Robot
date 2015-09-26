@@ -46,9 +46,11 @@ public class DriveSystem extends Subsystem {
     
 //    Gyro gyroOutput = new Gyro(gyro);
     Accelerometer accel = new BuiltInAccelerometer(Accelerometer.Range.k4G); 
-    private final static double FORWARD_DRIVE_SPEED_SCALE = 0.40d;
-    private final static double SIDEWAYS_DRIVE_SPEED_SCALE = 0.60d;
-    private final static double TWIST_SPEED_SCALE = 0.60d; //0.4d before
+    private final static double FORWARD_DRIVE_SPEED_SCALE = .3d;
+    private final static double SIDEWAYS_DRIVE_SPEED_SCALE = .5d;
+    private final static double TWIST_SPEED_SCALE = .5d; //0.4d before
+	public static final double FINE_SPEED_SCALE = 0.5d;
+
 	private static final double ULTRA_VOLTAGE_AT_WALL = 0.93d;
 
     
@@ -68,17 +70,23 @@ public class DriveSystem extends Subsystem {
     }
     
     public void drive(Joystick joystick){
-    	double x = joystick.getX();
-    	double y = joystick.getY();
-    	double twist = joystick.getRawAxis(2);
+    	double x = joystick.getX()*SIDEWAYS_DRIVE_SPEED_SCALE;
+    	double y = joystick.getY()*FORWARD_DRIVE_SPEED_SCALE;
+    	double twist = joystick.getRawAxis(2)*TWIST_SPEED_SCALE;
+		if (joystick.getRawButton(1)){
+			x *= FINE_SPEED_SCALE;
+			y *= FINE_SPEED_SCALE;
+			twist *= FINE_SPEED_SCALE;
+		}
     	drive(x,y,twist);
     }
     
     public void drive(double x, double y, double twist){
-    	mecanumDrive.mecanumDrive_Cartesian(adjust(x)*SIDEWAYS_DRIVE_SPEED_SCALE, adjust(y)*FORWARD_DRIVE_SPEED_SCALE, adjust(twist)*TWIST_SPEED_SCALE, 0);
+    	mecanumDrive.mecanumDrive_Cartesian(adjust(x), adjust(y), adjust(twist), 0);
     }
     protected double adjust(double val){
-    	return adjust(val, 50);
+//    	return adjust(val, 50);
+    	return val;
     }
 
     protected double adjust(double val, double factor){

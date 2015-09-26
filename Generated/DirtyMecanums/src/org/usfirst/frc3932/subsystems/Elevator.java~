@@ -56,13 +56,16 @@ public class Elevator extends Subsystem implements Settable {
 	private static final int FOUR_TOTE_TICKS = 14000;
 	private static final double FOUR_TOTE_INCHES = 72.625;
 	
-	private static final int MIN_TICKS = 50;
-	private static final int MAX_TICKS = 14100;
+	private static final int DEFAULT_MIN_TICKS = 50;
+	private static final int DEFAULT_MAX_TICKS = 14100;
 
 	public TrajectoryGenerator trajectory = new TrajectoryGenerator();
-	private int minTicks = MIN_TICKS;
-	private int maxTicks = MAX_TICKS;
+	private int minTicks = DEFAULT_MIN_TICKS;
+	private int maxTicks = DEFAULT_MAX_TICKS;
 	private int ticksPerUpdate = TICKS_PER_UPDATE;
+	
+	private int oneToteTicks = ONE_TOTE_TICKS;
+	private int twoToteTicks = TWO_TOTE_TICKS;
 	
 	public static enum Position {
 		START(Elevator.START,1), ONE_TOTE(0, ONE_TOTE_TICKS), TWO_TOTES(0, TWO_TOTE_TICKS), 
@@ -76,10 +79,6 @@ public class Elevator extends Subsystem implements Settable {
 			this.ticks = ticks;
 		}
 		
-//		Position(double inches) {
-//			this.inches = inches;
-//			this.ticks = inchesToTicks(inches);
-//		}
 
 		public double getInches() {
 			return inches;
@@ -127,7 +126,18 @@ public class Elevator extends Subsystem implements Settable {
 	 *            the height target
 	 */
 	public void set(int setpoint) {
+		setpoint = safety(setpoint);
 		elevatorCANTalon.set(setpoint);
+	}
+
+	private int safety(int setpoint) {
+		if (setpoint > getMaxTicks()) {
+			return getMaxTicks();
+		}
+		if (setpoint < getMinTicks()) {
+			setpoint = getMinTicks();
+		}
+		return setpoint;
 	}
 
 	public double getHeight() {
