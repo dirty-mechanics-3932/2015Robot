@@ -3,7 +3,7 @@ package org.usfirst.frc3932;
 import org.usfirst.frc3932.subsystems.ArthurDriveSystem;
 
 public class SetArthur implements SetRobot {
-	private final static int TICKS_PER_UPDATE = 500;
+	private final static int TICKS_PER_UPDATE = 700;
 	private final static int MIN_TICKS = 50;
 	private final static int MAX_TICKS = 8650;
 
